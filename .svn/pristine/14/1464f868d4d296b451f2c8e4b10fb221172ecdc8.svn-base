@@ -1,0 +1,19 @@
+[2013-12-23 18:06:40] log.ERROR: exception 'ErrorException' with message 'Argument 1 passed to CreateModulesTable::{closure}() must be an instance of Blueprint, instance of Illuminate\Database\Schema\Blueprint given, called in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php on line 91 and defined' in C:\wamp\www\blade-runner\app\database\migrations\2013_11_18_153528_create_modules_table.php:14
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\database\migrations\2013_11_18_153528_create_modules_table.php(14): Illuminate\Exception\Handler->handleError(4096, 'Argument 1 pass...', 'C:\wamp\www\bla...', 14, Array)
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(91): CreateModulesTable->{closure}(Object(Illuminate\Database\Schema\Blueprint))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(209): Illuminate\Database\Schema\Builder->create('modules', Object(Closure))
+#3 C:\wamp\www\blade-runner\app\database\migrations\2013_11_18_153528_create_modules_table.php(22): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#4 C:\wamp\www\blade-runner\app\database\migrations\2013_11_18_153528_create_modules_table.php(22): Illuminate\Support\Facades\Schema::create('modules', Object(Closure))
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(137): CreateModulesTable->up()
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(113): Illuminate\Database\Migrations\Migrator->runUp('2013_11_18_1535...', 2, false)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(84): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, false)
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(67): Illuminate\Database\Migrations\Migrator->run('C:\wamp\www\bla...', false)
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Console\Command.php(108): Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#10 C:\wamp\www\blade-runner\vendor\symfony\console\Symfony\Component\Console\Command\Command.php(244): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Console\Command.php(96): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 C:\wamp\www\blade-runner\vendor\symfony\console\Symfony\Component\Console\Application.php(897): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 C:\wamp\www\blade-runner\vendor\symfony\console\Symfony\Component\Console\Application.php(191): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\wamp\www\blade-runner\vendor\symfony\console\Symfony\Component\Console\Application.php(121): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\wamp\www\blade-runner\artisan(59): Symfony\Component\Console\Application->run()
+#16 {main} [] []

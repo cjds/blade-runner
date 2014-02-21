@@ -1,0 +1,21 @@
+@extends('layouts.master')
+
+
+@section('content')
+
+<div class="row">
+	<div class="span8 offset1">
+		<h3>Original</h3>	
+		@if($type=='question')
+		@else
+		@endif
+	</div>
+
+	<div class="span8 offset1">
+		<h3>New</h3>	
+		@if($type=='answer')
+		@else
+		@endif
+	</div>
+</div>
+@stop

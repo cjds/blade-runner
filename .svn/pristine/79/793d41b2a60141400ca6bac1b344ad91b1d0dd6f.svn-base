@@ -1,0 +1,49 @@
+<?php
+class QuestionController extends BaseController{
+
+
+	/**
+	* This is the GET that displays the question form
+	* @return the view required. if not logged in it redirects to the login view
+	*
+	*/
+	public function getAddQuestion(){
+		//Determine if user is authentic
+		if (Auth::check()){
+			$title="Add a New Question";
+			return View::make('post')->with('title',$title);
+		}
+		else{
+			return Redirect::to('login');
+		}
+	}
+
+
+	/**
+	* This is the POST that takes data from the GET and stores a new Question in the DB
+	* @return It redirects to either the question's display page or the erors page
+	*
+	*/
+	public function postAddQuestion(){
+		//Determine if user is authentic
+		if (Auth::check()){
+	    	$input=Input::all();
+	    	//set up the rules
+			$rules=array(
+				'title'=>'required',
+				'question'=>'required',
+			);
+			
+			$v = Validator::make($input, $rules);
+			
+			if($v->passes()){
+				
+			}
+			else{
+				return Redirect::to('login')->withInput()->withErrors($v);
+			}
+		}
+	}
+}
+
+?>

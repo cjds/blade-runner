@@ -1,0 +1,61 @@
+@extends('layouts.master')
+
+
+@section('content')
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$('a.votebtn').click(function(e){
+			e.preventDefault();
+			$.ajax({
+  				type: "POST",
+  				url: "{{url('add/addVote')}}",
+  				data: { type: $(this).attr('data-vote'), post_id: $(this).attr('data-post-id') }
+  			});
+		});
+		
+
+	});
+  
+</script>
+<style type="text/css">
+	h4{
+		display: inline;;
+		font-size:12px; 
+		text-decoration: underline;
+	}
+</style>
+<div class="row">
+	<div class="span4 offset1">
+		<legend>{{ $question->question_title }}</legend>
+		{{ $question->question_body}}
+		<br>
+		{{ "By ".$question->post->creator->user_username}}<br>
+
+			<a class='votebtn' data-vote=1 data-post-id="{{$question->question_id}}" href='#'>upvote</a> 
+			<a class='votebtn' data-vote=0 data-post-id="{{$question->question_id}}" href='#'>downvote</a>
+		<h4>share</h4>&nbsp;<h4>edit</h4>&nbsp;<h4>flag</h4>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div class="span4 offset1">
+		<legend>Answers</legend>
+
+		@foreach ($question->answers as $answer) 
+			{{$answer->answer_body}} - {{$answer->post->creator->user_username}}
+			<br>
+			<a class='votebtn' data-vote=1 data-post-id="{{$answer->answer_id}}" href='#'>upvote</a> 
+			<a class='votebtn' data-vote=0 data-post-id="{{$answer->answer_id}}" href='#'>downvote</a>
+			<br>
+			<br>
+		@endforeach
+		<legend>Add an Answer</legend>
+		{{Form::open(array('url'=>'add/answer'))}}
+		{{Form::hidden('question_id', $question->question_id);}}
+		{{Form::textarea('body');}}
+		{{Form::submit('Add Answer', array('class'=>'btn btn-success'));}}
+		{{Form::close()}}
+	</div>
+</div>
+@stop

@@ -1,0 +1,67 @@
+<html>
+
+<head>
+<title>Project BladeRunner {{ $title }}</title>
+</head>
+{{HTML::style('css/bootstrap.css')}}
+{{HTML::script('js/jquery.js');}}
+{{HTML::script('js/bootstrap.js');}}
+{{HTML::script('js/jquery.form.js');}}
+
+<body>
+<div class="navbar "> 
+{{Form::open(array('url'=>'search/questions','method'=>'get'))}} 
+      <div class="navbar-inner">  
+        <div class="container-fluid">  
+
+          <a class="brand" href="#">Gradhat</a>  
+          <div class="nav-collapse">  
+            <ul class="nav">  
+              <li><a href="#">Home</a></li>  
+              <li><a href="#about">About</a></li>  
+              <li><a href="#contact">Contact</a></li>  
+            </ul>  
+			<p class="navbar-text pull-right">{{Form::submit('Search', array('class'=>'btn btn-success'));}}</p>                    
+			<p class="navbar-text pull-right" style="margin: 8px;">{{Form::text('search');}}</p>
+			@if(Auth::user())
+            	<p class="navbar-text pull-right" style="margin-right: 4px;"><a href="#">{{ ucwords(Auth::user()->user_username)}}</a></p>
+            @else
+            	<p class="navbar-text pull-right" style="margin-right: 4px;">{{HTML::link('login', 'Login');}}</p>
+            @endif
+          </div><!--/.nav-collapse -->  
+        </div>  
+      </div>  
+    </div>
+{{Form::close();}}    
+
+<div class="row">
+	<div class="span3">
+		<ul class="list-group">
+			<li class="list-group-item">{{HTML::link('view/profile', 'My Profile')}}</li>
+			<li class="list-group-item">{{HTML::link('view/questions', 'View All Questions')}}</li>
+			<li class="list-group-item">{{HTML::link('univquestions/mainpage', 'View University Questions')}}</li>
+			@if(Auth::user())			
+				<li class="list-group-item">{{HTML::link('add/question', 'Add Question')}}</li>
+				@if(Auth::user()->privelege_level>=15)
+					<li class="list-group-item">{{HTML::link('add/univquestion', 'Add University Question')}}</li>
+					<li class="list-group-item">{{HTML::link('moderator/home', 'Moderate')}}</li>
+				@endif
+				@if(Auth::user()->privelege_level>=20)
+					<li class="list-group-item">{{HTML::link('admin/home', 'Admin Stuff')}}</li>
+					<li class="list-group-item">{{HTML::link('admin/branches', 'Manage Branches')}}</li>
+					<li class="list-group-item">{{HTML::link('admin/subjects', 'Manage Subjects')}}</li>
+				@endif
+				<li class="list-group-item">{{HTML::link('logout', 'Logout');}}</li>
+			@else
+			<li class="list-group-item">{{HTML::link('login', 'Login');}}</li>
+			@endif
+		</ul>
+	</div>
+	<div class="span9">
+		@yield('content')	
+	</div>
+</div>
+
+
+</body>
+</html>

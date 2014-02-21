@@ -1,0 +1,45 @@
+[2014-01-02 11:11:44] log.ERROR: exception 'Illuminate\Database\Eloquent\ModelNotFoundException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:498
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(105): Illuminate\Database\Eloquent\Model::findOrFail(-1)
+#1 [internal function]: QuestionController->getViewQuestion()
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('getViewQuestion', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getViewQuestion', Array)
+#5 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#12 {main} [] []
+[2014-01-02 11:20:06] log.ERROR: exception 'Illuminate\Database\Eloquent\ModelNotFoundException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:498
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(105): Illuminate\Database\Eloquent\Model::findOrFail(-1)
+#1 [internal function]: QuestionController->getViewQuestion()
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('getViewQuestion', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getViewQuestion', Array)
+#5 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#12 {main} [] []
+[2014-01-02 11:20:13] log.ERROR: exception 'Illuminate\Database\Eloquent\ModelNotFoundException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php:498
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(105): Illuminate\Database\Eloquent\Model::findOrFail(-1)
+#1 [internal function]: QuestionController->getViewQuestion()
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('getViewQuestion', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getViewQuestion', Array)
+#5 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#12 {main} [] []

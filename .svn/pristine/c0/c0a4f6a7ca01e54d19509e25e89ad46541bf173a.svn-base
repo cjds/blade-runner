@@ -1,0 +1,58 @@
+<?php
+
+class PostSeeder extends Seeder {
+
+	public function run()
+    {
+
+        
+        Post::create(
+        		array(
+        			'post_id'=>1,
+					'post_type'=>0,
+					'creator_id'=>1
+				)
+        );
+
+        Question::create(
+        		array(
+					'question_id'=>1,
+					'question_title'=>'What is the sun?',
+					'question_body'=>'Is it a star or what?'
+				)
+        );
+
+        Post::create(
+        		array(
+        			'post_id'=>2,
+					'post_type'=>1,
+					'creator_id'=>3 	 	 
+				)
+        );
+
+        Answer::create(
+        		array(
+					'answer_id'=>2,
+					'answer_body'=>'A star',
+					'answer_question_id'=>1
+				)
+        );
+
+        Post::create(
+        		array(
+        			'post_id'=>3,
+					'post_type'=>1,
+					'creator_id'=>2
+				)
+        );
+
+        Answer::create(
+        		array(
+					'answer_id'=>3,
+					'answer_body'=>'Star',
+					'answer_question_id'=>1
+				)
+        );
+    }
+}
+?>

@@ -1,0 +1,4 @@
+[2014-01-01 04:59:06] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '::' (T_PAAMAYIM_NEKUDOTAYIM)' in C:\wamp\www\blade-runner\app\controllers\QuestionController.php:248
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

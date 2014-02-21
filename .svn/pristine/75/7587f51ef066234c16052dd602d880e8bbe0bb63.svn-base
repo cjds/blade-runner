@@ -1,0 +1,43 @@
+@extends('layouts.master')
+
+@section('content')
+
+<style type="text/css">
+	h4{
+		display: inline;;
+		font-size:12px; 
+		text-decoration: underline;
+	}
+</style>
+
+
+
+<div class="row">
+	<table class="span4 offset1 table">
+	  <thead>
+	<tr>
+		<th>Votes</th>
+		<th>Answers</th>
+		<th>Question</th>
+	</tr>
+	</thead> 
+
+	<tbody>
+	@foreach($questions as $question)
+	<tr style='align:left'>
+		<td>
+		{{($question->post->votes()->sum('voteType')+0);}} </td>
+		<td>{{$question->answers()->count('post_id');}} </td>
+	
+		<td><a href="{{url('view/question')}}?qid={{$question->post_id}}">{{ $question->question_title }}</a>
+		<br>
+		@foreach($question->tags as $tag)
+			<a href="{{url('search/questions/tag')}}{{'/'.$tag->tag_name}}">{{$tag->tag_name." "}}</a>
+		@endforeach
+		{{ $question->post->creator->user_username}}
+		</td>
+		</tr>
+		@endforeach
+	</tbody>
+	</table>
+@stop

@@ -1,0 +1,413 @@
+[2013-11-12 03:38:32] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected 'return' (T_RETURN)' in C:\wamp\www\grad-hat\app\routes.php:17
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 03:38:51] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ':'' in C:\wamp\www\grad-hat\app\routes.php:18
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 03:40:00] log.ERROR: exception 'ErrorException' with message 'Undefined variable: title' in C:\wamp\www\grad-hat\app\storage\views\76770ba034e21fc57ece4e0ae1630758:4
+Stack trace:
+#0 C:\wamp\www\grad-hat\app\storage\views\76770ba034e21fc57ece4e0ae1630758(4): Illuminate\Exception\Handler->handleError(8, 'Undefined varia...', 'C:\wamp\www\gra...', 4, Array)
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\gra...')
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\gra...', Array)
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\gra...', Array)
+#4 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#5 C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d(6): Illuminate\View\View->render()
+#6 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\gra...')
+#7 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\gra...', Array)
+#8 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\gra...', Array)
+#9 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#10 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Http\Response.php(70): Illuminate\View\View->render()
+#11 C:\wamp\www\grad-hat\vendor\symfony\http-foundation\Symfony\Component\HttpFoundation\Response.php(141): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#12 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1414): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#13 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(58): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#14 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#15 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#17 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2013-11-12 03:40:30] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '=>' (T_DOUBLE_ARROW)' in C:\wamp\www\grad-hat\app\routes.php:18
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 03:40:45] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '='' in C:\wamp\www\grad-hat\app\routes.php:18
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 03:41:02] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '->' (T_OBJECT_OPERATOR)' in C:\wamp\www\grad-hat\app\routes.php:18
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 03:41:19] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '?'' in C:\wamp\www\grad-hat\app\routes.php:18
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:17:55] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1429
+Stack trace:
+#0 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-11-12 04:18:11] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined function get()' in C:\wamp\www\grad-hat\app\routes.php:28
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:20:21] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined function get()' in C:\wamp\www\grad-hat\app\routes.php:28
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:33:40] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:5
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:34:40] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '(', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$'' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:5
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:35:28] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ':', expecting '('' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:5
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:36:27] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ':', expecting '('' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:5
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:37:43] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ':', expecting '('' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:5
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:39:19] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ':', expecting '('' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:5
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:39:32] log.ERROR: exception 'ErrorException' with message 'Undefined variable: title' in C:\wamp\www\grad-hat\app\storage\views\76770ba034e21fc57ece4e0ae1630758:4
+Stack trace:
+#0 C:\wamp\www\grad-hat\app\storage\views\76770ba034e21fc57ece4e0ae1630758(4): Illuminate\Exception\Handler->handleError(8, 'Undefined varia...', 'C:\wamp\www\gra...', 4, Array)
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\gra...')
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\gra...', Array)
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\gra...', Array)
+#4 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#5 C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d(6): Illuminate\View\View->render()
+#6 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\gra...')
+#7 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\gra...', Array)
+#8 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\gra...', Array)
+#9 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#10 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Http\Response.php(70): Illuminate\View\View->render()
+#11 C:\wamp\www\grad-hat\vendor\symfony\http-foundation\Symfony\Component\HttpFoundation\Response.php(141): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#12 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1414): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#13 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(58): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#14 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#15 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#17 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2013-11-12 04:40:06] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ':', expecting '('' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:5
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:40:18] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ':', expecting '('' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:5
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:40:29] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ':', expecting '('' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:5
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:40:43] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ':', expecting '('' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:5
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 04:45:42] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ',', expecting ']'' in C:\wamp\www\grad-hat\app\routes.php:43
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 15:07:59] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '}'' in C:\wamp\www\grad-hat\app\routes.php:25
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 15:08:34] log.ERROR: exception 'ErrorException' with message 'Argument 1 passed to Illuminate\Html\FormBuilder::open() must be of the type array, string given, called in C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php on line 215 and defined' in C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Html\FormBuilder.php:100
+Stack trace:
+#0 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Html\FormBuilder.php(100): Illuminate\Exception\Handler->handleError(4096, 'Argument 1 pass...', 'C:\wamp\www\gra...', 100, Array)
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(215): Illuminate\Html\FormBuilder->open('login', 'post', '', '')
+#2 C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d(7): Illuminate\Support\Facades\Facade::__callStatic('open', Array)
+#3 C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d(7): Illuminate\Support\Facades\Form::open('login', 'post', '', '')
+#4 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\gra...')
+#5 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\gra...', Array)
+#6 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\gra...', Array)
+#7 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#8 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Http\Response.php(70): Illuminate\View\View->render()
+#9 C:\wamp\www\grad-hat\vendor\symfony\http-foundation\Symfony\Component\HttpFoundation\Response.php(141): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#10 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1414): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#11 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(58): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#12 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#13 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#14 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#15 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#16 {main} [] []
+[2013-11-12 15:08:50] log.ERROR: exception 'ErrorException' with message 'Argument 1 passed to Illuminate\Html\FormBuilder::open() must be of the type array, string given, called in C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php on line 215 and defined' in C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Html\FormBuilder.php:100
+Stack trace:
+#0 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Html\FormBuilder.php(100): Illuminate\Exception\Handler->handleError(4096, 'Argument 1 pass...', 'C:\wamp\www\gra...', 100, Array)
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(215): Illuminate\Html\FormBuilder->open('login', 'post', '', '')
+#2 C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d(7): Illuminate\Support\Facades\Facade::__callStatic('open', Array)
+#3 C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d(7): Illuminate\Support\Facades\Form::open('login', 'post', '', '')
+#4 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\gra...')
+#5 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\gra...', Array)
+#6 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\gra...', Array)
+#7 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#8 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Http\Response.php(70): Illuminate\View\View->render()
+#9 C:\wamp\www\grad-hat\vendor\symfony\http-foundation\Symfony\Component\HttpFoundation\Response.php(141): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#10 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1414): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#11 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(58): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#12 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#13 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#14 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#15 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#16 {main} [] []
+[2013-11-12 15:10:49] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ';'' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:7
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 15:10:58] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ';'' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:7
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 15:12:05] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ';'' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:7
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 15:14:03] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ';'' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:7
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 15:14:43] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ';'' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:7
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 15:16:21] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected end of file' in C:\wamp\www\grad-hat\app\storage\views\76770ba034e21fc57ece4e0ae1630758:34
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 15:19:18] log.ERROR: exception 'ErrorException' with message 'Undefined variable: title' in C:\wamp\www\grad-hat\app\storage\views\76770ba034e21fc57ece4e0ae1630758:4
+Stack trace:
+#0 C:\wamp\www\grad-hat\app\storage\views\76770ba034e21fc57ece4e0ae1630758(4): Illuminate\Exception\Handler->handleError(8, 'Undefined varia...', 'C:\wamp\www\gra...', 4, Array)
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\gra...')
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\gra...', Array)
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\gra...', Array)
+#4 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#5 C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d(24): Illuminate\View\View->render()
+#6 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\gra...')
+#7 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\gra...', Array)
+#8 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\gra...', Array)
+#9 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#10 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Http\Response.php(70): Illuminate\View\View->render()
+#11 C:\wamp\www\grad-hat\vendor\symfony\http-foundation\Symfony\Component\HttpFoundation\Response.php(141): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#12 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1414): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#13 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(58): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#14 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#15 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#17 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2013-11-12 15:19:53] log.ERROR: exception 'ErrorException' with message 'Undefined variable: title' in C:\wamp\www\grad-hat\app\routes.php:23
+Stack trace:
+#0 C:\wamp\www\grad-hat\app\routes.php(23): Illuminate\Exception\Handler->handleError(8, 'Undefined varia...', 'C:\wamp\www\gra...', 23, Array)
+#1 [internal function]: {closure}()
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#4 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#5 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#6 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#7 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#8 {main} [] []
+[2013-11-12 15:25:45] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-11-12 15:29:23] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '@'' in C:\wamp\www\grad-hat\app\routes.php:15
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 15:30:47] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '@'' in C:\wamp\www\grad-hat\app\routes.php:15
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 15:31:43] log.ERROR: exception 'ErrorException' with message 'Undefined variable: title' in C:\wamp\www\grad-hat\app\storage\views\76770ba034e21fc57ece4e0ae1630758:4
+Stack trace:
+#0 C:\wamp\www\grad-hat\app\storage\views\76770ba034e21fc57ece4e0ae1630758(4): Illuminate\Exception\Handler->handleError(8, 'Undefined varia...', 'C:\wamp\www\gra...', 4, Array)
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\gra...')
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\gra...', Array)
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\gra...', Array)
+#4 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#5 C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d(24): Illuminate\View\View->render()
+#6 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\gra...')
+#7 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\gra...', Array)
+#8 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\gra...', Array)
+#9 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#10 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Http\Response.php(70): Illuminate\View\View->render()
+#11 C:\wamp\www\grad-hat\vendor\symfony\http-foundation\Symfony\Component\HttpFoundation\Response.php(141): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#12 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1414): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#13 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#14 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'getLogin', Object(Illuminate\View\View))
+#15 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getLogin', Array)
+#16 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#17 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#18 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#19 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#20 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#21 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#22 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#23 {main} [] []
+[2013-11-12 17:11:42] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-11-12 17:11:48] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-11-12 17:12:57] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-11-12 17:13:27] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-11-12 17:14:22] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function all() on a non-object' in C:\wamp\www\grad-hat\app\storage\views\8b79814a82eba4f3d13307996487ed1b:11
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:21:31] log.ERROR: exception 'ErrorException' with message 'Undefined variable: password' in C:\wamp\www\grad-hat\app\controllers\UserController.php:39
+Stack trace:
+#0 C:\wamp\www\grad-hat\app\controllers\UserController.php(39): Illuminate\Exception\Handler->handleError(8, 'Undefined varia...', 'C:\wamp\www\gra...', 39, Array)
+#1 [internal function]: UserController->postRegister()
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postRegister', Array)
+#4 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postRegister', Array)
+#5 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#6 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#7 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#8 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#12 {main} [] []
+[2013-11-12 17:28:41] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '}'' in C:\wamp\www\grad-hat\app\controllers\UserController.php:42
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:29:08] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-11-12 17:29:59] log.ERROR: exception 'ErrorException' with message 'Undefined index: username' in C:\wamp\www\grad-hat\app\controllers\UserController.php:38
+Stack trace:
+#0 C:\wamp\www\grad-hat\app\controllers\UserController.php(38): Illuminate\Exception\Handler->handleError(8, 'Undefined index...', 'C:\wamp\www\gra...', 38, Array)
+#1 [internal function]: UserController->postLogin()
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postLogin', Array)
+#4 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postLogin', Array)
+#5 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#6 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#7 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#8 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#12 {main} [] []
+[2013-11-12 17:39:14] log.ERROR: exception 'ErrorException' with message 'Argument 1 passed to Illuminate\Auth\Guard::login() must implement interface Illuminate\Auth\UserInterface, none given' in C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Auth\Guard.php:324
+Stack trace:
+#0 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Auth\Guard.php(324): Illuminate\Exception\Handler->handleError(4096, 'Argument 1 pass...', 'C:\wamp\www\gra...', 324, Array)
+#1 [internal function]: Illuminate\Auth\Guard->login()
+#2 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Support\Manager.php(129): call_user_func_array(Array, Array)
+#3 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(203): Illuminate\Support\Manager->__call('login', Array)
+#4 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(203): Illuminate\Auth\AuthManager->login()
+#5 C:\wamp\www\grad-hat\app\controllers\UserController.php(40): Illuminate\Support\Facades\Facade::__callStatic('login', Array)
+#6 C:\wamp\www\grad-hat\app\controllers\UserController.php(40): Illuminate\Support\Facades\Auth::login()
+#7 [internal function]: UserController->postLogin()
+#8 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#9 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postLogin', Array)
+#10 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postLogin', Array)
+#11 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#12 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#13 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#14 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#15 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\grad-hat\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#17 C:\wamp\www\grad-hat\public\index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2013-11-12 17:43:56] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined function Redirect()' in C:\wamp\www\grad-hat\app\controllers\UserController.php:77
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:51:34] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function all() on a non-object' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:11
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:52:23] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function all() on a non-object' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:11
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:53:22] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function all() on a non-object' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:11
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:53:44] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function all() on a non-object' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:11
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:54:14] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function all() on a non-object' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:11
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:54:49] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function all() on a non-object' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:11
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:54:54] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function all() on a non-object' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:11
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:54:58] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function all() on a non-object' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:11
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:55:53] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function all() on a non-object' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:11
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:56:01] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function all() on a non-object' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:11
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-11-12 17:56:13] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function all() on a non-object' in C:\wamp\www\grad-hat\app\storage\views\07e746663de0872cc54fb0b90fef124d:11
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

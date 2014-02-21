@@ -1,0 +1,32 @@
+@extends('layouts.master')
+
+@section('content')
+<div class="row">
+	<legend>Add University Question</legend>
+	<div class="span4 offset1">
+	{{Form::open(array('url'=>'add/univquestion'))}}
+	{{Form::label('title', 'Question Title')}} 
+	{{Form::text('title', '', array('style' => 'width:400px'))}} <br>
+	{{Form::label('question', 'Question Body')}} 
+	{{Form::textarea('question','', array('style' => 'width:400px'))}}<br>
+	{{Form::label('month_year', 'Month Year (Jun YYYY/Dec YYYY)')}}
+	{{Form::text('month_year', '', array('style' => 'width:400px'))}} <br>
+	<!-- {{Form::radio('month_year', 'May/June')}} May/June -->
+	<!-- {{Form::radio('month_year', 'December')}} December -->
+	<!-- {{Form::selectRange('month_year', 2000, 2014, 2007)}}<br> -->
+	{{Form::label('ques_no', 'Question Number')}} 
+	{{Form::text('ques_no', '', array('style' => 'width:400px'))}} <br>
+	{{Form::label('marks', 'Marks')}} 
+	{{Form::text('marks', '', array('style' => 'width:400px'))}} <br>
+	{{Form::label('subject', 'Subjects')}} 
+	{{Form::select('subject', $subjects)}}<br>
+	{{Form::label('tags', 'Tags')}}
+	{{Form::text('tags','', array('style' => 'width:400px'))}} <br>
+	{{Form::submit('Add Question')}}
+	{{Form::close()}}
+	</div>
+</div>
+@stop
+
+
+

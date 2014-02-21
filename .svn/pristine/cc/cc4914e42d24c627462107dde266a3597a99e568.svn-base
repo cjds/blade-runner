@@ -1,0 +1,26 @@
+
+<?php $__env->startSection('content'); ?>
+<div class="row">
+<div class="span4 offset1">
+	<div class="well">
+		<legend>Please Register</legend>
+		<?php echo Form::open(array('url'=>'register')); ?>
+		<?php if($errors->any()): ?>
+			<div class="alert alert-error">
+				<a href="#" class="close" data-dismiss="alert">&times;</a>
+				<?php echo implode('',$errors->all('<li class="error">:message</li>')); ?>
+			</div>
+		<?php endif; ?>
+		<?php echo Form::text('user_username','',array('placeholder'=>'Enter Username')); ?><br>
+		<?php echo Form::text('user_email','',array('placeholder'=>'Enter Email Address')); ?><br>
+		<?php echo Form::password('user_password', array('placeholder'=>'Enter Password'));; ?><br>
+		<?php echo Form::password('user_confpassword', array('placeholder'=>'Confirm Password'));; ?><br>
+		<?php echo Form::submit('Register', array('class'=>'btn btn-success'));; ?>
+		<?php echo HTML::link('login', 'Login', array('class'=>'btn btn-primary'));; ?>
+		<?php echo Form::close();; ?>
+	</div>
+</div>
+</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

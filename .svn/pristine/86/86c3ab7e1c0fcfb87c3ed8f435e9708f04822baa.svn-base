@@ -1,0 +1,14 @@
+<?php
+class SuggestedAnswer extends Eloquent{
+
+	protected $table='suggested_edits_answers';
+ 	protected $primaryKey   = 'suggested_edits_answer_id';
+
+
+	public function post(){
+		return $this->belongsTo('Post','suggested_edits_answer_id');
+	}
+
+}
+
+?>

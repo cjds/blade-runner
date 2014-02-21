@@ -1,0 +1,104 @@
+@extends('layouts.master')
+
+
+@section('content')
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$('a.votebtn').click(function(e){
+			e.preventDefault();
+			$.ajax({
+  				type: "POST",
+  				url: "{{url('add/addVote')}}",
+  				data: { type: $(this).attr('data-vote'), post_id: $(this).attr('data-post-id') }
+  			});
+		});
+		
+	});
+  
+</script>
+<style type="text/css">
+	h4{
+		display: inline;;
+		font-size:12px; 
+		text-decoration: underline;
+	}
+</style>
+<div class="row">
+	<div class="span4 offset1">
+		<legend>{{ $question->question_title }}</legend>
+		{{ $question->question_body}}
+		<br>
+		{{ "By ".$question->post->creator->user_username}}<br>
+		@if($question->post->editor!=null)
+		{{ "Edited by ".$question->post->editor->user_username}}
+		@endif
+			<a class='votebtn' data-vote=1 data-post-id="{{$question->post_id}}" href='#'>upvote</a> 
+			<a class='votebtn' data-vote=0 data-post-id="{{$question->post_id}}" href='#'>downvote</a>
+			<br>
+			<h4>share</h4>&nbsp;
+			<a href="{{url('edit/question')}}?qid={{$question->post_id}}">edit</a>&nbsp;
+			<a href="#flagdialog" role="button" data-toggle="modal" class="flagbtn" data-post-id="{{$question->post_id}}">flag</a>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div class="span4 offset1">
+		<legend>Answers</legend>
+
+		@foreach ($question->answers as $answer) 
+			{{$answer->answer_body}} - {{$answer->post->creator->user_username}}
+			<br>
+			@if($answer->post->editor!=null)
+				{{ "Edited by ".$answer->post->editor->user_username}}
+			@endif
+			<br>
+			<a class='votebtn' data-vote=1 data-post-id="{{$answer->post_id}}" href='#'>upvote</a> 
+			<a class='votebtn' data-vote=0 data-post-id="{{$answer->post_id}}" href='#'>downvote</a>
+			<br>
+			<h4>share</h4>&nbsp;
+			<a href="{{url('edit/answer')}}?aid={{$answer->post_id}}">edit</a>&nbsp;
+			<a href="#flagdialog" class="flagbtn" data-post-id="{{$answer->post_id}}">flag</a>			
+			<br>
+		@endforeach
+		<legend>Add an Answer</legend>
+		{{Form::open(array('url'=>'add/answer'))}}
+		{{Form::hidden('question_id', $question->post_id);}}
+		{{Form::textarea('body');}}
+		{{Form::submit('Add Answer', array('class'=>'btn btn-success'));}}
+		{{Form::close()}}
+	</div>
+</div>
+
+<!-- Modal -->
+<div id="flagdialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Flag this post</h3>
+  </div>
+  <div class="modal-body">
+  		{{Form::open(array('url'=>'json/add/flag'))}}
+  		{{Form::hidden('post_id', $question->post_id);}}
+  		{{Form::radio('flag-reason', 'This post contains inappropriate or spam content', true)}}
+  		This post contains inappropriate or spam content
+		<br><br>
+		{{Form::radio('flag-reason', 'The post is to broad or generalized', true)}}
+		The post is to broad or generalized
+		<br><br>
+		{{Form::radio('flag-reason', 'The post is incomplete.', true)}}
+		The post is incomplete.
+		<br><br>
+		{{Form::radio('flag-reason', 'Other', true)}}
+		Other
+		<br><br>
+		{{Form::textarea('custom-reason', '',array('cols'=>'100','rows'=>'2','resize'=>'none'));}}
+</div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    
+    {{Form::submit('Add Flag', array('class'=>'btn btn-primary'));}}
+		{{Form::close()}}
+    
+  </div>
+</div>
+@stop

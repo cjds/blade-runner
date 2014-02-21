@@ -1,0 +1,116 @@
+
+
+<?php $__env->startSection('content'); ?>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$('a.votebtn').click(function(e){
+			e.preventDefault();
+			$.ajax({
+  				type: "POST",
+  				url: "<?php echo url('add/addVote'); ?>",
+  				data: { type: $(this).attr('data-vote'), post_id: $(this).attr('data-post-id') }
+  			});
+		});
+
+		$('#json_add_flag').submit(function(e){
+			e.preventDefault();
+			$(this).ajaxSubmit({
+				alert("thanks! we'll look at it");
+			});
+		})
+		
+	});
+  
+</script>
+<style type="text/css">
+	h4{
+		display: inline;;
+		font-size:12px; 
+		text-decoration: underline;
+	}
+</style>
+<div class="row">
+	<div class="span4 offset1">
+		<legend><?php echo $question->question_title; ?></legend>
+		<?php echo $question->question_body; ?>
+		<br>
+		<?php foreach($question->tags as $tag): ?>
+			<a href="<?php echo url('view/questionlist'); ?>?tid=<?php echo $tag->tags_id; ?>"><?php echo $tag->tag_name." "; ?></a>
+		<?php endforeach; ?>
+		<br>
+		<?php echo "By ".$question->post->creator->user_username; ?><br>
+		<?php if($question->post->editor!=null): ?>
+		<?php echo "Edited by ".$question->post->editor->user_username; ?>
+		<?php endif; ?>
+			<a class='votebtn' data-vote=1 data-post-id="<?php echo $question->post_id; ?>" href='#'>upvote</a> 
+			<a class='votebtn' data-vote=0 data-post-id="<?php echo $question->post_id; ?>" href='#'>downvote</a>
+			<br>
+			<h4>share</h4>&nbsp;
+			<a href="<?php echo url('edit/question'); ?>?qid=<?php echo $question->post_id; ?>">edit</a>&nbsp;
+			<a href="#flagdialog" role="button" data-toggle="modal" class="flagbtn" data-post-id="<?php echo $question->post_id; ?>">flag</a>
+	</div>
+	<br>
+	<br>
+	<br>
+	<div class="span4 offset1">
+		<legend>Answers</legend>
+
+		<?php foreach ($question->answers as $answer): ?> 
+			<?php echo $answer->answer_body; ?> - <?php echo $answer->post->creator->user_username; ?>
+			<br>
+			<?php if($answer->post->editor!=null): ?>
+				<?php echo "Edited by ".$answer->post->editor->user_username; ?>
+			<?php endif; ?>
+			<br>
+			<a class='votebtn' data-vote=1 data-post-id="<?php echo $answer->post_id; ?>" href='#'>upvote</a> 
+			<a class='votebtn' data-vote=0 data-post-id="<?php echo $answer->post_id; ?>" href='#'>downvote</a>
+			<br>
+			<h4>share</h4>&nbsp;
+			<a href="<?php echo url('edit/answer'); ?>?aid=<?php echo $answer->post_id; ?>">edit</a>&nbsp;
+			<a href="#flagdialog" class="flagbtn" data-post-id="<?php echo $answer->post_id; ?>">flag</a>			
+			<br>
+		<?php endforeach; ?>
+		<legend>Add an Answer</legend>
+		<?php echo Form::open(array('url'=>'add/answer')); ?>
+		<?php echo Form::hidden('question_id', $question->post_id);; ?>
+		<?php echo Form::textarea('body');; ?>
+		<?php echo Form::submit('Add Answer', array('class'=>'btn btn-success'));; ?>
+		<?php echo Form::close(); ?>
+	</div>
+</div>
+
+<!-- Modal -->
+<div id="flagdialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Flag this post</h3>
+  </div>
+  <div class="modal-body">
+  
+  		<?php echo Form::open(array('url'=>'json/add/flag'),'POST',array('id' =>'json_add_flag')); ?>
+  		<?php echo Form::hidden('post_id', $question->post_id);; ?>
+  		<?php echo Form::radio('flag-reason', 'This post contains inappropriate or spam content', true); ?>
+  		This post contains inappropriate or spam content
+		<br><br>
+		<?php echo Form::radio('flag-reason', 'The post is to broad or generalized', true); ?>
+		The post is to broad or generalized
+		<br><br>
+		<?php echo Form::radio('flag-reason', 'The post is incomplete.', true); ?>
+		The post is incomplete.
+		<br><br>
+		<?php echo Form::radio('flag-reason', 'Other', true); ?>
+		Other
+		<br><br>
+		<?php echo Form::textarea('custom-reason', '',array('cols'=>'100','rows'=>'2','resize'=>'none'));; ?>
+</div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    
+    <?php echo Form::submit('Add Flag', array('class'=>'btn btn-primary'));; ?>
+		<?php echo Form::close(); ?>
+    
+  </div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

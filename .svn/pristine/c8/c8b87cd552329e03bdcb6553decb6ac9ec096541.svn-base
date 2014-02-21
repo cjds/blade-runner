@@ -1,0 +1,35 @@
+@extends('layouts.master')
+
+@section('content')
+<div class="row">
+<div class="span4 offset1">
+			<h3>Change Priveleges</h3>
+			{{Form::open(array('url'=>'admin/changeUserPriveleges'))}}	
+				@foreach ($users as $user) 
+					{{$user->user_username}}
+
+					<select name="privilegelevel[{{$user->user_id}}]"> 
+					@if($user->privelege_level==0)
+						<option value=0 selected>User</option>
+					@else
+						<option value=0>User</option>
+					@endif
+					@if($user->privelege_level==15)
+						<option value=15 selected>Moderator</option>
+					@else
+						<option value=15>Moderator</option>
+					@endif
+					@if($user->privelege_level==21)
+						<option value=21 selected>Administrator</option>
+					@else
+						<option value=21>Administrator</option>	
+					@endif	
+					</select>
+					<br>
+				@endforeach
+				{{Form::submit();}}
+			{{Form::close();}}
+</div>
+</div>
+
+@stop

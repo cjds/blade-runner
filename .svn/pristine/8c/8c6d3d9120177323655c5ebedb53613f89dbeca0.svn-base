@@ -1,0 +1,40 @@
+@extends('layouts.master')
+
+@section('content')
+
+<div class="row">
+	<div class="span4 offset1">
+		<h3>Add New Branch</h3>
+		{{Form::open(array('url'=>'admin/branches/add'))}}
+		{{Form::label('branch_name', 'Branch Name')}} 
+		{{Form::text('branch_name', '', array('style' => 'width:400px'))}} <br>
+		{{Form::label('branch_shortname', 'Branch Shortname')}} 
+		{{Form::text('branch_shortname', '', array('style' => 'width:400px'))}} <br>
+		{{Form::submit('Add Branch')}}
+		{{Form::close()}}
+		<br>
+
+		<h3>All Branches</h3>
+
+		<div class="row">
+			<table class="span4 offset1 table">
+	  			<thead>
+					<tr>
+						<th>Branch Name</th>
+						<th>Short Name</th>
+					</tr>
+				</thead> 
+				<tbody>
+					@foreach($branches as $branch)
+						<tr style='align:left'>
+							<td>{{$branch->branch_name}} </td>
+							<td>{{$branch->branch_shortname}} </td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+@stop

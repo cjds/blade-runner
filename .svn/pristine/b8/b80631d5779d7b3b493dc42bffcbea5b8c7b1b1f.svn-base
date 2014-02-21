@@ -1,0 +1,1092 @@
+[2013-12-24 01:19:14] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:23:31] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'app\Auth' not found' in C:\wamp\www\blade-runner\app\start\global.php:92
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:23:35] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'app\Auth' not found' in C:\wamp\www\blade-runner\app\start\global.php:92
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:23:53] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'app\Auth\NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:27:26] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:30:01] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:31:36] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:31:39] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:31:43] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:36:32] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:36:36] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:36:39] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:37:05] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:39:23] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:45:36] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:45:41] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:45:59] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:46:03] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:46:57] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:46:59] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:47:06] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:48:21] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:49:42] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:50:05] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:50:09] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 01:50:25] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:07:02] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:08:50] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:14:24] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'NewAuthProvider' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:19:55] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Interface 'Auth\AuthLib\UserProviderInterface' not found' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:5
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:20:35] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Declaration of Auth\AuthLib\NewAuthProvider::validateCredentials() must be compatible with Illuminate\Auth\UserProviderInterface::validateCredentials(Illuminate\Auth\UserInterface $user, array $credentials)' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:6
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:21:19] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Declaration of Auth\AuthLib\NewAuthProvider::validateCredentials() must be compatible with Illuminate\Auth\UserProviderInterface::validateCredentials(Illuminate\Auth\UserInterface $user, array $credentials)' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:6
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:23:11] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Declaration of Auth\AuthLib\NewAuthProvider::validateCredentials() must be compatible with Illuminate\Auth\UserProviderInterface::validateCredentials(Illuminate\Auth\UserInterface $user, array $credentials)' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:6
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:25:52] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Declaration of Auth\AuthLib\NewAuthProvider::validateCredentials() must be compatible with Illuminate\Auth\UserProviderInterface::validateCredentials(Illuminate\Auth\UserInterface $user, array $credentials)' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:6
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:26:20] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Declaration of Auth\AuthLib\NewAuthProvider::validateCredentials() must be compatible with Illuminate\Auth\UserProviderInterface::validateCredentials(Illuminate\Auth\UserInterface $user, array $credentials)' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:6
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:26:56] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Declaration of Auth\AuthLib\NewAuthProvider::validateCredentials() must be compatible with Illuminate\Auth\UserProviderInterface::validateCredentials(Illuminate\Auth\UserInterface $user, array $credentials)' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:6
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:27:25] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Declaration of Auth\AuthLib\NewAuthProvider::validateCredentials() must be compatible with Illuminate\Auth\UserProviderInterface::validateCredentials(Illuminate\Auth\UserInterface $user, array $credentials)' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:6
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:33:21] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Declaration of Auth\AuthLib\NewAuthProvider::validateCredentials() must be compatible with Illuminate\Auth\UserProviderInterface::validateCredentials(Illuminate\Auth\UserInterface $user, array $credentials)' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:6
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:35:45] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Declaration of Auth\AuthLib\NewAuthProvider::validateCredentials() must be compatible with Illuminate\Auth\UserProviderInterface::validateCredentials(Illuminate\Auth\UserInterface $user, array $credentials)' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:6
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:38:12] log.ERROR: exception 'ErrorException' with message 'Argument 1 passed to Auth\AuthLib\NewAuthProvider::__construct() must be an instance of Illuminate\Hashing\HasherInterface, none given, called in C:\wamp\www\blade-runner\app\start\global.php on line 95 and defined' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:30
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php(30): Illuminate\Exception\Handler->handleError(4096, 'Argument 1 pass...', 'C:\wamp\www\bla...', 30, Array)
+#1 C:\wamp\www\blade-runner\app\start\global.php(95): Auth\AuthLib\NewAuthProvider->__construct()
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(93): {closure}(Object(Illuminate\Foundation\Application))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Auth\AuthManager.php(35): Illuminate\Support\Manager->callCustomCreator('Auth_Driver')
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(75): Illuminate\Auth\AuthManager->callCustomCreator('Auth_Driver')
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Auth\AuthManager.php(15): Illuminate\Support\Manager->createDriver('Auth_Driver')
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(54): Illuminate\Auth\AuthManager->createDriver('Auth_Driver')
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(129): Illuminate\Support\Manager->driver()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(203): Illuminate\Support\Manager->__call('user', Array)
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(203): Illuminate\Auth\AuthManager->user()
+#10 C:\wamp\www\blade-runner\app\storage\views\55a7765b1f3c58deba87f8ba7e02893b(19): Illuminate\Support\Facades\Facade::__callStatic('user', Array)
+#11 C:\wamp\www\blade-runner\app\storage\views\55a7765b1f3c58deba87f8ba7e02893b(19): Illuminate\Support\Facades\Auth::user()
+#12 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\bla...')
+#13 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\bla...', Array)
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\bla...', Array)
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#16 C:\wamp\www\blade-runner\app\storage\views\ec3b5cecca1bdd343bf42a8ad4e0e60b(24): Illuminate\View\View->render()
+#17 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\bla...')
+#18 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\bla...', Array)
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\bla...', Array)
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Http\Response.php(70): Illuminate\View\View->render()
+#22 C:\wamp\www\blade-runner\vendor\symfony\http-foundation\Symfony\Component\HttpFoundation\Response.php(141): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#23 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1414): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#24 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#25 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'getLogin', Object(Illuminate\View\View))
+#26 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getLogin', Array)
+#27 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#28 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#29 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#30 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#31 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#32 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#33 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#34 {main} [] []
+[2013-12-24 02:38:30] log.ERROR: exception 'ErrorException' with message 'Argument 1 passed to Auth\AuthLib\NewAuthProvider::__construct() must be an instance of Illuminate\Hashing\HasherInterface, instance of Illuminate\Support\Facades\Hash given, called in C:\wamp\www\blade-runner\app\start\global.php on line 95 and defined' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:30
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php(30): Illuminate\Exception\Handler->handleError(4096, 'Argument 1 pass...', 'C:\wamp\www\bla...', 30, Array)
+#1 C:\wamp\www\blade-runner\app\start\global.php(95): Auth\AuthLib\NewAuthProvider->__construct(Object(Illuminate\Support\Facades\Hash))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(93): {closure}(Object(Illuminate\Foundation\Application))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Auth\AuthManager.php(35): Illuminate\Support\Manager->callCustomCreator('Auth_Driver')
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(75): Illuminate\Auth\AuthManager->callCustomCreator('Auth_Driver')
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Auth\AuthManager.php(15): Illuminate\Support\Manager->createDriver('Auth_Driver')
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(54): Illuminate\Auth\AuthManager->createDriver('Auth_Driver')
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(129): Illuminate\Support\Manager->driver()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(203): Illuminate\Support\Manager->__call('user', Array)
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(203): Illuminate\Auth\AuthManager->user()
+#10 C:\wamp\www\blade-runner\app\storage\views\55a7765b1f3c58deba87f8ba7e02893b(19): Illuminate\Support\Facades\Facade::__callStatic('user', Array)
+#11 C:\wamp\www\blade-runner\app\storage\views\55a7765b1f3c58deba87f8ba7e02893b(19): Illuminate\Support\Facades\Auth::user()
+#12 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\bla...')
+#13 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\bla...', Array)
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\bla...', Array)
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#16 C:\wamp\www\blade-runner\app\storage\views\ec3b5cecca1bdd343bf42a8ad4e0e60b(24): Illuminate\View\View->render()
+#17 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\bla...')
+#18 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\bla...', Array)
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\bla...', Array)
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Http\Response.php(70): Illuminate\View\View->render()
+#22 C:\wamp\www\blade-runner\vendor\symfony\http-foundation\Symfony\Component\HttpFoundation\Response.php(141): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#23 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1414): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#24 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#25 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'getLogin', Object(Illuminate\View\View))
+#26 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getLogin', Array)
+#27 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#28 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#29 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#30 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#31 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#32 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#33 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#34 {main} [] []
+[2013-12-24 02:40:09] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'BcryptHasher' not found' in C:\wamp\www\blade-runner\app\start\global.php:95
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:40:34] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Auth\AuthLib\User' not found' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:33
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:40:52] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'models\User' not found' in C:\wamp\www\blade-runner\app\start\global.php:97
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:41:04] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'app\models\User' not found' in C:\wamp\www\blade-runner\app\start\global.php:97
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:50:18] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Auth\AuthLib\User' not found' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:33
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 02:50:33] log.ERROR: exception 'ErrorException' with message 'Argument 2 passed to Illuminate\Auth\Guard::__construct() must be an instance of Illuminate\Session\Store, instance of Illuminate\Session\SessionManager given, called in C:\wamp\www\blade-runner\app\start\global.php on line 99 and defined' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Auth\Guard.php:69
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Auth\Guard.php(69): Illuminate\Exception\Handler->handleError(4096, 'Argument 2 pass...', 'C:\wamp\www\bla...', 69, Array)
+#1 C:\wamp\www\blade-runner\app\start\global.php(99): Illuminate\Auth\Guard->__construct(Object(Auth\AuthLib\NewAuthProvider), Object(Illuminate\Session\SessionManager))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(93): {closure}(Object(Illuminate\Foundation\Application))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Auth\AuthManager.php(35): Illuminate\Support\Manager->callCustomCreator('Auth_Driver')
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(75): Illuminate\Auth\AuthManager->callCustomCreator('Auth_Driver')
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Auth\AuthManager.php(15): Illuminate\Support\Manager->createDriver('Auth_Driver')
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(54): Illuminate\Auth\AuthManager->createDriver('Auth_Driver')
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(129): Illuminate\Support\Manager->driver()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(203): Illuminate\Support\Manager->__call('user', Array)
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(203): Illuminate\Auth\AuthManager->user()
+#10 C:\wamp\www\blade-runner\app\storage\views\55a7765b1f3c58deba87f8ba7e02893b(19): Illuminate\Support\Facades\Facade::__callStatic('user', Array)
+#11 C:\wamp\www\blade-runner\app\storage\views\55a7765b1f3c58deba87f8ba7e02893b(19): Illuminate\Support\Facades\Auth::user()
+#12 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\bla...')
+#13 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\bla...', Array)
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\bla...', Array)
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#16 C:\wamp\www\blade-runner\app\storage\views\ec3b5cecca1bdd343bf42a8ad4e0e60b(24): Illuminate\View\View->render()
+#17 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\bla...')
+#18 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\bla...', Array)
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\bla...', Array)
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Http\Response.php(70): Illuminate\View\View->render()
+#22 C:\wamp\www\blade-runner\vendor\symfony\http-foundation\Symfony\Component\HttpFoundation\Response.php(141): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#23 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1414): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#24 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#25 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'getLogin', Object(Illuminate\View\View))
+#26 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getLogin', Array)
+#27 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#28 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#29 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#30 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#31 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#32 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#33 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#34 {main} [] []
+[2013-12-24 03:31:42] log.ERROR: exception 'ErrorException' with message 'Argument 1 passed to Auth\AuthLib\NewAuthProvider::__construct() must be an instance of Illuminate\Hashing\HasherInterface, instance of Illuminate\Support\Facades\Hash given, called in C:\wamp\www\blade-runner\app\start\global.php on line 97 and defined' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:30
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php(30): Illuminate\Exception\Handler->handleError(4096, 'Argument 1 pass...', 'C:\wamp\www\bla...', 30, Array)
+#1 C:\wamp\www\blade-runner\app\start\global.php(97): Auth\AuthLib\NewAuthProvider->__construct(Object(Illuminate\Support\Facades\Hash), 'User')
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(93): {closure}(Object(Illuminate\Foundation\Application))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Auth\AuthManager.php(35): Illuminate\Support\Manager->callCustomCreator('Auth_Driver')
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(75): Illuminate\Auth\AuthManager->callCustomCreator('Auth_Driver')
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Auth\AuthManager.php(15): Illuminate\Support\Manager->createDriver('Auth_Driver')
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(54): Illuminate\Auth\AuthManager->createDriver('Auth_Driver')
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(129): Illuminate\Support\Manager->driver()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(209): Illuminate\Support\Manager->__call('attempt', Array)
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(209): Illuminate\Auth\AuthManager->attempt(Array, true)
+#10 C:\wamp\www\blade-runner\app\controllers\UserController.php(40): Illuminate\Support\Facades\Facade::__callStatic('attempt', Array)
+#11 C:\wamp\www\blade-runner\app\controllers\UserController.php(40): Illuminate\Support\Facades\Auth::attempt(Array, true)
+#12 [internal function]: UserController->postLogin()
+#13 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postLogin', Array)
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postLogin', Array)
+#16 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#17 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#18 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#22 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#23 {main} [] []
+[2013-12-24 03:34:05] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined method Illuminate\Hashing\BcryptHasher::hash()' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:85
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 03:37:34] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Auth\AuthLib\Hash' not found' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:85
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 03:37:59] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ';', expecting identifier (T_STRING)' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:3
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 03:38:06] log.ERROR: exception 'ErrorException' with message 'Argument 1 passed to Auth\AuthLib\NewAuthProvider::__construct() must be an instance of Auth\AuthLib\HasherInterface, instance of Illuminate\Hashing\BcryptHasher given, called in C:\wamp\www\blade-runner\app\start\global.php on line 97 and defined' in C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php:30
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\libraries\Auth\AuthLib\NewAuthProvider.php(30): Illuminate\Exception\Handler->handleError(4096, 'Argument 1 pass...', 'C:\wamp\www\bla...', 30, Array)
+#1 C:\wamp\www\blade-runner\app\start\global.php(97): Auth\AuthLib\NewAuthProvider->__construct(Object(Illuminate\Hashing\BcryptHasher), 'User')
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(93): {closure}(Object(Illuminate\Foundation\Application))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Auth\AuthManager.php(35): Illuminate\Support\Manager->callCustomCreator('Auth_Driver')
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(75): Illuminate\Auth\AuthManager->callCustomCreator('Auth_Driver')
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Auth\AuthManager.php(15): Illuminate\Support\Manager->createDriver('Auth_Driver')
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(54): Illuminate\Auth\AuthManager->createDriver('Auth_Driver')
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Manager.php(129): Illuminate\Support\Manager->driver()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(209): Illuminate\Support\Manager->__call('attempt', Array)
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(209): Illuminate\Auth\AuthManager->attempt(Array, true)
+#10 C:\wamp\www\blade-runner\app\controllers\UserController.php(40): Illuminate\Support\Facades\Facade::__callStatic('attempt', Array)
+#11 C:\wamp\www\blade-runner\app\controllers\UserController.php(40): Illuminate\Support\Facades\Auth::attempt(Array, true)
+#12 [internal function]: UserController->postLogin()
+#13 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postLogin', Array)
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postLogin', Array)
+#16 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#17 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#18 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#22 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#23 {main} [] []
+[2013-12-24 06:46:00] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Can't use method return value in write context' in C:\wamp\www\blade-runner\app\models\Question.php:30
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 06:46:37] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Post' not found' in C:\wamp\www\blade-runner\app\models\Question.php:30
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 06:47:05] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Can't use method return value in write context' in C:\wamp\www\blade-runner\app\models\Post.php:17
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 06:47:15] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Post' not found' in C:\wamp\www\blade-runner\app\models\Question.php:30
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 06:47:23] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Post' not found' in C:\wamp\www\blade-runner\app\models\Question.php:30
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 06:47:31] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Post' not found' in C:\wamp\www\blade-runner\app\models\Question.php:30
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 06:49:23] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Post' not found' in C:\wamp\www\blade-runner\app\controllers\QuestionController.php:44
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 06:49:37] log.ERROR: exception 'ErrorException' with message 'Indirect modification of overloaded property Post::$post has no effect' in C:\wamp\www\blade-runner\app\controllers\QuestionController.php:45
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(45): Illuminate\Exception\Handler->handleError(8, 'Indirect modifi...', 'C:\wamp\www\bla...', 45, Array)
+#1 [internal function]: QuestionController->postAddQuestion()
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddQuestion', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddQuestion', Array)
+#5 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#12 {main} [] []
+[2013-12-24 06:50:35] log.ERROR: exception 'ErrorException' with message 'Indirect modification of overloaded property Question::$question has no effect' in C:\wamp\www\blade-runner\app\controllers\QuestionController.php:45
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(45): Illuminate\Exception\Handler->handleError(8, 'Indirect modifi...', 'C:\wamp\www\bla...', 45, Array)
+#1 [internal function]: QuestionController->postAddQuestion()
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddQuestion', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddQuestion', Array)
+#5 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#12 {main} [] []
+[2013-12-24 09:01:25] log.ERROR: exception 'ErrorException' with message 'Indirect modification of overloaded property Question::$question has no effect' in C:\wamp\www\blade-runner\app\controllers\QuestionController.php:45
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(45): Illuminate\Exception\Handler->handleError(8, 'Indirect modifi...', 'C:\wamp\www\bla...', 45, Array)
+#1 [internal function]: QuestionController->postAddQuestion()
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddQuestion', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddQuestion', Array)
+#5 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#12 {main} [] []
+[2013-12-24 09:02:57] log.ERROR: exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'post' in 'field list'' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php:331
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(331): PDO->prepare('insert into `qu...')
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(521): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `qu...', Array)
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(332): Illuminate\Database\Connection->run('insert into `qu...', Array, Object(Closure))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(289): Illuminate\Database\Connection->statement('insert into `qu...', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php(30): Illuminate\Database\Connection->insert('insert into `qu...', Array)
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1444): Illuminate\Database\Query\Processors\Processor->processInsertGetId(Object(Illuminate\Database\Query\Builder), 'insert into `qu...', Array, 'question_id')
+#6 [internal function]: Illuminate\Database\Query\Builder->insertGetId(Array, 'question_id')
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(786): call_user_func_array(Array, Array)
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1259): Illuminate\Database\Eloquent\Builder->__call('insertGetId', Array)
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1259): Illuminate\Database\Eloquent\Builder->insertGetId(Array, 'question_id')
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1229): Illuminate\Database\Eloquent\Model->insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), Array)
+#11 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1140): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder))
+#12 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1093): Illuminate\Database\Eloquent\Model->save()
+#13 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(46): Illuminate\Database\Eloquent\Model->push()
+#14 [internal function]: QuestionController->postAddQuestion()
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddQuestion', Array)
+#17 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddQuestion', Array)
+#18 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#22 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#23 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#24 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#25 {main}
+
+Next exception 'Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'post' in 'field list' (SQL: insert into `questions` (`question_title`, `post`, `updated_at`, `created_at`) values (?, ?, ?, ?)) (Bindings: array (
+  0 => 'as',
+  1 => 
+  Post::__set_state(array(
+     'table' => 'posts',
+     'primaryKey' => 'post_id',
+     'connection' => NULL,
+     'perPage' => 15,
+     'incrementing' => true,
+     'timestamps' => true,
+     'attributes' => 
+    array (
+      'creator' => 
+      User::__set_state(array(
+         'table' => 'users',
+         'primaryKey' => 'user_id',
+         'hidden' => 
+        array (
+          0 => 'password',
+        ),
+         'connection' => NULL,
+         'perPage' => 15,
+         'incrementing' => true,
+         'timestamps' => true,
+         'attributes' => 
+        array (
+          'user_id' => 1,
+          'user_name' => '',
+          'user_username' => 'CJDS',
+          'user_email' => 'cjds@live.com',
+          'privelege_level' => 0,
+          'user_password' => '$2y$08$8o6EGJ3BVrQhR34znNpYX.AHyd27wM5BGsk4JdefLNKBBb7/FkjVq',
+          'user_points' => '',
+          'created_at' => '2013-12-24 06:45:44',
+          'updated_at' => '2013-12-24 06:45:44',
+        ),
+         'original' => 
+        array (
+          'user_id' => 1,
+          'user_name' => '',
+          'user_username' => 'CJDS',
+          'user_email' => 'cjds@live.com',
+          'privelege_level' => 0,
+          'user_password' => '$2y$08$8o6EGJ3BVrQhR34znNpYX.AHyd27wM5BGsk4JdefLNKBBb7/FkjVq',
+          'user_points' => '',
+          'created_at' => '2013-12-24 06:45:44',
+          'updated_at' => '2013-12-24 06:45:44',
+        ),
+         'relations' => 
+        array (
+        ),
+         'visible' => 
+        array (
+        ),
+         'appends' => 
+        array (
+        ),
+         'fillable' => 
+        array (
+        ),
+         'guarded' => 
+        array (
+          0 => '*',
+        ),
+         'dates' => 
+        array (
+        ),
+         'touches' => 
+        array (
+        ),
+         'with' => 
+        array (
+        ),
+         'exists' => true,
+         'softDelete' => false,
+      )),
+    ),
+     'original' => 
+    array (
+    ),
+     'relations' => 
+    array (
+    ),
+     'hidden' => 
+    array (
+    ),
+     'visible' => 
+    array (
+    ),
+     'appends' => 
+    array (
+    ),
+     'fillable' => 
+    array (
+    ),
+     'guarded' => 
+    array (
+      0 => '*',
+    ),
+     'dates' => 
+    array (
+    ),
+     'touches' => 
+    array (
+    ),
+     'with' => 
+    array (
+    ),
+     'exists' => false,
+     'softDelete' => false,
+  )),
+  2 => '2013-12-24 09:02:57',
+  3 => '2013-12-24 09:02:57',
+))' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php:556
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(529): Illuminate\Database\Connection->handleQueryException(Object(PDOException), 'insert into `qu...', Array)
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(332): Illuminate\Database\Connection->run('insert into `qu...', Array, Object(Closure))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(289): Illuminate\Database\Connection->statement('insert into `qu...', Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php(30): Illuminate\Database\Connection->insert('insert into `qu...', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1444): Illuminate\Database\Query\Processors\Processor->processInsertGetId(Object(Illuminate\Database\Query\Builder), 'insert into `qu...', Array, 'question_id')
+#5 [internal function]: Illuminate\Database\Query\Builder->insertGetId(Array, 'question_id')
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(786): call_user_func_array(Array, Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1259): Illuminate\Database\Eloquent\Builder->__call('insertGetId', Array)
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1259): Illuminate\Database\Eloquent\Builder->insertGetId(Array, 'question_id')
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1229): Illuminate\Database\Eloquent\Model->insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), Array)
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1140): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder))
+#11 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1093): Illuminate\Database\Eloquent\Model->save()
+#12 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(46): Illuminate\Database\Eloquent\Model->push()
+#13 [internal function]: QuestionController->postAddQuestion()
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddQuestion', Array)
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddQuestion', Array)
+#17 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#18 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#22 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#23 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#24 {main} [] []
+[2013-12-24 09:20:08] log.ERROR: exception 'BadMethodCallException' with message 'Call to undefined method Illuminate\Database\Query\Builder::attach()' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:1658
+Stack trace:
+#0 [internal function]: Illuminate\Database\Query\Builder->__call('attach', Array)
+#1 [internal function]: Illuminate\Database\Query\Builder->attach(Object(User))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(786): call_user_func_array(Array, Array)
+#3 [internal function]: Illuminate\Database\Eloquent\Builder->__call('attach', Array)
+#4 [internal function]: Illuminate\Database\Eloquent\Builder->attach(Object(User))
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Relations\Relation.php(271): call_user_func_array(Array, Array)
+#6 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(45): Illuminate\Database\Eloquent\Relations\Relation->__call('attach', Array)
+#7 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(45): Illuminate\Database\Eloquent\Relations\BelongsTo->attach(Object(User))
+#8 [internal function]: QuestionController->postAddQuestion()
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddQuestion', Array)
+#11 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddQuestion', Array)
+#12 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#13 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#17 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#18 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#19 {main} [] []
+[2013-12-24 09:22:02] log.ERROR: exception 'BadMethodCallException' with message 'Call to undefined method Illuminate\Database\Query\Builder::attach()' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:1658
+Stack trace:
+#0 [internal function]: Illuminate\Database\Query\Builder->__call('attach', Array)
+#1 [internal function]: Illuminate\Database\Query\Builder->attach(Object(User))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(786): call_user_func_array(Array, Array)
+#3 [internal function]: Illuminate\Database\Eloquent\Builder->__call('attach', Array)
+#4 [internal function]: Illuminate\Database\Eloquent\Builder->attach(Object(User))
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Relations\Relation.php(271): call_user_func_array(Array, Array)
+#6 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(45): Illuminate\Database\Eloquent\Relations\Relation->__call('attach', Array)
+#7 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(45): Illuminate\Database\Eloquent\Relations\BelongsTo->attach(Object(User))
+#8 [internal function]: QuestionController->postAddQuestion()
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddQuestion', Array)
+#11 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddQuestion', Array)
+#12 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#13 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#17 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#18 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#19 {main} [] []
+[2013-12-24 09:22:39] log.ERROR: exception 'BadMethodCallException' with message 'Call to undefined method Illuminate\Database\Query\Builder::User()' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:1658
+Stack trace:
+#0 [internal function]: Illuminate\Database\Query\Builder->__call('User', Array)
+#1 [internal function]: Illuminate\Database\Query\Builder->User()
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(786): call_user_func_array(Array, Array)
+#3 [internal function]: Illuminate\Database\Eloquent\Builder->__call('User', Array)
+#4 [internal function]: Illuminate\Database\Eloquent\Builder->User()
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2636): call_user_func_array(Array, Array)
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(591): Illuminate\Database\Eloquent\Model->__call('User', Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(591): Post->User()
+#8 [internal function]: Illuminate\Database\Eloquent\Builder->has('User', 'creator_id')
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2636): call_user_func_array(Array, Array)
+#10 C:\wamp\www\blade-runner\app\models\Post.php(9): Illuminate\Database\Eloquent\Model->__call('has', Array)
+#11 C:\wamp\www\blade-runner\app\models\Post.php(9): Post->has('User', 'creator_id')
+#12 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(45): Post->creator()
+#13 [internal function]: QuestionController->postAddQuestion()
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddQuestion', Array)
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddQuestion', Array)
+#17 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#18 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#22 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#23 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#24 {main} [] []
+[2013-12-24 09:24:52] log.ERROR: exception 'BadMethodCallException' with message 'Call to undefined method Illuminate\Database\Query\Builder::User()' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:1658
+Stack trace:
+#0 [internal function]: Illuminate\Database\Query\Builder->__call('User', Array)
+#1 [internal function]: Illuminate\Database\Query\Builder->User()
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(786): call_user_func_array(Array, Array)
+#3 [internal function]: Illuminate\Database\Eloquent\Builder->__call('User', Array)
+#4 [internal function]: Illuminate\Database\Eloquent\Builder->User()
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2636): call_user_func_array(Array, Array)
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(591): Illuminate\Database\Eloquent\Model->__call('User', Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(591): Post->User()
+#8 [internal function]: Illuminate\Database\Eloquent\Builder->has('User', 'creator_id')
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2636): call_user_func_array(Array, Array)
+#10 C:\wamp\www\blade-runner\app\models\Post.php(9): Illuminate\Database\Eloquent\Model->__call('has', Array)
+#11 C:\wamp\www\blade-runner\app\models\Post.php(9): Post->has('User', 'creator_id')
+#12 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(45): Post->creator()
+#13 [internal function]: QuestionController->postAddQuestion()
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddQuestion', Array)
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddQuestion', Array)
+#17 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#18 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#22 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#23 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#24 {main} [] []
+[2013-12-24 09:25:22] log.ERROR: exception 'BadMethodCallException' with message 'Call to undefined method Illuminate\Database\Query\Builder::associate()' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php:1658
+Stack trace:
+#0 [internal function]: Illuminate\Database\Query\Builder->__call('associate', Array)
+#1 [internal function]: Illuminate\Database\Query\Builder->associate(Object(User))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(786): call_user_func_array(Array, Array)
+#3 [internal function]: Illuminate\Database\Eloquent\Builder->__call('associate', Array)
+#4 [internal function]: Illuminate\Database\Eloquent\Builder->associate(Object(User))
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Relations\Relation.php(271): call_user_func_array(Array, Array)
+#6 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(45): Illuminate\Database\Eloquent\Relations\Relation->__call('associate', Array)
+#7 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(45): Illuminate\Database\Eloquent\Relations\HasOne->associate(Object(User))
+#8 [internal function]: QuestionController->postAddQuestion()
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddQuestion', Array)
+#11 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddQuestion', Array)
+#12 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#13 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#17 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#18 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#19 {main} [] []
+[2013-12-24 09:27:21] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Can't use method return value in write context' in C:\wamp\www\blade-runner\app\models\Question.php:30
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 09:27:41] log.ERROR: exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'question_post_id' cannot be null' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php:331
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(331): PDOStatement->execute(Array)
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(521): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `qu...', Array)
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(332): Illuminate\Database\Connection->run('insert into `qu...', Array, Object(Closure))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(289): Illuminate\Database\Connection->statement('insert into `qu...', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php(30): Illuminate\Database\Connection->insert('insert into `qu...', Array)
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1444): Illuminate\Database\Query\Processors\Processor->processInsertGetId(Object(Illuminate\Database\Query\Builder), 'insert into `qu...', Array, 'question_id')
+#6 [internal function]: Illuminate\Database\Query\Builder->insertGetId(Array, 'question_id')
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(786): call_user_func_array(Array, Array)
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1259): Illuminate\Database\Eloquent\Builder->__call('insertGetId', Array)
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1259): Illuminate\Database\Eloquent\Builder->insertGetId(Array, 'question_id')
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1229): Illuminate\Database\Eloquent\Model->insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), Array)
+#11 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1140): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder))
+#12 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1093): Illuminate\Database\Eloquent\Model->save()
+#13 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(47): Illuminate\Database\Eloquent\Model->push()
+#14 [internal function]: QuestionController->postAddQuestion()
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddQuestion', Array)
+#17 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddQuestion', Array)
+#18 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#22 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#23 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#24 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#25 {main}
+
+Next exception 'Exception' with message 'SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'question_post_id' cannot be null (SQL: insert into `questions` (`question_title`, `question_post_id`, `updated_at`, `created_at`) values (?, ?, ?, ?)) (Bindings: array (
+  0 => 'as',
+  1 => NULL,
+  2 => '2013-12-24 09:27:41',
+  3 => '2013-12-24 09:27:41',
+))' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php:556
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(529): Illuminate\Database\Connection->handleQueryException(Object(PDOException), 'insert into `qu...', Array)
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(332): Illuminate\Database\Connection->run('insert into `qu...', Array, Object(Closure))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(289): Illuminate\Database\Connection->statement('insert into `qu...', Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php(30): Illuminate\Database\Connection->insert('insert into `qu...', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1444): Illuminate\Database\Query\Processors\Processor->processInsertGetId(Object(Illuminate\Database\Query\Builder), 'insert into `qu...', Array, 'question_id')
+#5 [internal function]: Illuminate\Database\Query\Builder->insertGetId(Array, 'question_id')
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(786): call_user_func_array(Array, Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1259): Illuminate\Database\Eloquent\Builder->__call('insertGetId', Array)
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1259): Illuminate\Database\Eloquent\Builder->insertGetId(Array, 'question_id')
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1229): Illuminate\Database\Eloquent\Model->insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), Array)
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1140): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder))
+#11 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1093): Illuminate\Database\Eloquent\Model->save()
+#12 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(47): Illuminate\Database\Eloquent\Model->push()
+#13 [internal function]: QuestionController->postAddQuestion()
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddQuestion', Array)
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddQuestion', Array)
+#17 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#18 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#22 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#23 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#24 {main} [] []
+[2013-12-24 09:34:56] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1429
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-12-24 09:36:00] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-12-24 09:41:10] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-12-24 09:41:44] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-12-24 09:42:04] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1429
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-12-24 09:42:10] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-12-24 09:42:15] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-12-24 09:47:16] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '}'' in C:\wamp\www\blade-runner\app\controllers\QuestionController.php:31
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 09:47:59] log.ERROR: exception 'ErrorException' with message 'Argument 1 passed to Illuminate\Database\Grammar::columnize() must be of the type array, string given, called in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Grammars\Grammar.php on line 111 and defined' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Grammar.php:95
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Grammar.php(95): Illuminate\Exception\Handler->handleError(4096, 'Argument 1 pass...', 'C:\wamp\www\bla...', 95, Array)
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Grammars\Grammar.php(111): Illuminate\Database\Grammar->columnize('1')
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Grammars\Grammar.php(66): Illuminate\Database\Query\Grammars\Grammar->compileColumns(Object(Illuminate\Database\Query\Builder), '1')
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Grammars\Grammar.php(44): Illuminate\Database\Query\Grammars\Grammar->compileComponents(Object(Illuminate\Database\Query\Builder))
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(940): Illuminate\Database\Query\Grammars\Grammar->compileSelect(Object(Illuminate\Database\Query\Builder))
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1028): Illuminate\Database\Query\Builder->toSql()
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1018): Illuminate\Database\Query\Builder->runSelect()
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1005): Illuminate\Database\Query\Builder->getFresh('1')
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(441): Illuminate\Database\Query\Builder->get('1')
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(132): Illuminate\Database\Eloquent\Builder->getModels('1')
+#10 [internal function]: Illuminate\Database\Eloquent\Builder->get('1')
+#11 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2636): call_user_func_array(Array, Array)
+#12 [internal function]: Illuminate\Database\Eloquent\Model->__call('get', Array)
+#13 [internal function]: Question->get('1')
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2650): call_user_func_array(Array, Array)
+#15 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(33): Illuminate\Database\Eloquent\Model::__callStatic('get', Array)
+#16 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(33): Question::get('1')
+#17 [internal function]: QuestionController->getViewQuestion()
+#18 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('getViewQuestion', Array)
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getViewQuestion', Array)
+#21 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#22 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#23 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#24 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#25 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#26 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#27 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#28 {main} [] []
+[2013-12-24 10:05:37] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ';'' in C:\wamp\www\blade-runner\app\storage\views\0b1b4c2ec2063262e5c40a6c5357996b:7
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 10:09:03] log.ERROR: exception 'ErrorException' with message 'Undefined variable: question' in C:\wamp\www\blade-runner\app\controllers\QuestionController.php:34
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(34): Illuminate\Exception\Handler->handleError(8, 'Undefined varia...', 'C:\wamp\www\bla...', 34, Array)
+#1 [internal function]: QuestionController->getViewQuestion()
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('getViewQuestion', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getViewQuestion', Array)
+#5 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#12 {main} [] []
+[2013-12-24 10:09:51] log.ERROR: exception 'ErrorException' with message 'Trying to get property of non-object' in C:\wamp\www\blade-runner\app\storage\views\0b1b4c2ec2063262e5c40a6c5357996b:7
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\storage\views\0b1b4c2ec2063262e5c40a6c5357996b(7): Illuminate\Exception\Handler->handleError(8, 'Trying to get p...', 'C:\wamp\www\bla...', 7, Array)
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\bla...')
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\bla...', Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\bla...', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Http\Response.php(70): Illuminate\View\View->render()
+#6 C:\wamp\www\blade-runner\vendor\symfony\http-foundation\Symfony\Component\HttpFoundation\Response.php(141): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1414): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'getViewQuestion', Object(Illuminate\View\View))
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getViewQuestion', Array)
+#11 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#12 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#13 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#17 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2013-12-24 10:10:16] log.ERROR: exception 'ErrorException' with message 'Trying to get property of non-object' in C:\wamp\www\blade-runner\app\storage\views\0b1b4c2ec2063262e5c40a6c5357996b:7
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\storage\views\0b1b4c2ec2063262e5c40a6c5357996b(7): Illuminate\Exception\Handler->handleError(8, 'Trying to get p...', 'C:\wamp\www\bla...', 7, Array)
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\bla...')
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\bla...', Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\bla...', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Http\Response.php(70): Illuminate\View\View->render()
+#6 C:\wamp\www\blade-runner\vendor\symfony\http-foundation\Symfony\Component\HttpFoundation\Response.php(141): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1414): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'getViewQuestion', Object(Illuminate\View\View))
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getViewQuestion', Array)
+#11 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#12 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#13 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#17 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2013-12-24 10:11:55] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '}'' in C:\wamp\www\blade-runner\app\controllers\QuestionController.php:39
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 10:12:06] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1429
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\ResourceNotFoundException))
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-12-24 10:13:55] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php:722
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(206): Illuminate\Foundation\Application->abort(404)
+#1 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(33): Illuminate\Support\Facades\Facade::__callStatic('abort', Array)
+#2 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(33): Illuminate\Support\Facades\App::abort(404)
+#3 [internal function]: QuestionController->getViewQuestion()
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('getViewQuestion', Array)
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getViewQuestion', Array)
+#7 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#12 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#13 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#14 {main} [] []
+[2013-12-24 10:41:09] log.ERROR: exception 'ErrorException' with message 'Undefined index: title' in C:\wamp\www\blade-runner\app\controllers\QuestionController.php:61
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(61): Illuminate\Exception\Handler->handleError(8, 'Undefined index...', 'C:\wamp\www\bla...', 61, Array)
+#1 [internal function]: QuestionController->postAddAnswer()
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddAnswer', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddAnswer', Array)
+#5 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#12 {main} [] []
+[2013-12-24 10:46:00] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-12-24 10:46:20] log.ERROR: exception 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php:1439
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1050): Illuminate\Routing\Router->handleRoutingException(Object(Symfony\Component\Routing\Exception\MethodNotAllowedException))
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1014): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#4 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#5 {main} [] []
+[2013-12-24 10:46:56] log.ERROR: exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'question_post_id' in 'field list'' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php:331
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(331): PDO->prepare('insert into `an...')
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(521): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `an...', Array)
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(332): Illuminate\Database\Connection->run('insert into `an...', Array, Object(Closure))
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(289): Illuminate\Database\Connection->statement('insert into `an...', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php(30): Illuminate\Database\Connection->insert('insert into `an...', Array)
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1444): Illuminate\Database\Query\Processors\Processor->processInsertGetId(Object(Illuminate\Database\Query\Builder), 'insert into `an...', Array, 'answer_id')
+#6 [internal function]: Illuminate\Database\Query\Builder->insertGetId(Array, 'answer_id')
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(786): call_user_func_array(Array, Array)
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1259): Illuminate\Database\Eloquent\Builder->__call('insertGetId', Array)
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1259): Illuminate\Database\Eloquent\Builder->insertGetId(Array, 'answer_id')
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1229): Illuminate\Database\Eloquent\Model->insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), Array)
+#11 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1140): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder))
+#12 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1093): Illuminate\Database\Eloquent\Model->save()
+#13 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(67): Illuminate\Database\Eloquent\Model->push()
+#14 [internal function]: QuestionController->postAddAnswer()
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddAnswer', Array)
+#17 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddAnswer', Array)
+#18 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#22 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#23 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#24 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#25 {main}
+
+Next exception 'Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'question_post_id' in 'field list' (SQL: insert into `answers` (`answer_body`, `answer_question_id`, `question_post_id`, `updated_at`, `created_at`) values (?, ?, ?, ?, ?)) (Bindings: array (
+  0 => 'Hello',
+  1 => '1',
+  2 => 3,
+  3 => '2013-12-24 10:46:56',
+  4 => '2013-12-24 10:46:56',
+))' in C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php:556
+Stack trace:
+#0 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(529): Illuminate\Database\Connection->handleQueryException(Object(PDOException), 'insert into `an...', Array)
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(332): Illuminate\Database\Connection->run('insert into `an...', Array, Object(Closure))
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Connection.php(289): Illuminate\Database\Connection->statement('insert into `an...', Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Processors\Processor.php(30): Illuminate\Database\Connection->insert('insert into `an...', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(1444): Illuminate\Database\Query\Processors\Processor->processInsertGetId(Object(Illuminate\Database\Query\Builder), 'insert into `an...', Array, 'answer_id')
+#5 [internal function]: Illuminate\Database\Query\Builder->insertGetId(Array, 'answer_id')
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(786): call_user_func_array(Array, Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1259): Illuminate\Database\Eloquent\Builder->__call('insertGetId', Array)
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1259): Illuminate\Database\Eloquent\Builder->insertGetId(Array, 'answer_id')
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1229): Illuminate\Database\Eloquent\Model->insertAndSetId(Object(Illuminate\Database\Eloquent\Builder), Array)
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1140): Illuminate\Database\Eloquent\Model->performInsert(Object(Illuminate\Database\Eloquent\Builder))
+#11 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(1093): Illuminate\Database\Eloquent\Model->save()
+#12 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(67): Illuminate\Database\Eloquent\Model->push()
+#13 [internal function]: QuestionController->postAddAnswer()
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('postAddAnswer', Array)
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'postAddAnswer', Array)
+#17 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#18 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#19 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#20 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#21 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#22 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#23 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#24 {main} [] []
+[2013-12-24 11:04:00] log.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function answers() on a non-object' in C:\wamp\www\blade-runner\app\storage\views\0b1b4c2ec2063262e5c40a6c5357996b:23
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2013-12-24 11:10:42] log.ERROR: exception 'ErrorException' with message 'Trying to get property of non-object' in C:\wamp\www\blade-runner\app\storage\views\0b1b4c2ec2063262e5c40a6c5357996b:25
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\storage\views\0b1b4c2ec2063262e5c40a6c5357996b(25): Illuminate\Exception\Handler->handleError(8, 'Trying to get p...', 'C:\wamp\www\bla...', 25, Array)
+#1 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(38): include('C:\wamp\www\bla...')
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(45): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\wamp\www\bla...', Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(100): Illuminate\View\Engines\CompilerEngine->get('C:\wamp\www\bla...', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\View\View.php(81): Illuminate\View\View->getContents()
+#5 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Http\Response.php(70): Illuminate\View\View->render()
+#6 C:\wamp\www\blade-runner\vendor\symfony\http-foundation\Symfony\Component\HttpFoundation\Response.php(141): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1414): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(156): Illuminate\Routing\Router->prepare(Object(Illuminate\View\View), Object(Illuminate\Http\Request))
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(126): Illuminate\Routing\Controllers\Controller->processResponse(Object(Illuminate\Routing\Router), 'getViewQuestion', Object(Illuminate\View\View))
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getViewQuestion', Array)
+#11 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#12 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#13 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#14 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#15 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#17 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2013-12-24 11:43:55] log.ERROR: exception 'ErrorException' with message 'Invalid argument supplied for foreach()' in C:\wamp\www\blade-runner\app\controllers\QuestionController.php:30
+Stack trace:
+#0 C:\wamp\www\blade-runner\app\controllers\QuestionController.php(30): Illuminate\Exception\Handler->handleError(2, 'Invalid argumen...', 'C:\wamp\www\bla...', 30, Array)
+#1 [internal function]: QuestionController->getViewQuestion()
+#2 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(138): call_user_func_array(Array, Array)
+#3 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Controllers\Controller.php(115): Illuminate\Routing\Controllers\Controller->callMethod('getViewQuestion', Array)
+#4 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(985): Illuminate\Routing\Controllers\Controller->callAction(Object(Illuminate\Foundation\Application), Object(Illuminate\Routing\Router), 'getViewQuestion', Array)
+#5 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#6 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(80): call_user_func_array(Object(Closure), Array)
+#7 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Route.php(47): Illuminate\Routing\Route->callCallable()
+#8 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1016): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(574): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\blade-runner\vendor\laravel\framework\src\Illuminate\Foundation\Application.php(550): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\blade-runner\public\index.php(49): Illuminate\Foundation\Application->run()
+#12 {main} [] []

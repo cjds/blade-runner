@@ -1,0 +1,356 @@
+ <?php
+class QuestionController extends BaseController{
+
+
+	/**
+	* This is the GET that displays the question form
+	* @return the view required. if not logged in it redirects to the login view
+	*
+	*/
+	public function getAddQuestion(){
+		//Determine if user is authentic
+		if (Auth::check()){
+			$title="Add a New Question";
+			return View::make('post')->with('title',$title)->with('type','new');
+		}
+		else{
+			return Redirect::to('login');
+		}
+	}
+
+	/**
+	* This is the GET that displays the question form for editing
+	* @return the view required. if not logged in it redirects to the login view
+	*
+	*/
+	public function getEditQuestion(){
+		//Determine if user is authentic
+		$question_id=Input::get('qid',-1);
+
+		$question=Question::findOrFail($question_id);
+		if (Auth::check()){
+			$title="Edit Question";
+			return View::make('post')->with('title',$title)->with('question',$question)->with('type','edit');
+		}
+		else{
+			return Redirect::to('login');
+		}
+	}	
+
+	/**
+	* This is the POST that takes data from the GET and stores a new Question in the DB
+	* @return It redirects to either the question's display page or the erors page
+	*
+	*/
+	public function postEditQuestion(){
+		//Determine if user is authentic
+		if (Auth::check()){
+	    	$input=Input::all();
+	    	//set up the rules
+			$rules=array(
+				'title'=>'required',
+				'question'=>'required',
+				'question_id'=>'required|exists:questions,post_id'
+			);
+			
+			$v = Validator::make($input, $rules);
+			
+			if($v->passes()){
+				$post=Post::findOrFail($input['question_id']);
+				if(Auth::privelegecheck(15)){
+					if(Auth::user()!=$post->creator)
+						$post->editor()->associate(Auth::user());
+					else
+						$post->editor_id=null;
+					$post->type->question_title=$input['title'];
+					$post->type->question_body=$input['question'];
+					$post->push();
+				}
+				else{
+					$question=new SuggestedQuestion();
+					//$question->addQuestion(Auth::user(),$input['title'],$input['question'],array());
+					$question->suggested_edits_question_title=$input['title'];
+					$question->suggested_edits_question_body=$input['question'];			
+
+					$suggestedpost=new SuggestedPost();
+	 				$suggestedpost->editor()->associate(Auth::user());
+					$suggestedpost->post()->associate($post);
+					$suggestedpost->post_type='SuggestedQuestion';
+					$suggestedpost->save();
+
+					$question->post()->associate($suggestedpost);
+
+					$question->push();
+				}
+				echo "ASS";
+			}
+			else{
+			echo "Fail"	;
+			}
+		}
+		else{
+			return Redirect::to('login');			
+		}
+	}
+
+	public function getEditAnswer(){
+		//Determine if user is authentic
+		$answer_id=Input::get('aid',-1);
+
+		$answer=Answer::findOrFail($answer_id);
+		if (Auth::check()){
+			$title="Edit Question";	
+			return View::make('post')->with('title',$title)->with('question',$answer)->with('type','edit');
+		}
+		else{
+			return Redirect::to('login');
+		}
+	}
+
+	/**
+	* This is the GET that displays a question. This will be one of the major display pages of the site
+	* with links to allow editing, adding an answer, moderator work, etc.
+	* @return Just the question display page
+	*
+	*/	
+	public function getViewQuestion(){
+		$question_id=Input::get('qid',-1);
+		$question=Question::findOrFail($question_id);
+
+		return View::make('viewquestion')->with('title','View the Question')->with('question',$question);
+	}
+
+	public function postAddVote(){
+		if (Auth::check()){
+			$input=Input::all();
+			$question_id=$input['post_id'];
+			$vote_type=$input['type'];
+			$post=Post::findOrFail($question_id);
+			$user=Auth::user();
+			if($question_id!=null){
+				$hasNotVoted=Vote::where('user_id',$user->user_id)->where('post_id',$question_id)->get()->isEmpty();
+				
+				if($hasNotVoted){
+					$vote=new Vote();		
+					$vote->voter()->associate($user);
+					$vote->post()->associate($post);
+					$vote->voteType=$vote_type;
+					$vote->save();
+					echo "Voted, Bitch!";
+				}
+				else{
+					echo "You already voted.";
+				}
+				
+			}
+			else{
+				echo "False Question";
+			}
+		}
+		else{
+			return Redirect::to('login');			
+		}
+	}
+
+
+	/**
+	* This is the POST that takes data from the GET in getViewQuestion and stores a new Answer in the DB
+	* @return It redirects to either the question's display page or the erors page
+	*
+	*/
+	public function postAddAnswer(){
+		//Determine if user is authentic
+		if (Auth::check()){
+	    	$input=Input::all();
+	    	//set up the rules
+			$rules=array(
+				'body'=>'required',
+				'question_id'=>'required',
+			);
+			
+			$v = Validator::make($input, $rules);
+			
+			if($v->passes()){
+				$answer=new Answer();
+				
+				$answer->answer_body=$input['body'];			
+				$answer->answer_question_id=$input['question_id'];			
+				$post=new Post();
+				$post->creator()->associate(Auth::user());
+				$post->post_type='Answer';
+				$post->save();
+				$answer->post()->associate($post);
+				$answer->push();
+
+				echo "ASS";
+			}
+			else{
+			echo "Fail"	;
+			}
+		}
+		else{
+			return Redirect::to('login');			
+		}
+	}
+
+	/**
+	* This is the GET that displays a list of all the questions with links to them
+	* Sorting through the various methods .. will describe in more detail 
+	* @return Its a GET look above
+	*
+	*/
+	public function viewQuestionList(){
+		$input=Input::get('order', 'lastupdate');
+		$questions=Question::all();
+	}
+
+	/**
+	* This is the POST that takes data from the GET and stores a new Question in the DB
+	* @return It redirects to either the question's display page or the erors page
+	*
+	*/
+	public function postAddQuestion(){
+		//Determine if user is authentic
+		if (Auth::check()){
+	    	$input=Input::all();
+	    	//set up the rules
+			$rules=array(
+				'title'=>'required',
+				'question'=>'required',
+			);
+			
+			$v = Validator::make($input, $rules);
+			
+			if($v->passes()){
+				$question=new Question();
+				//$question->addQuestion(Auth::user(),$input['title'],$input['question'],array());
+				$question->question_title=$input['title'];
+				$question->question_body=$input['question'];			
+				$post=new Post();
+				$post->post_type="Question";
+				$post->creator()->associate(Auth::user());
+				
+				$post->save();
+				$question->post()->associate($post);
+				$question->push();
+
+				echo "ASS";
+			}
+			else{
+			echo "Fail"	;
+			}
+		}
+		else{
+			return Redirect::to('login');			
+		}
+	}
+
+	public function postModeratorReviews(){
+		if(Auth::privelegecheck(15)){
+
+		}
+		else{
+
+		}
+		return Redirect::to('moderator/review');
+	}
+
+
+	public function getModeratorReviews(){
+		//Determine if user is authentic and above Moderator level 15...
+		if (Auth::privelegecheck(15)){
+			
+			return View::make('review')->with('title','Moderator Reviews');
+		}
+		else{
+			return Redirect::to('login');
+		}
+	}
+
+
+	public function postJSONNextModeratorReview(){
+		//Determine if user is authentic and above Moderator level 15...
+		if (Auth::privelegecheck(15)){
+			if($input['type']=='approve' || $input['type']=='reject'){
+				$input=Input::all();
+				$suggested_edits_id=$input['suggested_edits_id'];
+				$suggestedEdit=SuggestedPost::findOrFail($suggested_edits_id);
+				$suggestedEdit->status=1;
+				$suggestedEdit->moderator()->associate(Auth::user());
+				if($input['type']=='approve'){
+					$suggestedEdit->approvals=$suggestedEdit->approvals+1;
+					$post=$suggestedEdit->post;
+
+					if($suggestedEdit->post_type=='SuggestedQuestion'){
+						$post->editor()->associate($suggestedEdit->editor);
+						$post->type->question_body=$suggestedEdit->type->suggested_edits_question_body;
+						$post->type->question_title=$suggestedEdit->type->suggested_edits_question_title;
+						$post->push();
+					}
+					else if($suggestedEdit->post_type=='SuggestedAnswer'){
+						$post->editor()->associate($suggestedEdit->editor);
+						$post->type->answer_body=$suggestedEdit->type->suggested_edits_answer_body;
+						$post->push();
+					}
+					
+				}
+				else if($input['type']=='reject'){
+					$suggestedEdit->rejections=$suggestedEdit->approvals-1;
+				}
+				$suggestedEdit->save();
+				return Response::json(array('status'=>'success','message'=>'Edit Completed',));
+			}
+			else{
+				return Response::json(array('status'=>'fail','message'=>'Wrong Input',));
+			}
+		}
+		else{
+			return Response::json(array('status'=>'fail','message'=>'Not Enough Authority',));
+		}
+	}
+
+	public function getJSONNextModeratorReview(){
+		if (Auth::privelegecheck(15)){
+			$post=SuggestedPost::where('status',0)->orderBy('created_at', 'DESC')->take(1)->get();
+			if($post->isEmpty()){
+				return Response::json(array('status'=>'fail','type'=>'no_review_left','message'=>'No more reviews left'));
+			}
+			else{
+				
+				if($post[0]->post_type=="SuggestedQuestion"){
+					$post=$post[0];
+					
+					return Response::json(array('status'=>'success',
+												'message'=>'Review Successfully got',
+												'type'=>'question',
+												'original_title'=> $post->post->type->question_title,
+												'new_title'=>$post->type->suggested_edits_question_title,
+												'original_body'=>$post->post->type->question_body,
+												'new_body'=>$post->type->suggested_edits_question_body,
+												'suggested_edits_id'=>$post->suggested_edits_id,
+												'edit_explanation'=> $post->editExplanation
+												)
+										);
+				}
+				else{
+					return Response::json(array('status'=>'success',
+												'message'=>'Review Successfully got',
+												'type'=>'answer',
+												'original_body'=>$post->post->type->answer_body	,
+												'new_body'=>$post->type->suggested_edits_answer_body,
+												'suggested_edits_id'=>$post->suggested_edits_id,											
+												'edit_explanation'=> $post->editExplanation
+												)
+										);	
+				}
+			}
+			
+		}
+		else{
+			return Response::json(array('status'=>'fail','type'=>'user_authority','message'=>'You do not have sufficient authority'));
+		}
+	}
+
+}
+
+?>

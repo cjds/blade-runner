@@ -1,0 +1,25 @@
+@extends('layouts.master')
+
+
+@section('content')
+
+<div class="row">
+	<div class="span4 offset1">
+		@if($type=="new")
+			<legend>Add the damn question</legend>
+			{{Form::open(array('url' => 'add/question' ))}}
+		@elseif($type=="edit")
+			<legend>Edit the damn question</legend>
+			{{Form::open(array('url' => 'edit/question' ))}}
+			{{Form::hidden('question_id', $question->post_id);}}
+		@endif
+		{{Form::label('title', 'Title')}}<br>
+		{{Form::text('title',($type=='edit')?$question->question_title:'', array('style' => 'width:400px'))}}
+		{{Form::label('question', 'Body')}}<br>
+		{{Form::textarea('question',($type=='edit')?$question->question_body:'', array('style' => 'width:400px'))}}
+		{{Form::label('tags', 'Tags')}}<br>
+		{{Form::text('tags', '', array('style' => 'width:400px'))}}
+		{{Form::submit(($type=='edit')?'Edit Question':'Add Question')}}
+	</div>
+</div>
+@stop

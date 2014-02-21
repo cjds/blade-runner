@@ -1,0 +1,19 @@
+<?php
+class Answer extends Eloquent{
+
+	protected $table='answers';
+ 	protected $primaryKey   = 'answer_id';
+
+
+	public function post(){
+		return $this->belongsTo('Post','answer_id');
+	}
+
+	public function question(){
+		return $this->belongsTo('Question','answer_question_id');
+	}
+
+	
+}
+
+?>

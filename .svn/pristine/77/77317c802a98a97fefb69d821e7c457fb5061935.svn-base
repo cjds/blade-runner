@@ -1,0 +1,81 @@
+@extends('layouts.master')
+
+@section('content')
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var post_id=-1;
+
+		jsonReview();
+
+		function jsonReview(){
+			$.getJSON( "{{url('json/moderator/nextflag')}}", function( json ) {
+				console.log(json);
+				if(json.status=='success'){
+					$('#explanation').html(json.edit_explanation);
+					post_id=json.post_id;
+					if(json.type=='question'){
+						var html='';
+						html+='<h3>'+json.title+'</h3>';
+						html+=json.body+'<br><br>';
+						html+="<h3>Flag Reasons</h3>";
+	  					for(var i=0;i<json.flags.length;i++){
+	  						html+=json.flags[i].flag_reason+"<br>";
+	  					}
+	  				}
+	  				else{
+						html+='<h3>'+json.question_title+'</h3>';
+						html+=json.question_body+'<br>';
+						html+=json.body+'<br><br>';
+						html+="<h3>Flag Reasons</h3>";
+	  					for(var i=0;i<json.flags.length;i++){
+	  						html+=json.flags[i].flag_reason+"<br>";
+	  					}	
+	  				}
+	  				$('#flags').html(html);
+	  			}
+	  			else if(json.status=='fail'){
+	  				post_id=-1;
+	  				if(json.type=='no_review_left'){
+	  					$('#flags').html('<h2>No More Flags Left</h2>');
+	  				}
+	  			}
+	  			
+	 		});
+		}
+		
+		$('input.review-btn').click(function(e){
+			e.preventDefault();
+			$.ajax ({ 
+				type:"POST",
+				url:"{{url('json/moderator/nextflag')}}",
+				dataType:'json',
+				data: {status:$(this).attr('data-staus') ,type:$(this).attr('data-type'), post_id : post_id}
+			})
+			.done(function( json ) {
+    			jsonReview();
+  			});
+
+		});
+	});
+  
+</script>
+
+<div class="row">
+	<div class="span8 offset1">
+	<div id='flags'></div>
+	<br>
+	<div class="span8 offset1">
+		<h4>Approve and</h4>
+		<input type='button' class='review-btn' data-status='approve' data-type='nothing' value='Do Nothing'/>
+		<input type='button' class='review-btn' data-status='approve' data-type='edit' value='Edit Post'/>
+		<input type='button' class='review-btn' data-status='approve' data-type='close' value='Close Post'/>
+		<input type='button' class='review-btn' data-status='approve' data-type='delete' value='Delete Post'/>
+		<input type='button' class='review-btn' data-status='approve' data-type='block' value='Block User'/>
+		<br>
+		<h4>Reject and</h4>
+		<input type='button' class='review-btn' data-status='reject' data-type='nothing' value='Do Nothing'/>
+		<input type='button' class='review-btn' data-status='reject' data-type='edit' value='Edit Post'/>
+	</div>
+</div>
+@stop
