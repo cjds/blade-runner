@@ -4,7 +4,7 @@ composer.phar
 composer.lock
 .DS_Store
 Thumbs.db
-.svn/*
-tags/*
-trunk/*
-public/mathjax/*
+/.svn
+/tags
+/trunk
+/public/mathjax
