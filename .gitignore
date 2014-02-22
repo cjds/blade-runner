@@ -7,3 +7,4 @@ Thumbs.db
 .svn/*
 tags/*
 trunk/*
+public/mathjax/*
