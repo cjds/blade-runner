@@ -25,7 +25,7 @@ class CreateQuestionsTable extends Migration {
 
 		});
 
-		DB::statement('ALTER TABLE questions ADD FULLTEXT search(question_title, question_body)');
+	//	DB::statement('ALTER TABLE questions ADD FULLTEXT search(question_title, question_body)');
 	}
 
 	/**
