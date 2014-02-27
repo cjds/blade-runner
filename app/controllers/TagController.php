@@ -3,57 +3,9 @@
 class TagController extends BaseController{
 
 	public function getAddQuestion(){
-		//Determine if user is authentic
-		if (Auth::check()){
-			$title="Add a New Question";
-			return View::make('post')->with('title',$title)->with('type','new');
-		}
-		else{
-			return Redirect::to('login');
-		}
+
 	}
 
-	public function postAddQuestion(){
-		//Determine if user is authentic
-		if (Auth::check()){
-	    	$input=Input::all();
-	    	//set up the rules
-			$rules=array(
-				'title'=>'required',
-				'question'=>'required',
-			);
-			
-			$v = Validator::make($input, $rules);
-			
-			if($v->passes()){
-				$question=new Question();
-				//$question->addQuestion(Auth::user(),$input['title'],$input['question'],array());
-				$question->question_title=$input['title'];
-				$question->question_body=$input['question'];
-				$question_tags=explode(',', $input['tags']);
-				for($i=0;$i<count($question_tags);$i++) {
-					$question_tags[$i]=trim($question_tags[$i]);
-				}
-				$post=new Post();
-				$post->post_type="Question";
-				$post->creator()->associate(Auth::user());
-				$post->save();
-				$question->post()->associate($post);
-				$question->push();
-				foreach ($question_tags as $t) {
-					$tag_id = Tag::firstOrCreate(array('tag_name' => $t));
-					$question->tags()->attach($tag_id);
-				}
-				return Redirect::to('view/question?qid='.$question->post_id);
-			}
-			else{
-				return Redirect::to('add/question?qid='.$question->post_id)->withInput()->withErrors($v);
-			}
-		}
-		else{
-			return Redirect::to('login');			
-		}
-	}
 
 	public function getViewQuestion(){
 		$question_id=Input::get('qid',-1);

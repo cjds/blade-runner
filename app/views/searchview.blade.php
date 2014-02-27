@@ -14,10 +14,9 @@ td.count{
 	text-align:center;	
 }
 </style>
-
+<div class="large-offset-2 large-8 small-12 columns">
 <div class="row">
-	<div class="large-8 small-12 columns">
-	<table class="large-8 small-12 searchtable">
+	<table class="large-12 small-12 searchtable">
 	  <thead>
 	<tr>
 		<th>Votes</th>
@@ -49,6 +48,10 @@ td.count{
 		@endforeach
 	</tbody>
 	</table>
+</div>
+<div class="row">
+	{{$questions->links()}}
+</div>
 	</div>
 </div>
 @stop

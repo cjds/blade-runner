@@ -86,7 +86,7 @@ class AdminController extends BaseController{
 		$input = Input::all();
 		$rules = array(
 			'title' => 'required',
-			'question' => 'required',
+			'wmd-input' => 'required',
 			'ques_no' => 'required',
 			'month' => 'required',
 			'year' => 'required',
@@ -98,9 +98,9 @@ class AdminController extends BaseController{
 			$post=new Post();
 			$question = new Question();
 			$univQuestion = new UniversityQuestion();
-			$univQuestionDate = new UniversityQuestionDate();
+			
 			$question->question_title=$input['title'];
-			$question->question_body=$input['question'];
+			$question->question_body=$input['wmd-input'];
 			$question_tags=explode(',', $input['tags']);
 			for($i=0;$i<count($question_tags);$i++) {
 				$question_tags[$i]=trim($question_tags[$i]);
@@ -118,11 +118,15 @@ class AdminController extends BaseController{
 			$univQuestion->question_subject_id = $input['subject'];
 			$univQuestion->question()->associate($question);
 			$univQuestion->push();
-			$univQuestionDate->question_number = $input['ques_no'];
-			$month_year = $input['month']." ".$input['year'];
-			$univQuestionDate->month_year = $month_year;
-			$univQuestionDate->universityquestion()->associate($univQuestion);
-			$univQuestionDate->push();
+			for($i=0;$i<count($input['year']);$i++){
+				$univQuestionDate=new UniversityQuestionDate();
+				$univQuestionDate->question_number = $input['ques_no'][$i];
+				$month_year = $input['month'][$i]." ".$input['year'][$i];
+				$univQuestionDate->month_year = $month_year;
+				$univQuestionDate->universityquestion()->associate($univQuestion);
+				$univQuestionDate->push();	
+			}
+			
 			echo ':)';
 		}
 		else
@@ -131,6 +135,8 @@ class AdminController extends BaseController{
 
 	public function univQuestionsMainPage(){
 		$branches = Branch::all();
+		$univQuestionDates = UniversityQuestionDate::all();
+		// $univQuestionDates = UniversityQuestionDate::has('universityquestion.subject.branch', 'like', 'Computers')->get();
 		return View::make('univquestionshome')->with('title', 'University Questions')->with('branches', $branches);
 	}
 

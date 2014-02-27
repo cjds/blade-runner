@@ -42,6 +42,23 @@
       background:#ff3350 ;
     }
 
+    .box-solid-bottom{
+      border-bottom:#bbb solid thin;
+    }
+    .box-sides{
+      border-right:#ddd solid thin;
+      border-left:#ddd solid thin;
+
+    }
+
+    .box-top{
+      border-top:#ddd solid thin;
+    }
+
+    .box-bottom{
+      border-bottom:#ddd solid thin;
+    }
+
       section[role='main']{
         margin-top: 20px;
       }
@@ -82,14 +99,74 @@
         border-bottom:solid 3px  #008cba;
         border-right:solid 3px  #008cba;
       }
+
+      .user-div{
+        background-color:#eef;
+        font-size:0.8em;
+        width:120px;
+        margin-top: 7px;
+        margin-bottom: 7px;
+        padding:5px;
+        display: inline-block;
+      }
+
+      .pagination li{
+          display: inline-block;
+          padding: 4px;
+          list-style: none;
+          text-align: center;
+          
+          background-color: #eef;
+      }
+
+      .searchtable{
+        border: dashed thin #ccc;
+      }
+
+      .searchtable th{
+        background-color: #eef;
+        font-family:  "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        font-weight: 300
+      }
+
+    .bluebox{
+      
+      background:#3BAC88;
+      padding:3px;
+    }
+
+    .bluebox:hover{
+
+      background: #9DEF88;
+    }
+
+    .related-questions{
+      display: block;;
+      font-size: 1.0;
+      padding: 2px;
+    }
+
+    aside{
+      margin-right:10px;
+      background-color:#f9f9ff;
+    }
+
     </style>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('aside').css('height', $('.main').height());
+      });
+    </script>
   </head>
   <body>
     
     <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
-      <h1>{{HTML::link('view/questions', 'Gradhat')}}</h1>
+      <a href="{{ URL::to('view/questions')}}">
+        {{HTML::image('img/logo.png', 'gradhat', array('style'=>"height:40px;margin-top:2px;margin-left:5px;margin-right:5px"));}}
+      </a>
     </li>
     
   </ul>
@@ -98,11 +175,13 @@
     <!-- Right Nav Section -->
     <ul class="right">
     	@if(Auth::user())
-        	<li class='hide-for-small'>{{HTML::link('view/profile', ucwords(Auth::user()->user_username));}}</li>
           <li class="divider"></li>
-          <li class='hide-for-small'><a href="#">{{number_format(Auth::user()->user_points)}} pts </a></li>
+        	<li class='hide-for-small'>
+          <a href="{{ URL::to('view/profile')}}">
+          {{ucwords(Auth::user()->user_username)}}
+          <span class='bluebox'>{{number_format(Auth::user()->user_points)}} </span></a></li>
           <li class="divider"></li>
-          <li><a href="#"><span class='notification'>3</span></a></li>
+          <!--<li><a href="#"><span class='notification'>3</span></a></li>-->
           <li class="divider"></li>
           @if(Auth::user()->privelege_level>15)
             <li class='hide-for-small'>

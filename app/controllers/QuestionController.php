@@ -1,6 +1,4 @@
  <?php
- 
-
 class QuestionController extends BaseController{
 
 
@@ -19,6 +17,55 @@ class QuestionController extends BaseController{
 			return Redirect::to('login');
 		}
 	}
+
+	/**
+	* This is the GET that displays the question form
+	* @return adds the question and redirects to the question
+	*
+	*/
+	public function postAddQuestion(){
+		//Determine if user is authentic
+		if (Auth::check()){
+	    	$input=Input::all();
+	    	//set up the rules
+			$rules=array(
+				'title'=>'required',
+				'question'=>'required',
+			);
+			
+			$v = Validator::make($input, $rules);
+			
+			if($v->passes()){
+				$question=new Question();
+				//$question->addQuestion(Auth::user(),$input['title'],$input['question'],array());
+				$question->question_title=$input['title'];
+				$question->question_body=$input['question'];
+				$question_tags=explode(',', $input['tags']);
+				for($i=0;$i<count($question_tags);$i++) {
+					$question_tags[$i]=trim($question_tags[$i]);
+				}
+				$post=new Post();
+				$post->post_type="Question";
+				$post->creator()->associate(Auth::user());
+				$post->save();
+				$question->post()->associate($post);
+				$question->push();
+				foreach ($question_tags as $t) {
+					$tag_id = Tag::firstOrCreate(array('tag_name' => $t));
+					$question->tags()->attach($tag_id);
+				}
+				return Redirect::to('view/question?qid='.$question->post_id);
+			}
+			else{
+				return Redirect::to('add/question?qid='.$question->post_id)->withInput()->withErrors($v);
+			}
+		}
+		else{
+			return Redirect::to('login');			
+		}
+	}
+
+
 
 	/**
 	* This is the GET that displays the question form for editing
@@ -62,11 +109,12 @@ class QuestionController extends BaseController{
 			
 			if($v->passes()){
 				$post=Post::findOrFail($input['question_id']);
+				//If its edited by the creator or a moderator don't add it to the review queue
 				if(Auth::privelegecheck(15) || Auth::user()==$post->creator){
 					$question_tags=explode(',',$input['tags']);
 					//Set all the previous suggested edits that haven't before this to status -1 ..rejected
 					SuggestedPost::where('original_post_id',$input['question_id'])->where('created_at','>', time())->update(array('status'=>-1));
-
+					//Update the Post itself
 					$post->editor()->associate($post->creator);
 					$post->type->question_title=$input['title'];
 					$post->type->question_body=$input['question'];
@@ -77,6 +125,7 @@ class QuestionController extends BaseController{
 					}
 					$post->push();
 				}
+				//Time to add to the Review Queue
 				else{
 					$question=new SuggestedQuestion();
 					//$question->addQuestion(Auth::user(),$input['title'],$input['question'],array());
@@ -117,27 +166,20 @@ class QuestionController extends BaseController{
 		}
 	}
 
+
 	/**
 	* This is the GET that displays a question. This will be one of the major display pages of the site
 	* with links to allow editing, adding an answer, moderator work, etc.
 	* @return Just the question display page
 	*
 	*/	
-
 	public function getViewQuestion(){
 		$question_id=Input::get('qid',-1);
 		$question=Question::findOrFail($question_id);
 		$posts = $question->answers;
-		/*$text='*   Ingredients
-    -   Milk
-    -   Eggs
-*   Recipies
-    1.  Pancake
-    2.  Wafflesd';	
-		
 		$html = new Mark\Michelf\Markdown;
-		$html=$html->defaultTransform($text);
-		echo $html;*/
+		$question->question_body=$html->defaultTransform($question->question_body);
+   		$question->question_body = str_replace('</math>','$$',str_replace('<math>','$$', $question->question_body));
 		if(Auth::user()){
 			$user_id=Auth::user()->user_id;
 		}
@@ -147,6 +189,67 @@ class QuestionController extends BaseController{
 		return View::make('viewquestion')->with('title','View the Question')->with('question',$question)->with('user_id',$user_id);
 	}
 
+	/**
+	* This is the GET that returns the entire list of questions
+	* @return The search page showing all the questions
+	*
+	*/
+	public function viewAllQuestions (){
+		$questions = Question::paginate(15);
+		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions);
+	}
+
+
+
+	/**
+	* This is the POST that takes data from the GET in getViewQuestion and stores a new Answer in the DB
+	* @return It redirects to either the question's display page or the erors page
+	*
+	*/
+	public function postAddAnswer(){
+		//Determine if user is authentic
+		if (Auth::check()){
+	    	$input=Input::all();
+	    	//set up the rules
+			$rules=array(
+				'wmd-input'=>'required|min:20',
+				'question_id'=>'required',
+			);
+
+			$messages = array(
+    			'required' => 'The :attribute is required.',
+			);
+			
+			$v = Validator::make($input, $rules,$messages);
+			
+			if($v->passes()){
+				$answer=new Answer();
+				
+				$answer->answer_body=$input['wmd-input'];			
+				$answer->answer_question_id=$input['question_id'];			
+				$post=new Post();
+				$post->creator()->associate(Auth::user());
+				$post->post_type='Answer';
+				$post->save();
+				$answer->post()->associate($post);
+				$answer->push();
+				return Redirect::to('view/question?qid='.$input['question_id']);
+			}
+			else{
+				return Redirect::to('view/question?qid='.$input['question_id'])->withInput()->withErrors($v);
+			}
+		}
+		else{
+			return Redirect::to('login');			
+		}
+	}
+
+
+	/**
+	* This is the POST that takes data from the GET in getViewQuestion that allows you to upvote or downvote
+	* @return It returns JSON of success or fail
+	*
+	*/
 	public function postAddVote(){
 		if (Auth::check()){
 			$input=Input::all();
@@ -210,48 +313,19 @@ class QuestionController extends BaseController{
 	}
 
 
-	/**
-	* This is the POST that takes data from the GET in getViewQuestion and stores a new Answer in the DB
-	* @return It redirects to either the question's display page or the erors page
-	*
-	*/
-	public function postAddAnswer(){
-		//Determine if user is authentic
-		if (Auth::check()){
-	    	$input=Input::all();
-	    	//set up the rules
-			$rules=array(
-				'body'=>'required|min:20',
-				'question_id'=>'required',
-			);
 
-			$messages = array(
-    			'required' => 'The :attribute is required.',
-			);
-			
-			$v = Validator::make($input, $rules,$messages);
-			
-			if($v->passes()){
-				$answer=new Answer();
-				
-				$answer->answer_body=$input['body'];			
-				$answer->answer_question_id=$input['question_id'];			
-				$post=new Post();
-				$post->creator()->associate(Auth::user());
-				$post->post_type='Answer';
-				$post->save();
-				$answer->post()->associate($post);
-				$answer->push();
-				return Redirect::to('view/question?qid='.$input['question_id']);
-			}
-			else{
-				return Redirect::to('view/question?qid='.$input['question_id'])->withInput()->withErrors($v);
-			}
-		}
-		else{
-			return Redirect::to('login');			
-		}
+	public function viewQuestionsByTags ($tag_name){
+		$tag_name=urldecode($tag_name);
+		//$tag_id=Input::get('tid', -1);
+		//$tag=Tag::where('tag_name',$tag_name)->first();
+		
+		$questions=Question::whereHas('tags', function($q) use ($tag_name){
+    		$q->where('tag_name', 'like', $tag_name);
+		})->paginate(15);
+
+		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions);
 	}
+
 
 	/**
 	* This is the GET that displays a list of all the questions with links to them
@@ -260,50 +334,12 @@ class QuestionController extends BaseController{
 	*
 	*/
 	public function viewQuestionList(){
-		$input=Input::get('order', 'lastupdate');
-		$questions=Question::all();
+		$input = Input::get('search');
+		//$questions = Question::whereRaw("MATCH(question_title, question_body) AGAINST(? IN BOOLEAN MODE)", array($input))->get();
+		$questions = Question::whereRaw("question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%'")->paginate(15);
+		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions);
 	}
 
-	/**
-	* This is the POST that takes data from the GET and stores a new Question in the DB
-	* @return It redirects to either the question's display page or the erors page
-	*
-	*/
-	public function postAddQuestion(){
-		//Determine if user is authentic
-		if (Auth::check()){
-	    	$input=Input::all();
-	    	//set up the rules
-			$rules=array(
-				'title'=>'required',
-				'question'=>'required',
-			);
-			
-			$v = Validator::make($input, $rules);
-			
-			if($v->passes()){
-				$question=new Question();
-				//$question->addQuestion(Auth::user(),$input['title'],$input['question'],array());
-				$question->question_title=$input['title'];
-				$question->question_body=$input['question'];			
-				$post=new Post();
-				$post->post_type="Question";
-				$post->creator()->associate(Auth::user());
-				
-				$post->save();
-				$question->post()->associate($post);
-				$question->push();
-
-				echo "ASS";
-			}
-			else{
-			echo "Fail"	;
-			}
-		}
-		else{
-			return Redirect::to('login');			
-		}
-	}
 
 
 	public function getModeratorReviews(){
@@ -344,9 +380,10 @@ class QuestionController extends BaseController{
 						//Attach the new tags
 						$question_tags=explode(',',$suggestedEdit->type->suggested_edits_question_tags);
 						for ($i=0; $i < count($question_tags); $i++) { 
-							$question_tags=trim($question_tags);
+							$question_tags[$i]=trim($question_tags[$i]);
 						}
 						$post->type->tags()->detach();
+
 						foreach ($question_tags as $t) {
 							$tag_id = Tag::firstOrCreate(array('tag_name' => $t));
 							$post->type->tags()->attach($tag_id);
@@ -430,16 +467,61 @@ class QuestionController extends BaseController{
 	}
 
 
-
-public function getJSONSimilarQuestions(){
-	$title=urldecode(Input::get('title'));
-	//$post=Question::where('question_title', "MATCHES('question_title') AGAINST" ,'sun')->get();
-	$post=DB::raw("SELECT  * from questions")->query();
-
-	foreach ($post as $p) {
-		echo $p->question_title;
+	//This is a POST that lets you flag any post for innappropriate content and responds via JSON	
+	public function postJSONAddFlag(){
+		if(Auth::user()){
+			$input=Input::all();
+			$flag=new Flag();
+			$post=Post::findOrFail($input['post_id']);
+			$flag->post()->associate($post);
+			if($input['flag-reason']=='Other')
+				$flag->flag_reason=$input['flag-reason']."<br>".$input['custom-reason'];
+			else
+				$flag->flag_reason=$input['flag-reason']."<br>".$input['custom-reason'];
+			$flag->creator()->associate(Auth::user());
+			$flag->save();
+			return Response::json(array('status'=>'success ','message'=>"Thanks! We'll take a look at it"));	
+		}
+		else{
+			return Response::json(array('status'=>'fail','type'=>'user_authority','message'=>'You do not have sufficient authority'));	
+		}
 	}
-}
+
+
+	public function postJSONRelatedQuestionsTag(){
+	    $q = urldecode(Input::get('qid'));
+	    $num = Input::get('count');
+	    if($num==null)
+	    	$num=5;
+
+	    $question=Question::findOrFail($q);
+	    foreach($question->tags as $tag){
+	    	$searchTerms[]=$tag->tag_name;
+	    }
+
+	    $query = Question::where('post_id','!=',$q)->whereHas('tags',function($q) use ($searchTerms){
+	    	foreach ($searchTerms as $tag) {
+	    		$q->where('tag_name','like', $tag);
+	    	}
+    		
+		});
+
+	    return $query->take($num)->get()->toJson();
+	}
+	
+
+	public function getJSONRelatedQuestions(){
+	    $q = urldecode(Input::get('query'));
+	    $num = Input::get('count');
+	    if($num==null)	$num=5;
+	    
+	    $query = Question::where('question_title',"LIKE","%".$q[0]."%");
+	    for($i=1;$i<count($q);$i++){
+	        $query = $query->orWhere('question_title',"LIKE","%".$q[i]."%");
+	    }
+	    return $query->take($num)->get()->toJson();
+	}
+
 
 }
 ?>

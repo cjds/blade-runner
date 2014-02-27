@@ -2,26 +2,6 @@
 
 class ModeratorController extends BaseController{
 
-
-	public function postJSONAddFlag(){
-		if(Auth::user()){
-			$input=Input::all();
-			$flag=new Flag();
-			$post=Post::findOrFail($input['post_id']);
-			$flag->post()->associate($post);
-			if($input['flag-reason']=='Other')
-				$flag->flag_reason=$input['flag-reason']."<br>".$input['custom-reason'];
-			else
-				$flag->flag_reason=$input['flag-reason']."<br>".$input['custom-reason'];
-			$flag->creator()->associate(Auth::user());
-			$flag->save();
-			return Response::json(array('status'=>'success ','message'=>"Thanks! We'll take a look at it"));	
-		}
-		else{
-			return Response::json(array('status'=>'fail','type'=>'user_authority','message'=>'You do not have sufficient authority'));	
-		}
-	}
-
 	//Moderators and above
 	public function getViewFlags(){
 		if(Auth::privelegecheck(15)){
@@ -40,10 +20,15 @@ class ModeratorController extends BaseController{
 				return Response::json(array('status'=>'fail','type'=>'no_flag_left','message'=>'No more flags'));
 			}
 			else{
+				$html = new Mark\Michelf\Markdown;
 				$flag=$flag[0];
 				$allFlags=Flag::where('flag_approved',null)->where('post_id',$flag->post->post_id)->orderBy('created_at','DESC')->get();
 				if($flag->post->post_type=="Question"){
-					
+
+					//Markdown and Mathjax server replace
+					$flag->post->type->question_body=$html->defaultTransform($flag->post->type->question_body);
+   					$flag->post->type->question_body = str_replace('</math>','$$',str_replace('<math>','$$', $flag->post->type->question_body));
+
 					return Response::json(array('status'=>'success',
 												'message'=>'Flag Successfully got',
 												'type'=>'question',
@@ -55,6 +40,12 @@ class ModeratorController extends BaseController{
 										);
 				}
 				else{
+					//Markdown and Mathjax server replace
+					$flag->post->type->answer_body=$html->defaultTransform($flag->post->type->answer_body);
+   					$flag->post->type->answer_body = str_replace('</math>','$$',str_replace('<math>','$$', $flag->post->type->answer_body));
+
+					$flag->post->type->question->question_body=$html->defaultTransform($flag->post->type->question->question_body);
+   					$flag->post->type->question->question_body = str_replace('</math>','$$',str_replace('<math>','$$', $flag->post->type->question->question_body));
 					return Response::json(array('status'=>'success',
 												'message'=>'Flag Successfully got',
 												'type'=>'answer',

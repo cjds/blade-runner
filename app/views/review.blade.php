@@ -1,6 +1,22 @@
 @extends('layouts.master')
 
 @section('content')
+{{HTML::style('css/markdown.css');}}
+{{HTML::script('http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML');}}
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]], displayMath: [ ["$$","$$"] ],mathsize: "90%",
+    processEscapes: true},
+    "HTML-CSS":{linebreaks:{automatic:true}},
+     TeX: { noUndefined: { attributes: 
+{ mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } }, 
+
+  });
+</script>
+
+
+
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -25,7 +41,10 @@
 	  			else if(json.status=='fail'){
 	  				suggested_edits_id=-1;
 	  				if(json.type=='no_review_left'){
-	  					$('#original').html('<h2>No More Reviews Left</h2>');
+
+	  					$('#about').html('<h2>No More Reviews Left</h2>');
+	  					$('#original').html('');
+	  					$('#new').html("");
 	  				}
 	  			}
 	  			
@@ -49,23 +68,40 @@
   
 </script>
 
-<div class="row">
-	<div class="span8 offset1">
+
+
+
+
+
+<div class='row'>
+<div id="about"></div>
+</div>
+<div class='row'>
+
+	<div class="large-6 columns box-sides box-top  box-bottom small-12">
 		<h3>Original</h3>	
 		<div id='original'></div>
 	</div>
-	<br><br>
-	<div class="span8 offset1">
+	
+	<div class=" large-6 columns small-12 box-sides box-top box-bottom">
 		<h3>New</h3>	
 		<div id='new'></div>
 	</div>
-	<div id='explanation' class="span8 offset1">
+
+</div>
+
+<div class='row'>
+	<div id='explanation' class="columns ">
 	</div>
-	<div class="span8 offset1">
+</div>	
+<br><br>
+<div class='row'>
+	<div class="columns ">
 		<input type='button' class='review-btn button' data-type='approve' value='Approve'/>
 		<input type='button' class='review-btn button' data-type='skip' value='Skip'/>
 		<input type='button' class='review-btn button' data-type='reject' value='Reject'/>
 			
 	</div>
 </div>
+
 @stop

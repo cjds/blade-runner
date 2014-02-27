@@ -44,8 +44,9 @@
 		<td>
 			@foreach ($uq->universityquestiondates as $date)
 				{{$date->month_year}}
+
 			@endforeach
-			</td>
+		</td>
 		</tr>
 		@endforeach
 	</tbody>

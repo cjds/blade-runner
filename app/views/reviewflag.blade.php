@@ -2,6 +2,23 @@
 
 @section('content')
 
+{{HTML::style('css/markdown.css');}}
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]], displayMath: [ ["$$","$$"] ],mathsize: "90%",
+    processEscapes: true},
+    "HTML-CSS":{linebreaks:{automatic:true}},
+     TeX: { noUndefined: { attributes: 
+{ mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } }, 
+
+  });
+</script>
+
+
+{{HTML::script('http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML');}}
+
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		var post_id=-1;
@@ -72,7 +89,7 @@
 </script>
 
 <div class="row">
-	<div class="large-12 small-12 columns">
+	<div class="large-11 small-12 columns large-offset-1">
 	<div id='flags'></div>
 	<br>
 	<div class="span8">

@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row">
-	<div class="span4 offset1">
+	<div class="columns">
 		<h3>Add New Branch</h3>
 		{{Form::open(array('url'=>'admin/add/branches'))}}
 		{{Form::label('branch_name', 'Branch Name')}} 
@@ -17,11 +17,12 @@
 		<h3>All Branches</h3>
 
 		<div class="row">
-			<table class="span4 offset1 table">
+			<table class="columns large-5">
 	  			<thead>
 					<tr>
 						<th>Branch Name</th>
 						<th>Short Name</th>
+						<th>Edit</th>
 					</tr>
 				</thead> 
 				<tbody>
