@@ -46,6 +46,4 @@
 					</table>
 			</div>
 		</div>
-
-
 @stop

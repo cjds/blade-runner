@@ -10,6 +10,9 @@ class Subject extends Eloquent{
 		return $this->belongsTo('Branch','subject_branch_id');
 	}
 	
+	public function modules(){
+		return $this->hasMany('Module', 'module_subject_id');
+	}
 }
 
 ?>

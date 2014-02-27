@@ -38,7 +38,7 @@ $(document).ready(function(){
 	{{Form::label('title', 'Question Title')}} 
 	{{Form::text('title', '', array('class'=>'large-8'))}} <br>
 	{{Form::label('question', 'Question Body')}} 
-	@include("layouts.markdownmanager");
+	@include("layouts.markdownmanager",array('data'=>""));
 	<!--{{Form::textarea('question','', array('class' => 'large-8','cols'=>'50','rows'=>'10'))}}<br> -->
 	<table id="field_set">
 
@@ -49,9 +49,7 @@ $(document).ready(function(){
 			</td>
 			
 			<td>
-			<input name="month[0]" type="radio" value="May/June"> May/June
-				<!--{{Form::radio('month[]', 'May/June')}} May/June-->
-				
+				<input name="month[0]" type="radio" value="May"> May/June
 			</td>
 			<td>
 				<input name="month[0]" type="radio" value="December"> December
@@ -65,8 +63,10 @@ $(document).ready(function(){
 	<input type="button" value="Add more" class='button' id='addmorebtn'/>
 	{{Form::label('marks', 'Marks')}} 
 	{{Form::text('marks', '', array('style' => 'width:400px'))}} <br>
-	{{Form::label('subject', 'Subjects')}} 
+	{{Form::label('subject', 'Subject')}} 
 	{{Form::select('subject', $subjects)}}<br>
+	{{Form::label('module', 'Module')}} 
+	{{Form::select('module', $modules)}}<br>
 	{{Form::label('tags', 'Tags')}}
 	{{Form::text('tags','', array('style' => 'width:400px'))}} <br>
 	{{Form::submit('Add Question',array('class'=>'button'))}}

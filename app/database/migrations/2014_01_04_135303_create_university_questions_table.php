@@ -16,11 +16,14 @@ class CreateUniversityQuestionsTable extends Migration {
 			$table->increments('post_id');
 			$table->unsignedInteger('question_marks');
 			$table->unsignedInteger('question_subject_id');
+			$table->unsignedInteger('question_module_id');
 			$table->timestamps();
 		
 			$table->foreign('post_id')->references('post_id')->on('questions');
 			$table->index('question_subject_id');
 			$table->foreign('question_subject_id')->references('subject_id')->on('subjects');
+			$table->index('question_module_id');
+			$table->foreign('question_module_id')->references('module_id')->on('modules');
 
 		});
 	}

@@ -67,16 +67,58 @@ class AdminController extends BaseController{
 			return Redirect::to('admin/subjects/add')->withInput()->withErrors($v);
 	}
 
+	public function manageModules(){
+		if(Auth::privelegecheck(20))
+		{
+			$title = 'Manage Modules';
+			// $subjects = Subject::all()
+			// 			->groupBy('subject_branch_id')
+			// 			->orderBy('subject_sem');
+			$modules = Module::all();
+			$subjects = Subject::all();
+			$subjects_array = array();
+			foreach ($subjects as $subject) {
+				$subjects_array[$subject->subject_id] = $subject->subject_name;
+			}
+			return View::make('modules')->with('title', $title)->with('subjects', $subjects_array)->with('modules', $modules);
+		}
+		else
+			return Redirect::to('admin/login');
+	}
+
+	public function addNewModule(){
+		$input = Input::all();
+		$rules = array(
+			'module_name' => 'required',
+			'module_subject' => 'required');
+		$v = Validator::make($input, $rules);
+		if ($v->passes())
+		{
+			$module = new Module();
+			$module->module_name = $input['module_name'];
+			$module->module_subject_id = $input['module_subject'];
+			$module->save();
+			return Redirect::to('admin/modules');
+		}
+		else
+			return Redirect::to('admin/modules/add')->withInput()->withErrors($v);
+	}
+
 	public function getAddUnivQuestion(){
 		if(Auth::privelegecheck(15))
 		{
 			$title = 'Add New University Question';
 			$subjects_array = array();
+			$modules_array = array();
 			$subjects = Subject::all();
+			$modules = Module::all();
 			foreach ($subjects as $subject) {
 				$subjects_array[$subject->subject_id] = $subject->subject_name;
 			}
-			return View::make('newunivquestion')->with('title', $title)->with('subjects', $subjects_array)->with('type', 'new');
+			foreach ($modules as $module) {
+				$modules_array[$module->module_id] = $module->module_name;
+			}
+			return View::make('newunivquestion')->with('title', $title)->with('subjects', $subjects_array)->with('modules', $modules_array)->with('type', 'new');
 		}
 		else
 			return Redirect::to('login');
@@ -91,7 +133,8 @@ class AdminController extends BaseController{
 			'month' => 'required',
 			'year' => 'required',
 			'marks' => 'required',
-			'subject' => 'required');
+			'subject' => 'required',
+			'module' => 'required');
 		$v = Validator::make($input, $rules);
 		if($v->passes())
 		{
@@ -116,12 +159,13 @@ class AdminController extends BaseController{
 			$question->tags()->attach($tag_id);
 			$univQuestion->question_marks = $input['marks'];
 			$univQuestion->question_subject_id = $input['subject'];
+			$univQuestion->question_module_id = $input['module'];
 			$univQuestion->question()->associate($question);
 			$univQuestion->push();
 			for($i=0;$i<count($input['year']);$i++){
 				$univQuestionDate=new UniversityQuestionDate();
 				$univQuestionDate->question_number = $input['ques_no'][$i];
-				$month_year = $input['month'][$i]." ".$input['year'][$i];
+				$month_year = $input['month'][$i]."".$input['year'][$i];
 				$univQuestionDate->month_year = $month_year;
 				$univQuestionDate->universityquestion()->associate($univQuestion);
 				$univQuestionDate->push();	
@@ -135,15 +179,29 @@ class AdminController extends BaseController{
 
 	public function univQuestionsMainPage(){
 		$branches = Branch::all();
+		$subjects = Subject::all();
 		$univQuestionDates = UniversityQuestionDate::all();
-		// $univQuestionDates = UniversityQuestionDate::has('universityquestion.subject.branch', 'like', 'Computers')->get();
+		
 		return View::make('univquestionshome')->with('title', 'University Questions')->with('branches', $branches);
 	}
 
 	public function viewUnivQuestions(){
 		$subject_id = Input::get('sid', -1);
-		$univques = UniversityQuestion::where('question_subject_id', $subject_id)->get();
+		$module_id =Input::get('mid', -1);
+		$univques = UniversityQuestion::where('question_subject_id', $subject_id)
+		->orWhere('question_module_id', $module_id)->get();
 		return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques);
+	}
+
+	public function viewUnivQuestionsByDate($exam){
+		$exam = urldecode($exam);
+		$subject_id = Input::get('sid', -1);
+		$univques = UniversityQuestion::join('university_questions_dates', 'university_questions.post_id', '=', 'university_questions_dates.post_id')
+			->where('university_questions.question_subject_id', $subject_id)
+			->where('university_questions_dates.month_year', 'like', $exam)
+			->orderBy('university_questions_dates.question_number')
+			->get();
+			return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques);
 	}
 
 	public function viewUserProfile(){

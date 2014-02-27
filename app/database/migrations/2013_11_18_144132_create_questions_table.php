@@ -35,9 +35,9 @@ class CreateQuestionsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('questions', function($table) {
+		/*Schema::table('questions', function($table) {
             $table->dropIndex('search');
-        });
+        });*/
 
 		Schema::drop('questions');
 	}

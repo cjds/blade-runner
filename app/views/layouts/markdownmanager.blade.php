@@ -86,7 +86,7 @@ converter :null,
     Preview.init();
     Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
     Preview.callback.autoReset = true;  // make sure it can run more than once
-
+    Preview.Update();
     $('#wmd-bold').click(function(e){
         $('#wmd-input').val(setUpmarkDownChar('**',$('#wmd-input'),'bold',true));
         Preview.Update();
@@ -169,7 +169,7 @@ converter :null,
        $('#markdown_add_image input[name=image-href]').val(''); //reset value to blank
        $('#markdown_add_image input[name=image-description]').val(''); //reset value to blank
          
-       $('#wmd-input').val(markdownAddChar('',$('#wmd-input')[0].selectionStart,$('#wmd-input')[0].selectionStart,$('#wmd-input').val(),'['+text+']'+'('+link+')',false));
+       $('#wmd-input').val(markdownAddChar('',$('#wmd-input')[0].selectionStart,$('#wmd-input')[0].selectionStart,$('#wmd-input').val(),'!['+text+']'+'('+link+')',false));
 
        $('#linkdialog').foundation('reveal', 'close');
         Preview.Update();

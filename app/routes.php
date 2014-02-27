@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -25,6 +26,8 @@ Route::get('admin/branches', 'AdminController@manageBranches');
 Route::post('admin/add/branches', 'AdminController@addNewBranch');
 Route::get('admin/subjects', 'AdminController@manageSubjects');
 Route::post('admin/add/subjects', 'AdminController@addNewSubject');
+Route::get('admin/modules', 'AdminController@manageModules');
+Route::post('admin/add/modules', 'AdminController@addNewModule');
 
 Route::get('view/profile', 'AdminController@viewUserProfile');
 Route::get('edit/profile', 'AdminController@getEditProfile');
@@ -87,6 +90,7 @@ Route::get('add/univquestion', 'AdminController@getAddUnivQuestion');
 Route::post('add/univquestion', 'AdminController@postAddUnivQuestion');
 Route::get('univquestions/mainpage', 'AdminController@univQuestionsMainPage');
 Route::get('univquestions/view', 'AdminController@viewUnivQuestions');
+Route::get('univquestions/view/paper/{exam}', 'AdminController@viewUnivQuestionsByDate');
 
 //Flags
 Route::get('moderator/flags','ModeratorController@getViewFlags');
@@ -99,6 +103,18 @@ Route::get('json/moderator/newreview','QuestionController@getJSONNextModeratorRe
 Route::post('json/moderator/newreview','QuestionController@postJSONNextModeratorReview');
 
 
+//Controller to handle all our CRON jobs, mail etc.
+/*******************************************
+***********Worker Controller*************
+*******************************************/
+
+
+Route::get('mail',function(){
+
+	   Mail::send('mail', array('firstname'=>'Carl'), function($message){
+        $message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to the Laravel 4 Auth App!');
+    });
+});
 
 
 

@@ -14,6 +14,7 @@
 
 <div class="row">
 	<div class="large-8 small-12 columns">
+
 	<table class="table large-12">
 	<thead>
 	<tr>
@@ -23,13 +24,19 @@
 		<th>Votes</th>
 		<th>Answers</th>
 		<th>Asked in</th>
+		<th>Belongs to Module</th>
 	</tr>
 	</thead> 
 
 	<tbody>
 	@foreach($univques as $uq)
 	<tr style='align:left'>
-		<td>{{$uq->question_number}}</td>
+		<td>
+			@foreach ($uq->universityquestiondates as $qno)
+				{{$qno->question_number}}
+				<br>
+			@endforeach
+		</td>
 		<td>
 			<a href="{{url('view/question')}}?qid={{$uq->post_id}}">{{ $uq->question->question_title }}
 			</a>
@@ -47,6 +54,7 @@
 
 			@endforeach
 		</td>
+		<td><a href="{{url('univquestions/view')}}?mid={{$uq->module->module_id}}">{{$uq->module->module_name}}</td>
 		</tr>
 		@endforeach
 	</tbody>

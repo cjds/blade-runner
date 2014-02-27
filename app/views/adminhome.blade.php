@@ -76,6 +76,7 @@
 <ul>
 <li>{{HTML::link('admin/branches', "Branches" );}}</li>
 <li>{{HTML::link('admin/subjects', "Subjects" );}}</li>
+<li>{{HTML::link('admin/modules', "Modules");}}</li>
 </div>
 </ul>
 </div>

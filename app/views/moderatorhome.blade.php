@@ -10,6 +10,8 @@
 		<h3>{{HTML::link('moderator/review?type=answer', 'Moderate Anwers');}}</h3>
 		<br>
 		<h3>{{HTML::link('moderator/flags', 'Moderate Flags');}}</h3>
+		<br>
+		<h3>{{HTML::link('add/univquestion', 'Add University Questions');}}</h3>
 	</div>
 </div>
 @stop

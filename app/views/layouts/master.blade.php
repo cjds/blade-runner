@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{{URL::asset('icon/favicon.ico')}}" type="image/icon" >
+  
+
     <title>Gradhat | Welcome</title>
     {{HTML::style('css/foundation.css')}}
     {{HTML::script('js/modernizr.js')}}
@@ -46,7 +49,6 @@
       border-bottom:#bbb solid thin;
     }
     .box-sides{
-      border-right:#ddd solid thin;
       border-left:#ddd solid thin;
 
     }

@@ -5,10 +5,10 @@
             <h4 >Add Link</h4>
         </div>
         <div class='row'>
-            {{Form::open(array('url'=>'#','id' =>'markdown_add_link'))}}
+            <div action='#' id='markdown_add_link'>
             {{Form::text('link-href', '',array('placeholder'=>'enter link address (http://www.goodlink.com)'))}}
             {{Form::text('link-description', '',array('placeholder'=>'description'))}}
-            {{Form::close()}}
+            </div>
         </div>
         <div class="row">
             <button class='button small' id='addLinkBtn'>Add Link</button>
@@ -24,14 +24,13 @@
         <div class='row'>
             <h4 >Add Image</h4>
         </div>
-        <div class='row'>
-          {{Form::open(array('url'=>'#','id' =>'markdown_add_image'))}}
-          {{Form::text('image-description', '',array('placeholder'=>'image title/ alt text'))}}
-        </div>
-        <div class='row'>
+        <div id='markdown_add_image'>
+          <div class='row'>
+            {{Form::text('image-description', '',array('placeholder'=>'image title/ alt text'))}}
+          </div>
+          <div class='row'>
             {{Form::text('image-href', '',array('placeholder'=>'enter link address (http://www.goodlink.com/image.jpg)'))}}
-            
-            {{Form::close()}}
+          </div>
         </div>
         <div class="row">
             <button class='button small' id='addImageBtn'>Add Link</button>
