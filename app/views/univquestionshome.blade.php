@@ -2,6 +2,17 @@
 
 @section('content')
 
+<style>
+	.sem:hover, .branch:hover{
+		cursor: pointer;
+		color: #0079a1;
+	}
+
+	td{
+		vertical-align: top;
+	}
+</style>
+
 <script type='text/javascript'>
 	$(document).ready(function(){
 		$("[name = 'modules']").click(function(){
@@ -44,17 +55,26 @@
 			};
 			content += "</table>";
 			$(this).html(content);
+		});
+
+		$(".branch").click(function(){
+			$(this).next().find(".sem").toggle(250);
 		})
+		$(".sem").click(function(){
+			$(this).next().fadeToggle("slow");
+		});
 	});
 </script>
 
 <div class="row">
-	<div class="large-4 small-12 columns">
+	<div class="large-8 large-offset-2 small-12 columns box-sides box-top box-bottom">
 		@foreach ($branches as $branch)
-			<h3>{{$branch->branch_name}}</h3>
+			<h3 class="branch">{{$branch->branch_name}}</h3>
+			<ul class="no-bullet">
 			@for ($i=3; $i <= 8; $i++)
-				Semester {{$i}}
-				<table>
+				<li>
+				<div class="sem" style="display:none">Semester {{$i}}</div>
+				<table class="toShow " style="display:none">
 					<tr>
 						<td>
 							@foreach ($branch->subjects as $subject)
@@ -67,7 +87,9 @@
 						</td>
 					</tr>
 				</table> 
+				</li>
 			@endfor
+			</ul>
 		@endforeach
 	</div>
 </div>
