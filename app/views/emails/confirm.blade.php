@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head  charset="utf-8">
 <style>
 	header{
 		background: #008cba !important;
@@ -10,11 +13,12 @@
 		 border:#ddd solid thin;
 
 	}
-
 	footer{
 		background: #f9f9ff !important;
 	}
 </style>
+</head>
+<body>
 <div class='wrapper'>
 <header>
 	<a href="{{ URL::to('view/questions')}}">
@@ -37,4 +41,5 @@ This is an authentication link you can use to confirm your email:
 <footer>
 
 </footer>
-</div>
+</div></body>
+</html>
