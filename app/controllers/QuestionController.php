@@ -30,7 +30,7 @@ class QuestionController extends BaseController{
 	    	//set up the rules
 			$rules=array(
 				'title'=>'required',
-				'question'=>'required',
+				'wmd-input'=>'required',
 			);
 			
 			$v = Validator::make($input, $rules);
@@ -39,7 +39,7 @@ class QuestionController extends BaseController{
 				$question=new Question();
 				//$question->addQuestion(Auth::user(),$input['title'],$input['question'],array());
 				$question->question_title=$input['title'];
-				$question->question_body=$input['question'];
+				$question->question_body=$input['wmd-input'];
 				$question_tags=explode(',', $input['tags']);
 				for($i=0;$i<count($question_tags);$i++) {
 					$question_tags[$i]=trim($question_tags[$i]);
