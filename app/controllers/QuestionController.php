@@ -31,6 +31,7 @@ class QuestionController extends BaseController{
 			$rules=array(
 				'title'=>'required',
 				'wmd-input'=>'required',
+				'tags'=>'required'
 			);
 			
 			$v = Validator::make($input, $rules);
