@@ -54,7 +54,7 @@
     }
     .box-sides{
       border-left:#ddd solid thin;
-
+ border-right:#ddd solid thin;
     }
 
     .box-top{

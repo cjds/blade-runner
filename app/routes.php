@@ -111,9 +111,9 @@ Route::post('json/moderator/newreview','QuestionController@postJSONNextModerator
 
 
 Route::get('mail',function(){
-
-	   Mail::send('mail', array('firstname'=>'Carl'), function($message){
-        $message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to the Laravel 4 Auth App!');
+		return View::make('mail','Hi');
+	   //Mail::send('mail', array('firstname'=>'Carl'), function($message){
+        //$message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to the Laravel 4 Auth App!');
     });
 });
 
