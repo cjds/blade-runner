@@ -294,7 +294,7 @@ class QuestionController extends BaseController{
 						$answer->update();
 						$creator->update();
 					}
-
+						
 					return Response::json(array('status'=>'pass','message'=>"Vote Successfully"));
 				}
 				else{
@@ -521,6 +521,28 @@ class QuestionController extends BaseController{
 	    }
 	    return $query->take($num)->get()->toJson();
 	}
+
+	// public function viewUnivQuestions($type,$name){
+	// 	if($type=='subject'){
+	// 		//Show list of modules and papers
+	// 		$hello=urldecode($name);
+	// 		$uniq= UniversityQuestion::whereHas('subject',function($p) use $hello{
+	// 				$p->where('subject_name',urldecode($name));
+	// 		});
+	// 		return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques);
+	// 	}
+	// 	else if($type=='module'){
+	// 		//Show questions
+	// 	}
+	// 	else if($type=='papers'){
+	// 		//Show questions
+
+	// 	}
+	// 	else if($type=='branches'){
+	// 		//Show all sems and subjects
+	// 	}
+
+	// }
 
 
 }
