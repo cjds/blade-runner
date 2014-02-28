@@ -76,8 +76,16 @@ class UserController extends BaseController {
 			$user->user_password=$password;
 			$user->user_email=$input['user_email'];
 			$user->privelege_level=0;
+			$user->confirmstring=substr(str_shuffle( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" ), 0, 1).substr( md5( time() ), 1);
 			$user->save();
-			return Redirect::to('login');
+			Mail::queue('emails.confirm', 
+					array('user'=>$user->user_username,'link'=>URL::to('register/confirm/xy22'.$user->user_id.'az/'.$user->confirmstring)), 
+					function($message){
+       					$message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to Gradhat');
+    				}
+    		);
+			
+			return Redirect::to('register/success');
 		}
 		else{
 			return Redirect::to('register')->withInput()->withErrors($v);
@@ -176,6 +184,24 @@ class UserController extends BaseController {
 		else{
 			return Response::json(array('status'=>'fail','message'=>'Not sufficient Authority',));
 		}
+	}
+
+	public function getRegisterSuccess(){
+		return View::make('templates.sendmessage', array('head'=>'Registration Successful','body'=>"Congratulations! Check your email address for confirmation email. "));
+	}
+
+	public function getRegisterConfirm($user_id,$confirmcode){
+		$user=User::findOrFail($user_id);
+		$returnString="You're authenticated! Thank You for confirming your email account.";
+		if($user->confirmstring==$confirmcode){
+			$user->confirmed=1;
+			$user->save();
+
+		}
+		else{
+			$returnString="I'm sorry but you seem to have got a wrong confirmation code.";
+		}
+		return View::make('templates.sendmessage', array('head'=>'Confirming Your E-mail','body'=>$returnString));
 	}
 }
 ?>

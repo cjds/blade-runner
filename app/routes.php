@@ -16,7 +16,7 @@
 /*******************************************
 ***********User Controller*****************
 *******************************************/
-Route::get('/','UserController@getLogin');
+
 Route::get('/login','UserController@getLogin');
 Route::post('/login','UserController@postLogin');
 Route::get('/register','UserController@getRegister');
@@ -35,7 +35,8 @@ Route::post('edit/profile', 'AdminController@postEditProfile');
 Route::get('edit/password', 'AdminController@getChangePassword');
 Route::post('edit/password', 'AdminController@postChangePassword');
 
-
+Route::get('register/success','UserController@getRegisterSuccess');
+Route::get('register/confirm/xy22{user_id}az/{confirmcode}','UserController@getRegisterConfirm');
 
 /*******************************************
 ***********Admin Controller*****************
@@ -52,7 +53,7 @@ Route::post('json/admin/toggleBlock','UserController@postBlockUser');
 /*******************************************
 ***********Question Controller**************
 *******************************************/
-
+Route::get('/','QuestionController@viewAllQuestions');
 //Add
 Route::get('add/question','QuestionController@getAddQuestion');
 Route::post('add/question','QuestionController@postAddQuestion');
@@ -91,6 +92,7 @@ Route::post('add/univquestion', 'AdminController@postAddUnivQuestion');
 Route::get('univquestions/mainpage', 'AdminController@univQuestionsMainPage');
 Route::get('univquestions/view', 'AdminController@viewUnivQuestions');
 Route::get('univquestions/view/paper/{exam}', 'AdminController@viewUnivQuestionsByDate');
+Route::get('univquestions/view/branch','AdminController@getSubUnderBranch');
 
 //Flags
 Route::get('moderator/flags','ModeratorController@getViewFlags');
@@ -110,12 +112,9 @@ Route::post('json/moderator/newreview','QuestionController@postJSONNextModerator
 
 
 Route::get('mail',function(){
-
-	   Mail::send('mail', array('firstname'=>'Carl'), function($message){
-        $message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to the Laravel 4 Auth App!');
-    });
+		//return View::make('mail',array('user'=>'cjds'));
+	   Mail::send('emails.confirm', array('user'=>'Carl','link'=>'nothing'), function($message){
+       $message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to Gradhat');
+    	});
 });
-
-
-
 ?>

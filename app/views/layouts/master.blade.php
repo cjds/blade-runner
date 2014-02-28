@@ -16,10 +16,17 @@
 
       .top-bar{
         background: #008cba;
-      }
 
+
+      }
+      p{
+                  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        font-weight: 500
+      }
        .top-bar-section ul li a{
           background: #008cba !important;
+          font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        font-weight: 500
        }
 
         .top-bar-section ul li.has-form{
@@ -50,7 +57,7 @@
     }
     .box-sides{
       border-left:#ddd solid thin;
-
+ border-right:#ddd solid thin;
     }
 
     .box-top{

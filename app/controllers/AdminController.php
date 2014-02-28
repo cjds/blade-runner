@@ -185,12 +185,22 @@ class AdminController extends BaseController{
 		return View::make('univquestionshome')->with('title', 'University Questions')->with('branches', $branches);
 	}
 
+	public function getSubUnderBranch(){
+		$branch_id= Input::get('bid', -1);
+		$subjects=Subject::where('subject_branch_id', $branch_id)->get();
+		return View::make('univsubjects')->with('title', 'University Questions')->with('subjects', $subjects);
+	}
+
 	public function viewUnivQuestions(){
+		
+		
 		$subject_id = Input::get('sid', -1);
 		$module_id =Input::get('mid', -1);
+
 		$univques = UniversityQuestion::where('question_subject_id', $subject_id)
 		->orWhere('question_module_id', $module_id)->get();
 		return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques);
+
 	}
 
 	public function viewUnivQuestionsByDate($exam){

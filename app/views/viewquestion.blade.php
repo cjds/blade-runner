@@ -21,11 +21,28 @@
     $('*.votebtn').click(function(e){
     
 			e.preventDefault();
+      var thisCopy=$(this);
 			$.ajax({
   				type: "POST",
   				url: "{{url('add/addVote')}}",
-  				data: { type: $(this).attr('data-vote'), post_id: $(this).attr('data-post-id') }
-  			});
+  				data: { type: $(this).attr('data-vote'), post_id: $(this).attr('data-post-id') },
+          dataType:"json"
+  			}).done(function(json){
+            
+          if(json.status=='pass'){
+            //alert(a+" " + $(this).attr('data-vote'));
+            if(thisCopy.attr('data-vote')==-1)
+              thisCopy.attr('src','{{URL::asset("img/downvote-pep.png")}}');
+            else
+              thisCopy.attr('src','{{URL::asset("img/upvote-pep.png")}}');
+            var copy=$('.voteno[data-post-id='+thisCopy.attr('data-post-id')+']');
+            voteCount=parseInt(copy.html())+parseInt(thisCopy.attr('data-vote'));
+            $('.voteno[data-post-id='+thisCopy.attr('data-post-id')+']').html(voteCount);
+          }
+          else{
+            alert(json.message);
+          }
+        });
 		});
 
 		$('#json_add_flag').submit(function(e){
@@ -62,7 +79,7 @@
             @else
               {{HTML::image('img/upvote-pep.png', 'upvote', array('style'=>'width:40px;height:30px;margin-left:8px'));}}
             @endif
-            <div style='text-align:center;font-size:1.7em;width:56px'>{{$question->post->votes()->sum('voteType')+0;}} </div>
+            <div class='voteno' data-post-id='{{$question->post_id}}' style='text-align:center;font-size:1.7em;width:56px'>{{$question->post->votes()->sum('voteType')+0;}} </div>
             @if(!$question->post->votes()->where('user_id',$user_id)->where('voteType',-1)->exists())
               {{HTML::image('img/downvote-bland.png', 'downvote', array('style'=>'width:40px;height:30px;margin-left:8px','class'=>'votebtn','data-post-id'=>$question->post_id,'data-vote'=>-1));}}
             @else
@@ -125,7 +142,7 @@
             @else
               {{HTML::image('img/upvote-pep.png', 'upvote', array('style'=>'width:40px;height:30px;margin-left:8px'));}}
             @endif
-        		<div style='text-align:center;font-size:1.7em;width:56px'>{{$answer->post->votes()->sum('voteType')+0;}} </div>
+        		<div class='voteno' data-post-id='{{$answer->post->post_id}}' style='text-align:center;font-size:1.7em;width:56px'>{{$answer->post->votes()->sum('voteType')+0;}} </div>
             @if(!$answer->post->votes()->where('user_id',$user_id)->where('voteType',-1)->exists())
         		  {{HTML::image('img/downvote-bland.png', 'downvote', array('style'=>'width:40px;height:30px;margin-left:8px','class'=>'votebtn','data-post-id'=>$answer->post_id,'data-vote'=>-1));}}
             @else
