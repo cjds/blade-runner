@@ -2,13 +2,17 @@
 	header{
 		background: #008cba !important;
 		min-height: 30px;
+		margin-bottom: 0px;
+		padding-bottom: 0px;
 	}
 	.sides{
-		 border-left:#ddd solid thin;
-		  border-right:#ddd solid thin;
+		padding-left: 5px;
+		 border:#ddd solid thin;
+
 	}
-	.wrapper{
-		width:400px;
+
+	footer{
+		background: #f9f9ff !important;
 	}
 </style>
 <div class='wrapper'>
@@ -19,12 +23,18 @@
 </header>
 <section class='sides'>
 <p>
-Hi, Welcome to gradhat. 
+<h2>Hi {{$user}}, </h2>
+This is an authentication link you can use to confirm your email:
 <br>
- {{HTML::link('/', 'Here');}}'s a link to our site.
+<a href='{{$link}}'>{{$link}}</a>
+<br><br> Now that you're a member you can:
+ <ul>
+ <li>Post Questions</li>
+ <li>View the Mumbai University Questions</li>
+ </ul>
  </p>
 </section>
 <footer>
-}LINKS
+
 </footer>
 </div>

@@ -35,7 +35,8 @@ Route::post('edit/profile', 'AdminController@postEditProfile');
 Route::get('edit/password', 'AdminController@getChangePassword');
 Route::post('edit/password', 'AdminController@postChangePassword');
 
-
+Route::get('register/success','UserController@getRegisterSuccess');
+Route::get('register/confirm/xy22{user_id}az/{confirmcode}','UserController@getRegisterConfirm');
 
 /*******************************************
 ***********Admin Controller*****************
@@ -111,12 +112,9 @@ Route::post('json/moderator/newreview','QuestionController@postJSONNextModerator
 
 
 Route::get('mail',function(){
-		return View::make('mail','Hi');
-	   //Mail::send('mail', array('firstname'=>'Carl'), function($message){
-        //$message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to the Laravel 4 Auth App!');
-    });
+		//return View::make('mail',array('user'=>'cjds'));
+	   Mail::send('mail', array('user'=>'Carl','link'=>'nothing'), function($message){
+       $message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to Gradhat');
+    	});
 });
-
-
-
 ?>

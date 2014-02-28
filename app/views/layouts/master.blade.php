@@ -19,7 +19,10 @@
 
 
       }
-
+      p{
+                  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+        font-weight: 500
+      }
        .top-bar-section ul li a{
           background: #008cba !important;
           font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
