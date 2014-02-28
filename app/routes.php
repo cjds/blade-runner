@@ -113,7 +113,7 @@ Route::post('json/moderator/newreview','QuestionController@postJSONNextModerator
 
 Route::get('mail',function(){
 		//return View::make('mail',array('user'=>'cjds'));
-	   Mail::send('mail', array('user'=>'Carl','link'=>'nothing'), function($message){
+	   Mail::send('emails.confirm', array('user'=>'Carl','link'=>'nothing'), function($message){
        $message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to Gradhat');
     	});
 });

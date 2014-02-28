@@ -79,7 +79,7 @@ class UserController extends BaseController {
 			$user->confirmstring=substr(str_shuffle( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" ), 0, 1).substr( md5( time() ), 1);
 			$user->save();
 			Mail::queue('emails.confirm', 
-					array('firstname'=>'Carl','link',URL::to('register/confirm/xy22'.$user->user_id.'az/'.$user->confirmstring)), 
+					array('user'=>$user->user_username,'link',URL::to('register/confirm/xy22'.$user->user_id.'az/'.$user->confirmstring)), 
 					function($message){
        					$message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to Gradhat');
     				}
