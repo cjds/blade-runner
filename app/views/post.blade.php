@@ -1,7 +1,5 @@
 @extends('layouts.master')
 
-
-
 @if($type=="edit")
 <?php $tagArray=array();?>
 @foreach ($question->tags as $tag) 
@@ -42,6 +40,12 @@
 	<aside class="large-3 hide-for-small push-right medium-3 box-top box-sides  columns">
 		<div class='row'>
 			<h5 class='box-solid-bottom'>Rules for posting</h5>
+			<ul class="no-bullet">
+				<li>Be on-topic</li>
+				<li>Be specific</li>
+				<li>Make it relevant to others</li>
+				<li>Keep an open mind</li>
+			</ul>
 		</aside>
 	
 	</div>

@@ -13,8 +13,20 @@ td.count{
 .searchtable thead tr th{
 	text-align:center;	
 }
+
+.sort{
+	margin-bottom: 0;
+	background-color: #eef;
+}
 </style>
 <div class="large-offset-2 large-8 small-12 columns">
+<table class="sort">
+	<tr>
+		<td>{{HTML::link('search/questions/sort/'.urlencode('recent').'?search='.$keyword.'&tag='.$tag, 'recent first')}}</td>
+		<td>{{HTML::link('search/questions/sort/'.urlencode('answered').'?search='.($keyword).'&tag='.$tag, 'answered only')}}</td>
+		<td>{{HTML::link('search/questions/sort/'.urlencode('unanswered').'?search='.($keyword).'&tag='.$tag, 'unanswered only')}}</td>	
+	</tr>
+</table>
 <div class="row">
 	<table class="large-12 small-12 searchtable">
 	  <thead>
@@ -40,7 +52,7 @@ td.count{
 		</td>
 		<td class='hide-for-small'>
 		@foreach($question->tags as $tag)
-			<span class='tag'>{{HTML::link('search/questions/tag/'.urlencode($tag->tag_name), $tag->tag_name);}}</span>
+			<span class='tag'>{{HTML::link('search/questions?search=&tag='.urlencode($tag->tag_name), $tag->tag_name);}}</span>
 		@endforeach
 		
 		</td>

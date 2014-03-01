@@ -38,6 +38,8 @@ Route::post('edit/password', 'AdminController@postChangePassword');
 Route::get('register/success','UserController@getRegisterSuccess');
 Route::get('register/confirm/xy22{user_id}az/{confirmcode}','UserController@getRegisterConfirm');
 
+Route::get('/contact', 'BaseController@viewContactPage');
+
 /*******************************************
 ***********Admin Controller*****************
 *******************************************/
@@ -73,6 +75,7 @@ Route::post('add/addVote','QuestionController@postAddVote');
 //Searching
 Route::get('search/questions/tag/{tag}', 'QuestionController@viewQuestionsByTags');
 Route::get('search/questions', 'QuestionController@viewQuestionList');
+Route::get('search/questions/sort/{type}', 'QuestionController@sortQuestionList');
 
 //Add a flag
 Route::post('json/add/flag','QuestionController@postJSONAddFlag');

@@ -12,9 +12,10 @@
     {{HTML::script('js/jquery.js')}}
 
     <style>
+
     .row {min-width:100% !important;}
 
-      .top-bar{
+      .top-bar, .bottom-bar{
         background: #008cba;
 
 
@@ -23,7 +24,7 @@
                   font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
         font-weight: 500
       }
-       .top-bar-section ul li a{
+       .top-bar-section ul li a, .bottom-bar-section ul li a{
           background: #008cba !important;
           font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
         font-weight: 500
@@ -33,7 +34,7 @@
           background: #008cba !important;
        }
 
-       .top-bar-section ul li a:hover{
+       .top-bar-section ul li a:hover, .bottom-bar-section ul li a:hover{
           background: #20acda !important;
           text-decoration: underline;;
        }
@@ -76,7 +77,7 @@
         color:#cccccc;
       }
 
-    section[role='footer'] ul li{
+      section[role='footer'] ul li{
       display: inline;
       margin-right:40px;
       float:right;
@@ -129,7 +130,7 @@
       }
 
       .searchtable{
-        border: dashed thin #ccc;
+        border: solid 1px #ddd;
       }
 
       .searchtable th{
@@ -167,7 +168,9 @@
         $('aside').css('height', $('.main').height());
       });
     </script>
+
   </head>
+
   <body>
     
     <nav class="top-bar" data-topbar>
@@ -236,7 +239,9 @@
 
 <section role="main">
 @yield('content')	
-</section>    
+<div id="push"></div>
+</section> 
+
 {{HTML::script('js/foundation.min.js')}}
     <script>
       $(document).foundation();

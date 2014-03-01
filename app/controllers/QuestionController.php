@@ -197,7 +197,7 @@ class QuestionController extends BaseController{
 	*/
 	public function viewAllQuestions (){
 		$questions = Question::paginate(15);
-		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions);
+		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions)->with('keyword', '')->with('tag', '');
 	}
 
 
@@ -315,17 +315,17 @@ class QuestionController extends BaseController{
 
 
 
-	public function viewQuestionsByTags ($tag_name){
-		$tag_name=urldecode($tag_name);
-		//$tag_id=Input::get('tid', -1);
-		//$tag=Tag::where('tag_name',$tag_name)->first();
+	// public function viewQuestionsByTags ($tag_name){
+	// 	$tag_name=urldecode($tag_name);
+	// 	//$tag_id=Input::get('tid', -1);
+	// 	//$tag=Tag::where('tag_name',$tag_name)->first();
 		
-		$questions=Question::whereHas('tags', function($q) use ($tag_name){
-    		$q->where('tag_name', 'like', $tag_name);
-		})->paginate(15);
+	// 	$questions=Question::whereHas('tags', function($q) use ($tag_name){
+ //    		$q->where('tag_name', 'like', $tag_name);
+	// 	})->paginate(15);
 
-		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions);
-	}
+	// 	return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions)->with('keyword', $tag_name);
+	// }
 
 
 	/**
@@ -336,11 +336,70 @@ class QuestionController extends BaseController{
 	*/
 	public function viewQuestionList(){
 		$input = Input::get('search');
+		$tag = Input::get('tag');
 		//$questions = Question::whereRaw("MATCH(question_title, question_body) AGAINST(? IN BOOLEAN MODE)", array($input))->get();
-		$questions = Question::whereRaw("question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%'")->paginate(15);
-		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions);
+		if($input != null){
+			$questions = Question::whereRaw("question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%'")->paginate(15);
+		}
+		elseif ($tag != null) {
+			$questions=Question::whereHas('tags', function($q) use ($tag){
+    			$q->where('tag_name', 'like', $tag);
+			})->paginate(15);
+
+		}
+		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions)->with('keyword', $input)->with('tag', $tag);
 	}
 
+	public function sortQuestionList($type){
+		$input = Input::get('search');
+		$tag = Input::get('tag');
+		$type = urldecode($type);
+		if($type == 'recent'){
+			if($input != null){
+				$questions = Question::whereRaw("question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%'")
+				->orderBy('updated_at', 'DESC')
+				->paginate(15);
+			}
+			elseif ($tag != null) {
+				$questions=Question::whereHas('tags', function($q) use ($tag){
+    				$q->where('tag_name', 'like', $tag);
+				})->orderBy('updated_at', 'DESC')
+				->paginate(15);
+			}
+		}
+
+		elseif ($type == 'answered') {
+			if($input != null){
+				$questions = Question::has('answers')
+					->whereRaw("(question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%')")
+					->paginate(15);
+			}
+			elseif ($tag != null) {
+				$questions = Question::has('answers')
+					->whereRaw("(question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%')")
+					->whereHas('tags', function($q) use ($tag){
+    				$q->where('tag_name', 'like', $tag);
+					})->paginate(15);
+			}
+		}
+
+		elseif ($type == 'unanswered') {
+			if ($input != null) {
+				$questions = Question::has('answers', '=', 0)
+					->whereRaw("(question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%')")
+					->paginate(15);
+			}
+			elseif ($tag != null) {
+				$questions = Question::has('answers', '=', 0)
+					->whereRaw("(question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%')")
+					->whereHas('tags', function($q) use ($tag){
+    				$q->where('tag_name', 'like', $tag);
+					})->paginate(15);
+			}
+		}
+
+		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions)->with('keyword', $input)->with('tag', $tag);
+	}
 
 
 	public function getModeratorReviews(){

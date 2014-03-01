@@ -15,4 +15,8 @@ class BaseController extends Controller {
 		}
 	}
 
+	public function viewContactPage(){
+		return View::make('contact')->with('title', 'Contact Us');
+	}
+
 }

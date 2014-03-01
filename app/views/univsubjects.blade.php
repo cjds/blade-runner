@@ -23,21 +23,21 @@
 			var month = (new Date).getMonth()+1;
 			var subject_id = $(this).data('subjectid');
 				if (month >= 6) {
-					content += "<tr><td><a href={{url('univquestions/view/paper', 'May" + year + "')}}?sid=" + subject_id + ">";
+					content += "<tr><td><a href={{url('univquestions/view/paper')}}/May" + year + "?sid=" + subject_id + ">";
 					content += "May/June" + year
 					content += "</td>";
 				}
 				if (month == 12) {
-					content += "<td><a href={{url('univquestions/view/paper', 'December" + year + "')}}?sid=" + subject_id + ">";
+					content += "<td><a href={{url('univquestions/view/paper')}}/December" + year + "?sid=" + subject_id + ">";
 					content += "December " + year;
 					content += "</td>";
 				}
 				content += "</tr>";
 			for (var i = year-1; i >= 2010; i--) {
 				content += "<tr><td>";
-				content += "<tr><td><a href={{url('univquestions/view/paper', 'May" + i + "')}}?sid=" + subject_id + ">";
+				content += "<tr><td><a href={{url('univquestions/view/paper')}}/May" + i + "?sid=" + subject_id + ">";
 				content += "May/June " + i;
-				content += "</td><td><a href={{url('univquestions/view/paper', 'December" + i + "')}}?sid=" + subject_id + ">";
+				content += "</td><td><a href={{url('univquestions/view/paper')}}/December" + i + "?sid=" + subject_id + ">";
 				content += "December " + i;
 				content += "</td></tr>";
 				
