@@ -50,9 +50,12 @@
 
 <div class="row">
 	<div class="large-8 large-offset-2 small-12 columns box-top box-sides box-bottom">
+	<div class='row' style='text-align:center'>
+		<h2> Computers</h2>
+	</div>
 	@for ($i=3; $i <= 8; $i++)
 		<h3>	Semester {{$i}} </h3>
-		<table>
+		
 		@foreach ($subjects as $subject) 
 			@if($subject->subject_sem == $i)
 				<tr>
@@ -62,7 +65,7 @@
 				</tr>
 			@endif
 		@endforeach
-		</table>
+			
 	@endfor
 	</div>
 </div>

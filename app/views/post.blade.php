@@ -42,6 +42,7 @@
 	<aside class="large-3 hide-for-small push-right medium-3 box-top box-sides  columns">
 		<div class='row'>
 			<h5 class='box-solid-bottom'>Rules for posting</h5>
+			</div>
 		</aside>
 	
 	</div>

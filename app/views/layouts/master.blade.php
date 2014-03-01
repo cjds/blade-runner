@@ -5,20 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="{{URL::asset('icon/favicon.ico')}}" type="image/icon" >
   
+    <meta name=”description” content="Gradhat provides the answers to all the mumbai university questions. We're a community of students and teachers helping people get through their exams">
 
-    <title>Gradhat | Welcome</title>
+
+    <meta property="og:title" content="{{$title}}"/>
+
+    <title>{{$title}} | Gradhat</title>
     {{HTML::style('css/foundation.css')}}
     {{HTML::script('js/modernizr.js')}}
     {{HTML::script('js/jquery.js')}}
 
     <style>
+    
     .row {min-width:100% !important;}
 
       .top-bar{
         background: #008cba;
+       }
+
+       body{
+        background: #eee;
+       }
+
+       section[role="main"] div{
+        background: #fff;
+       }
 
 
-      }
       p{
                   font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
         font-weight: 500
@@ -26,11 +39,12 @@
        .top-bar-section ul li a{
           background: #008cba !important;
           font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-        font-weight: 500
+          font-weight: 500
        }
 
         .top-bar-section ul li.has-form{
           background: #008cba !important;
+
        }
 
        .top-bar-section ul li a:hover{
@@ -39,7 +53,7 @@
        }
 
        .divider{
-          border-right:  solid 1px #20acda !important;
+          border-right:  solid 1px #008cba !important;
        }
 
     .notification{
@@ -90,6 +104,7 @@
         border-radius: 4px;
         margin: 4px;
         display: inline-block;
+        
       }
 
       .tag a{
@@ -180,7 +195,7 @@
     
   </ul>
 
-  <section class="top-bar-section">
+  <section class="top-bar-section"  class='columns'>
     <!-- Right Nav Section -->
     <ul class="right">
     	@if(Auth::user())
@@ -234,9 +249,42 @@
 </nav>
 
 
-<section role="main">
+<section role="main" class='columns'>
 @yield('content')	
 </section>    
+
+<style>
+footer div{
+  margin-top: 20px;
+}
+footer div ul li{
+  margin-top: 1em;
+}
+footer div ul{
+  margin-top: 1em;
+  list-style: none;
+}
+
+
+</style>
+<footer style='background:#ccc; margin-top:50px' class='columns'>
+<div class='row'>
+<div class='large-4 columns' style='text-align:center;border-right:#008cba thin solid;margin-top:50px;margin-bottom:50px'>
+  <h4 class='subheading'>Gradhat</h4>
+  <p>Gradhat is a company that builds educational solutions and has fun doing it.
+  You can find out more about us <a href="#" style='color:text-decoration:underline'>here.</a>
+  </p>
+</div>
+
+
+<div class='large-3 columns' style='margin-top:50px;text-align:center'>
+<h4 class='subheading'>Company</h4>
+</div>
+<div class='large-3 columns' style='margin-top:50px;'>
+<h4 class='subheading'>Social</h4>
+</div>
+</div>
+</footer>
 {{HTML::script('js/foundation.min.js')}}
     <script>
       $(document).foundation();
