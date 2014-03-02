@@ -31,11 +31,11 @@ background:none !important;
 					<div class='columns medium-5 small-6 medium-offset-1'>
 						{{HTML::link('univquestions/view?mid='.$module->module_id, $module->module_name);}}
 						</div>
-					@if(($j++)%2==1)
+					@if(($j)%2==1)
 						</div>
 					@endif
 				@endforeach 
-				@if(($j++)%2==1)
+				@if(($j)%2==1)
 				</div>
 				@endif
 				
