@@ -35,6 +35,15 @@
 		//$this->save();
 
 	}
+
+	public function scopeAnswered($query){
+		return $query->has('answers');
+	}
+
+	public function scopeUnanswered($query){
+		return $query->has('answers','=',0);
+	}
+
 }
 
 ?>

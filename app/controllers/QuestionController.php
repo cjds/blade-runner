@@ -197,7 +197,7 @@ class QuestionController extends BaseController{
 	*/
 	public function viewAllQuestions (){
 		$questions = Question::paginate(15);
-		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions);
+		return $this->sortQuestionList('none','all');
 	}
 
 
@@ -316,16 +316,10 @@ class QuestionController extends BaseController{
 
 
 	public function viewQuestionsByTags ($tag_name){
-		$tag_name=urldecode($tag_name);
-		//$tag_id=Input::get('tid', -1);
-		//$tag=Tag::where('tag_name',$tag_name)->first();
-		
-		$questions=Question::whereHas('tags', function($q) use ($tag_name){
-    		$q->where('tag_name', 'like', $tag_name);
-		})->paginate(15);
+	 	$tag_name=urldecode($tag_name);
 
-		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions);
-	}
+		return $this->searchHandler('none','all','',$tag_name);
+	 }
 
 
 	/**
@@ -335,13 +329,53 @@ class QuestionController extends BaseController{
 	*
 	*/
 	public function viewQuestionList(){
-		$input = Input::get('search');
 		//$questions = Question::whereRaw("MATCH(question_title, question_body) AGAINST(? IN BOOLEAN MODE)", array($input))->get();
-		$questions = Question::whereRaw("question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%'")->paginate(15);
-		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions);
+		return $this->searchHandler('none','all','','');
+	}
+
+	public function sortQuestionList($sort,$type){
+		return $this->searchHandler($sort,$type,Input::get('search'),Input::get('tags'));
 	}
 
 
+	public function searchHandler($sort,$type,$input,$tag){
+			
+		$type = urldecode($type);
+		
+		$questions=new Question;
+		if ($type == 'answered') {
+			$questions=$questions->answered();
+		}
+		elseif ($type == 'unanswered') {
+			$questions=$questions->unanswered();	
+		}
+		if ($input !='') {
+			$questions = $questions
+					->whereRaw("(question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%')");
+		}
+			
+		if ($tag != '') {
+				$questions =$questions
+					->whereHas('tags', function($q) use ($tag){
+    						$q->where('tag_name', 'like', $tag);
+					});
+			
+		}
+
+		if($sort == 'recent' ){
+			$questions =$questions->orderBy('updated_at','DESC');
+		}
+		else if($sort=='oldest'){
+			$questions =$questions->orderBy('updated_at','ASC');
+		}
+		$questions =$questions->paginate(15);
+		return View::make('searchview')->with('title', 'Questions List')
+										->with('questions', $questions)
+										->with('keyword', $input)
+										->with('filter',$type)
+										->with('sort',$sort)
+										->with('tag', $tag);
+	}
 
 	public function getModeratorReviews(){
 		//Determine if user is authentic and above Moderator level 15...

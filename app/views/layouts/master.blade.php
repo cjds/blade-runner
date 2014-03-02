@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="{{URL::asset('icon/favicon.ico')}}" type="image/icon" >
-  
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
     <meta name=”description” content="Gradhat provides the answers to all the mumbai university questions. We're a community of students and teachers helping people get through their exams">
 
 
@@ -16,16 +17,16 @@
     {{HTML::script('js/jquery.js')}}
 
     <style>
-    
+    .inline{
+      display: inline-block;
+    }
     .row {min-width:100% !important;}
 
-      .top-bar{
+      .top-bar, .bottom-bar{
         background: #008cba;
        }
 
-       body{
-        background: #eee;
-       }
+ 
 
        section[role="main"] div{
         background: #fff;
@@ -36,7 +37,7 @@
                   font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
         font-weight: 500
       }
-       .top-bar-section ul li a{
+       .top-bar-section ul li a, .bottom-bar-section ul li a{
           background: #008cba !important;
           font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
           font-weight: 500
@@ -47,9 +48,11 @@
 
        }
 
-       .top-bar-section ul li a:hover{
+       .top-bar-section ul li a:hover, .bottom-bar-section ul li a:hover{
           background: #20acda !important;
-          text-decoration: underline;;
+          text-decoration: underline;
+          -webkit-transition: all 0.3s; /* For Safari 3.1 to 6.0 */
+          transition: all 0.3s;
        }
 
        .divider{
@@ -90,7 +93,7 @@
         color:#cccccc;
       }
 
-    section[role='footer'] ul li{
+      section[role='footer'] ul li{
       display: inline;
       margin-right:40px;
       float:right;
@@ -134,23 +137,24 @@
         display: inline-block;
       }
 
-      .pagination li{
-          display: inline-block;
-          padding: 4px;
-          list-style: none;
-          text-align: center;
-          
-          background-color: #eef;
+      .text-center{
+        text-align: center;
       }
 
+ 
+
+      
       .searchtable{
-        border: dashed thin #ccc;
+        border: none; 
       }
-
       .searchtable th{
-        background-color: #eef;
+        background-color: #eee;
         font-family:  "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-        font-weight: 300
+        font-weight: 500;
+
+      }
+      .searchtable tr{
+         background-color: #fff !important ; 
       }
 
     .bluebox{
@@ -175,21 +179,38 @@
       background-color:#f9f9ff;
     }
 
+    aside div{
+      background:#008cba;
+    }
+
+    .name:hover{
+      background:#20acda;
+      -webkit-transition: all 0.3s; /* For Safari 3.1 to 6.0 */
+      transition: all 0.3s;
+    }
+    .logo{
+      opacity:0.8;
+      filter:alpha(opacity=80); 
+    }
+
+    .logo:hover{
+      opacity:1.0;
+      filter:alpha(opacity=100); 
+      -webkit-transition: all 0.3s; /* For Safari 3.1 to 6.0 */
+      transition: all 0.3s;
+    }
     </style>
 
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('aside').css('height', $('.main').height());
-      });
-    </script>
+
   </head>
+
   <body>
     
     <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
       <a href="{{ URL::to('view/questions')}}">
-        {{HTML::image('img/logo.png', 'gradhat', array('style'=>"height:40px;margin-top:2px;margin-left:5px;margin-right:5px"));}}
+        {{HTML::image('img/logo.png', 'gradhat', array('style'=>"height:34px;margin-top:5px;margin-left:5px;margin-right:5px","class"=>'logo'));}}
       </a>
     </li>
     
@@ -202,6 +223,7 @@
           <li class="divider"></li>
         	<li class='hide-for-small'>
           <a href="{{ URL::to('view/profile')}}">
+          
           {{ucwords(Auth::user()->user_username)}}
           <span class='bluebox'>{{number_format(Auth::user()->user_points)}} </span></a></li>
           <li class="divider"></li>
@@ -221,7 +243,9 @@
           @endif
           <li class='hide-for-small'>{{HTML::link('logout', 'logout');}}</li>
         @else
-	        <li class='hide-for-small'>{{HTML::link('login', 'login');}}</li>
+
+	        <li class='hide-for-small'>
+          <a href="{{ URL::to('login')}}">login</a></li>
         @endif
 
 			<li class="divider hide-for-small"></li>
@@ -249,42 +273,107 @@
 </nav>
 
 
-<section role="main" class='columns'>
+<section role="main" class='row' data-equalizer>
 @yield('content')	
 </section>    
 
 <style>
 footer div{
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 footer div ul li{
-  margin-top: 1em;
+  margin-top: 0.2em;
 }
 footer div ul{
-  margin-top: 1em;
+  margin-top: 0.8em;
   list-style: none;
+}
+
+footer div div{
+  text-align:center;padding-top:30px;padding-bottom:0px
+}
+.bottom{
+  background:#111;color:#eee;width:100%;padding:0px;
+}
+
+.bottom ul li{
+  display: inline-block;
+
+}
+
+div.vertical-line{
+  width: 1px; /* Line width */
+  background-color: #008cba; /* Line color */
+  height: 150px; /* Override in-line if you want specific height. */
+  float: right; 
+  margin-left:50px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 
 </style>
-<footer style='background:#ccc; margin-top:50px' class='columns'>
-<div class='row'>
-<div class='large-4 columns' style='text-align:center;border-right:#008cba thin solid;margin-top:50px;margin-bottom:50px'>
+<footer style='background:#ddd; margin-top:50px;width:100%;margin-left:0px;margin-right:0px;padding-left:0px;padding-right:0px' class='columns'>
+<div class='row' style=''>
+<div class='large-3 columns' style=''>
+<div class="vertical-line" ></div>
+<img src='{{URL::asset("img/grad_caps.svg")}}' class='fa fa-2x'/>
   <h4 class='subheading'>Gradhat</h4>
   <p>Gradhat is a company that builds educational solutions and has fun doing it.
   You can find out more about us <a href="#" style='color:text-decoration:underline'>here.</a>
   </p>
+
 </div>
 
 
-<div class='large-3 columns' style='margin-top:50px;text-align:center'>
-<h4 class='subheading'>Company</h4>
+
+<div class='large-3 columns' style='padding-top:30px;text-align:center'>
+<div class="vertical-line" ></div>
+<i class="fa fa-sitemap fa-2x"></i> 
+<h4 class='subheading'>Site</h4>
+
+<ul>
+<li>Add A Question</li>
+<li>View Questions</li>
+<li>Mumbai University Questions</li>  
+</ul>
 </div>
-<div class='large-3 columns' style='margin-top:50px;'>
+
+<div class='large-3 columns' style='padding-top:30px;text-align:center'>
+<div class="vertical-line" ></div>
+<i class="fa fa-users fa-2x"></i>
 <h4 class='subheading'>Social</h4>
+
+<ul>
+<li>Facebook</li>
+<li>Twitter </li>
+<li>Google+</li>  
+</ul>
 </div>
+<div class='large-3 columns' style='padding-top:30px;text-align:center'>
+<i class="fa fa-building-o fa-2x"></i> 
+<h4 class='subheading'>Contact Us</h4>
+
+<p>This site is still in beta. If you spot any errors please contact us on gradhat2013@gmail.com</p>
+</div>
+    
+
+</div>
+
+<div class="row bottom" style="">
+{{HTML::image('img/logo.png', 'gradhat', array('style'=>"height:34px;margin-top:10px;margin-bottom:5px;margin-left:10px;display:inline","class"=>'logo'));}}
+<p style='display:inline-block;font-size:0.8em;margin-top:1em;margin-right:30px;color:#ccc' class='right'>
+Created and maintained by Gradhat Inc. All rights reserved
+</p>
 </div>
 </footer>
+
+<div id="push"></div>
+</section> 
+
 {{HTML::script('js/foundation.min.js')}}
     <script>
       $(document).foundation();

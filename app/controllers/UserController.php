@@ -81,7 +81,7 @@ class UserController extends BaseController {
 			Mail::queue('emails.confirm', 
 					array('user'=>$user->user_username,'link'=>URL::to('register/confirm/xy22'.$user->user_id.'az/'.$user->confirmstring)), 
 					function($message){
-       					$message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to Gradhat');
+       					$message->to($input['user_email'], 'Carl Saldanha')->subject('Welcome to Gradhat');
     				}
     		);
 			

@@ -1,7 +1,5 @@
 @extends('layouts.master')
 
-
-
 @if($type=="edit")
 <?php $tagArray=array();?>
 @foreach ($question->tags as $tag) 
@@ -12,7 +10,7 @@
 
 @section('content')
 
-	<div class="large-5 large-offset-2 box-top box-sides small-12 medium-8 columns main">
+	<div class="large-5 large-offset-2 box-top box-sides small-12 medium-8 columns main  " data-equalizer-watch>
 		@if($type=="new")
 			<h3>Add a question</h3>
 			{{Form::open(array('url' => 'add/question' ))}}
@@ -39,10 +37,17 @@
 		{{Form::text('tags',($type=='edit')?implode(',', $tagArray):Input::old('tags'),array())}}
 		{{Form::submit(($type=='edit')?'Edit Question':'Add Question',array('class'=>'button'))}}
 	</div>
-	<aside class="large-3 hide-for-small push-right medium-3 box-top box-sides  columns">
-		<div class='row'>
-			<h5 class='box-solid-bottom'>Rules for posting</h5>
+	<aside class="large-3 hide-for-small push-right medium-3 box-top box-sides  columns" data-equalizer-watch>
+		<div class='row' style='background:#f9f9ff'>
+			<h5 class='box-solid-bottom' >Rules for posting</h5>
 			</div>
+			<ul class="no-bullet">
+				<li>Be on-topic</li>
+				<li>Be specific</li>
+				<li>Make it relevant to others</li>
+				<li>Keep an open mind</li>
+			</ul>
+
 		</aside>
 	
 	</div>

@@ -13,8 +13,47 @@ td.count{
 .searchtable thead tr th{
 	text-align:center;	
 }
+
+.sort{
+	margin-bottom: 0;
+	background-color: #eef;
+}
 </style>
-<div class="large-offset-2 large-8 small-12 columns">
+<div class="large-offset-1 large-10 medium-12 small-12 columns box-top box-sides"  data-equalizer-watch>
+
+<div class='columns medium-12'>	
+	@if($keyword=="" && $tag =="")
+		<h2>View Questions</h2>
+		@include('sortandfilter')
+	@else
+		@if($keyword!="")
+			<h3>Search for: {{$keyword}}</h3>
+			<h6>{{HTML::link('search/questions/sort/'.$sort.'/filter/'.$filter.'?search=&tag='.$tag, 'clear search')}}</h6>
+		@endif
+		@if($tag!="")
+		<h3>Tags included: {{$tag}}</h3>
+		<h6>{{HTML::link('search/questions/sort/'.$sort.'/filter/'.$filter.'?search='.$keyword.'&tag=', 'clear tag')}}</h6>
+	@endif
+	{{Form::open(array('url'=>'search/questions','method'=>'get','role'=>"search"))}} 
+	      <div class="row collapse margintop-20px">
+        		<div class="small-8 medium-8 columns">
+            {{Form::text('search','',array('style'=>'','placeholder'=>'search'));}}
+            </div>
+               <div class="small-1 medium-1 columns">
+            {{Form::submit('Submit', array('style'=>'','class'=>'postfix  button'));}}
+            {{Form::close();}}
+            </div>
+            <div class="small-3 medium-3 columns">
+            @include('sortandfilter')
+            </div>
+            </div>
+
+     
+	
+	@endif
+
+
+
 <div class="row">
 	<table class="large-12 small-12 searchtable">
 	  <thead>
@@ -29,8 +68,8 @@ td.count{
 	<tbody>
 	@foreach($questions as $question)
 	<tr>
-		<td class='count'>{{($question->post->votes()->sum('voteType')+0);}} </td>
-		<td class='count'>{{$question->answers()->count('post_id');}} </td>
+		<td class='count medium-1'>{{($question->post->votes()->sum('voteType')+0);}} </td>
+		<td class='count medium-1'>{{$question->answers()->count('post_id');}} </td>
 	
 		<td><a href="{{url('view/question')}}?qid={{$question->post_id}}">{{ $question->question_title }}</a> - {{ $question->post->creator->user_username}}
 			<br>
@@ -38,9 +77,9 @@ td.count{
 					<span class='tag hide-for-medium hide-for-large'>{{HTML::link('search/questions/tag/'.urlencode($tag->tag_name), $tag->tag_name);}}</span>
 				@endforeach
 		</td>
-		<td class='hide-for-small'>
+		<td class='hide-for-small medium-3'>
 		@foreach($question->tags as $tag)
-			<span class='tag'>{{HTML::link('search/questions/tag/'.urlencode($tag->tag_name), $tag->tag_name);}}</span>
+			<span class='tag'>{{HTML::link('search/questions?search=&tag='.urlencode($tag->tag_name), $tag->tag_name);}}</span>
 		@endforeach
 		
 		</td>
@@ -49,7 +88,7 @@ td.count{
 	</tbody>
 	</table>
 </div>
-<div class="row">
+<div class="row" style='margin:auto'>
 	{{$questions->links()}}
 </div>
 	</div>

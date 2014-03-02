@@ -67,7 +67,7 @@
 </script>
 
 
-  <div class="main large-8 box-top box-sides box-bottom large-offset-1 small-12 columns " >
+  <div class="main large-8 box-top box-sides box-bottom large-offset-1 small-12 columns "  data-equalizer-watch>
     <div class="row">
         <h4 style='margin:15px' class='box-solid-bottom'>{{ $question->question_title }}</h4>
     </div>
@@ -202,7 +202,7 @@
       </div>
   </div>
 </div>
-    <aside class="large-2 hide-for-small columns box-top" >
+  <aside class="large-2 hide-for-small columns box-top"  data-equalizer-watch>
       <div class="row" style=" margin-top:17px">
         <h5 class='box-solid-bottom' style='padding:2px'>Tags</h5>
         

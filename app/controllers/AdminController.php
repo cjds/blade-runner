@@ -204,7 +204,9 @@ class AdminController extends BaseController{
 	}
 
 	public function viewUnivQuestionsByDate($exam){
+		echo $exam;
 		$exam = urldecode($exam);
+		echo $exam;
 		$subject_id = Input::get('sid', -1);
 		$univques = UniversityQuestion::join('university_questions_dates', 'university_questions.post_id', '=', 'university_questions_dates.post_id')
 			->where('university_questions.question_subject_id', $subject_id)
