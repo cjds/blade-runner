@@ -23,5 +23,7 @@ class UniversityQuestion extends Eloquent
 	public function module(){
 		return $this->belongsTo('Module', 'question_module_id');
 	}
+
+	
 }
 ?>

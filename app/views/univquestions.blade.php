@@ -37,7 +37,7 @@
 			</a>
 			<br>
 			@foreach($uq->question->tags as $tag)
-				<a href="{{url('search/questions/tag')}}{{'/'.$tag->tag_name}}">{{$tag->tag_name." "}}</a>
+				<span class='tag'><a href="{{url('search/questions/tag')}}{{'/'.$tag->tag_name}}">{{$tag->tag_name." "}}</a></span>
 			@endforeach
 		</td>
 		<td>{{$uq->question_marks}}</td>

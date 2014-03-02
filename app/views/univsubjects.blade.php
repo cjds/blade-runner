@@ -25,7 +25,7 @@ background:none !important;
 				
 				<?php $j=0;?>
 				@foreach ($subject->modules as $module)
-					@if(($j++)%2==0)
+					@if(($j)%2==0)
 						<div class='row'>
 					@endif
 					<div class='columns medium-5 small-6 medium-offset-1'>
@@ -34,6 +34,7 @@ background:none !important;
 					@if(($j)%2==1)
 						</div>
 					@endif
+					<?php $j++;?>
 				@endforeach 
 				@if(($j)%2==1)
 				</div>

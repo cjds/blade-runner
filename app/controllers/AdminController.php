@@ -206,14 +206,19 @@ class AdminController extends BaseController{
 	}
 
 	public function viewUnivQuestionsByDate($exam){
-		$exam = preg_replace('/([A-Z|a-z]*)([0-9]*)/s','$1 $2', urldecode($exam));
+		$exam =trim(preg_replace('/([A-Z|a-z]*)([0-9]*)/s','$1 $2', urldecode($exam)));
 		
-		$subject_id = Input::get('sid', -1);
-		$univques = UniversityQuestion::join('university_questions_dates', 'university_questions.post_id', '=', 'university_questions_dates.post_id')
-			->where('university_questions.question_subject_id', $subject_id)
-			->where('university_questions_dates.month_year', 'like', $exam)
-			->orderBy('university_questions_dates.question_number')
-			->get();
+		$subject_id=Input::get('sid',-1);
+		
+		$univques = UniversityQuestion::whereHas('universityquestiondates',function($q) use ($exam){
+			$q->where('month_year','like',$exam);
+		})->whereHas('subject',function($q) use ($subject_id){
+			$q->where('subject_id',$subject_id);
+		})->get();
+		//	->where('university_questions.question_subject_id', $subject_id)
+		//	->where('university_questions_dates.month_year', 'like', $exam)
+		//	->orderBy('university_questions_dates.question_number')
+	//		->get();
 			return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques);
 	}
 
