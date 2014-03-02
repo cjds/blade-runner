@@ -1,6 +1,6 @@
-@extends('layouts.master')
+@extends('layouts.postlayout')
 
-@section('content')
+@section('form')
 
 <script type="text/javascript">
 var count=1;
@@ -15,30 +15,18 @@ $(document).ready(function(){
 
 	});
 
-	// function addRow(tableID) {
-	// var rowCount = table.rows.length;
-	// var row = table.insertRow(rowCount);
-	// var colCount = table.rows[0].cells.length;
-	// for(var i=0; i<colCount; i++) {
-	// 	var newcell = row.insertCell(i);
-	// 	newcell.innerHTML = table.rows[0].cells[i].innerHTML;
-	// 	newcell.innerHTML = newcell.innerHTML.replace(/[%d]/gi,"["+count+"]");
-	// }
 });
 		   
 
 	
 </script>
-
-<div class="row">
-	<div class="columns large-6 small-12">
 	<h3>Add University Question</h3>
 	
 	{{Form::open(array('url'=>'add/univquestion', 'id'=>'formab'))}}
 	{{Form::label('title', 'Question Title')}} 
 	{{Form::text('title', '', array('class'=>'large-8'))}} <br>
 	{{Form::label('question', 'Question Body')}} 
-	@include("layouts.markdownmanager",array('data'=>""));
+	@include("layouts.markdownmanager",array('data'=>""))
 	<!--{{Form::textarea('question','', array('class' => 'large-8','cols'=>'50','rows'=>'10'))}}<br> -->
 	<table id="field_set">
 
@@ -60,7 +48,7 @@ $(document).ready(function(){
 		</tr>
 
 	</table>
-	<input type="button" value="Add more" class='button' id='addmorebtn'/>
+	<input type="button" value="Add more" class='button small' id='addmorebtn'/>
 	{{Form::label('marks', 'Marks')}} 
 	{{Form::text('marks', '', array('style' => 'width:400px'))}} <br>
 	{{Form::label('subject', 'Subject')}} 
@@ -71,6 +59,10 @@ $(document).ready(function(){
 	{{Form::text('tags','', array('style' => 'width:400px'))}} <br>
 	{{Form::submit('Add Question',array('class'=>'button'))}}
 	{{Form::close()}}
-	</div>
-</div>
+
+@stop
+
+
+@section('aside')
+
 @stop

@@ -3,7 +3,7 @@
 @section('content')
 <script>
   $(document).ready(function(){
-
+$('aside').height($('.main').height());
     //Call the related questions
     $.ajax({
       url: '{{URL::to("json/relatedquestionstags")}}',
@@ -64,10 +64,12 @@
     });
 	});
 
+  
+
 </script>
 
 
-  <div class="main large-8 box-top box-sides box-bottom large-offset-1 small-12 columns "  data-equalizer-watch>
+  <div class="main large-8 box-top box-sides box-bottom large-offset-1 small-12 columns ">
     <div class="row">
         <h4 style='margin:15px' class='box-solid-bottom'>{{ $question->question_title }}</h4>
     </div>
@@ -116,8 +118,9 @@
         <div class="row link-div" style='font-size:0.8em'>
       		
           @if(Auth::user())
-          	{{HTML::link('edit/question?qid='.$question->post_id, 'edit')}}
-            <a href="#" class="flagbtn" data-post-id="{{$question->post_id}}">flag</a>
+          	<a href='{{URL::to('edit/question?qid='.$question->post_id)}}'> <i class="fa-pencil fa" style="margin:2px"></i>edit</a>
+
+            <a href="#" class="flagbtn" data-post-id="{{$question->post_id}}"><i class='fa-flag fa' style='margin:2px'></i>flag</a>
           	<!--@if(Auth::user()->privelege_level>=15)
           			{{HTML::link('edit/question?qid='.$question->post_id, 'close')}}
             @endif
@@ -195,14 +198,14 @@
 	{{Form::open(array('url'=>'add/answer'))}}
 	{{Form::hidden('question_id', $question->post_id);}}
 	<label>Think you can answer this question</label>
-    @include("layouts.markdownmanager",array('data'=>''));
+    @include("layouts.markdownmanager",array('data'=>''))
 		{{Form::submit('Add Answer', array('class'=>'button'));}}
 		{{Form::close();}}
     </div>
       </div>
   </div>
 </div>
-  <aside class="large-2 hide-for-small columns box-top"  data-equalizer-watch>
+  <aside class="large-2 hide-for-small columns box-top box-sides"  data-equalizer-watch>
       <div class="row" style=" margin-top:17px">
         <h5 class='box-solid-bottom' style='padding:2px'>Tags</h5>
         

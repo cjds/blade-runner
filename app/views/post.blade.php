@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.postlayout')
 
 @if($type=="edit")
 <?php $tagArray=array();?>
@@ -8,9 +8,7 @@
 @endif
 
 
-@section('content')
-
-	<div class="large-5 large-offset-2 box-top box-sides small-12 medium-8 columns main  " data-equalizer-watch>
+@section('form')
 		@if($type=="new")
 			<h3>Add a question</h3>
 			{{Form::open(array('url' => 'add/question' ))}}
@@ -36,21 +34,38 @@
 
 		{{Form::text('tags',($type=='edit')?implode(',', $tagArray):Input::old('tags'),array())}}
 		{{Form::submit(($type=='edit')?'Edit Question':'Add Question',array('class'=>'button'))}}
-	</div>
-	<aside class="large-3 hide-for-small push-right medium-3 box-top box-sides  columns" data-equalizer-watch>
-		<div class='row' style='background:#f9f9ff'>
-			<h5 class='box-solid-bottom' >Rules for posting</h5>
-			</div>
-			<ul class="no-bullet">
-				<li>Be on-topic</li>
-				<li>Be specific</li>
-				<li>Make it relevant to others</li>
-				<li>Keep an open mind</li>
-			</ul>
+		<br>
+@stop
+@section('aside')
 
-		</aside>
-	
-	</div>
-</div>
+			<h5 class='box-solid-bottom' >Rules for posting</h5>
+			<style>
+				.skip-list > li{
+					margin-top: 10px;
+				
+				}
+
+				.skip-list i{
+					color:#008cba;
+				}
+			</style>
+			<table class="no-bullet skip-list" >
+
+				<tr><td colspan=2><b>How to ask</b></td></tr>
+				<tr><td><i class='fa fa-book'></td><td></i> Questions should be based on the Mumbai University Engineering Syllabus</td></tr>
+				<tr><td><i class='fa fa-comment'></i></td><td> Provide details in the questions</td></tr>
+				<br>
+				<tr><td colspan=2><b>Formatting Tips</b></td></tr>
+				<tr><td><i class='fa fa-edit'></i></td><td> We use <a href="http://daringfireball.net/projects/markdown/syntax">markdown</a> for formatting. Take a look. </tr>
+				<tr><td><i class='fa fa-outdent'></i></td><td> Bold letters are written <strong>**bold**</strong> and italics like <i style='color:#000'>__italics__</i></td></tr>
+				<tr><td><i class='fa fa-link'></i></td><td> Links are written as this: [link_text](link_address) </td></tr>
+				<tr><td><i class='fa fa-book'></i></td><td>For mathematics we use MathJax. Here are some <a href="http://cdn.mathjax.org/mathjax/latest/test/examples.html">examples</a></i></td></tr>
+				<tr><td><i class='fa fa-code'></i></td><td> All math must be included between two &lt;math&gt; and &lt;/math&gt; tags</a></i></td></tr>
+				<tr><td><i class='fa fa-circle-o'></i></td><td> $\alpha$ is \alpha, $x^2$ is x^2, $\sqrt2$ is \sqrt2</a></i></tr>
+				<tr><td><i class='fa fa-book'></i></td><td> $\int_1^n$ is \int_1^n, $\lim_{x\to 0}$ is \lim_{x\to 0}, $\hat i$ is \hat i</a></td></tr>
+
+
+			</table>
+
 @include('layouts/dialogs')
 @stop

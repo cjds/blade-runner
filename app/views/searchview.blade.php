@@ -71,7 +71,7 @@ td.count{
 		<td class='count medium-1'>{{($question->post->votes()->sum('voteType')+0);}} </td>
 		<td class='count medium-1'>{{$question->answers()->count('post_id');}} </td>
 	
-		<td><a href="{{url('view/question')}}?qid={{$question->post_id}}">{{ $question->question_title }}</a> - {{ $question->post->creator->user_username}}
+		<td><a href="{{url('view/question')}}?qid={{$question->post_id}}"><span style='font-size:1.3em'>{{ $question->question_title }}</span></a><span class='right' style='font-size:0.8em'>asked by {{ $question->post->creator->user_username}}</span>
 			<br>
 				@foreach($question->tags as $tag)
 					<span class='tag hide-for-medium hide-for-large'>{{HTML::link('search/questions/tag/'.urlencode($tag->tag_name), $tag->tag_name);}}</span>

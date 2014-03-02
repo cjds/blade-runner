@@ -58,7 +58,7 @@ class QuestionController extends BaseController{
 				return Redirect::to('view/question?qid='.$question->post_id);
 			}
 			else{
-				return Redirect::to('add/question?qid='.$question->post_id)->withInput()->withErrors($v);
+				return Redirect::to('add/question')->withInput()->withErrors($v);
 			}
 		}
 		else{
@@ -99,7 +99,7 @@ class QuestionController extends BaseController{
 	    	//set up the rules
 			$rules=array(
 				'title'=>'required',
-				'question'=>'required',
+				'wmd-input'=>'required',
 				'tags'=>'required',
 				'question_id'=>'required|exists:questions,post_id'
 			);
@@ -118,7 +118,7 @@ class QuestionController extends BaseController{
 					//Update the Post itself
 					$post->editor()->associate($post->creator);
 					$post->type->question_title=$input['title'];
-					$post->type->question_body=$input['question'];
+					$post->type->question_body=$input['wmd-input'];
 					$post->type->tags()->detach();
 					foreach ($question_tags as $t) {
 						$tag_id = Tag::firstOrCreate(array('tag_name' => $t));
@@ -180,7 +180,8 @@ class QuestionController extends BaseController{
 		$posts = $question->answers;
 		$html = new Mark\Michelf\Markdown;
 		$question->question_body=$html->defaultTransform($question->question_body);
-   		$question->question_body = str_replace('</math>','$$',str_replace('<math>','$$', $question->question_body));
+		
+   		$question->question_body = str_replace('</math>','$',str_replace('<math>','$', $question->question_body));
 		if(Auth::user()){
 			$user_id=Auth::user()->user_id;
 		}
@@ -316,7 +317,7 @@ class QuestionController extends BaseController{
 
 
 	public function viewQuestionsByTags ($tag_name){
-	 	$tag_name=urldecode($tag_name);
+	 	$tag_name=urldecode($tag_name); 
 
 		return $this->searchHandler('none','all','',$tag_name);
 	 }
@@ -330,11 +331,12 @@ class QuestionController extends BaseController{
 	*/
 	public function viewQuestionList(){
 		//$questions = Question::whereRaw("MATCH(question_title, question_body) AGAINST(? IN BOOLEAN MODE)", array($input))->get();
-		return $this->searchHandler('none','all','','');
+		return $this->searchHandler('none','all',Input::get('search'),Input::get('tag'));
 	}
 
 	public function sortQuestionList($sort,$type){
-		return $this->searchHandler($sort,$type,Input::get('search'),Input::get('tags'));
+
+		return $this->searchHandler($sort,$type,Input::get('search'),Input::get('tag'));
 	}
 
 
@@ -349,7 +351,10 @@ class QuestionController extends BaseController{
 		elseif ($type == 'unanswered') {
 			$questions=$questions->unanswered();	
 		}
+
+
 		if ($input !='') {
+
 			$questions = $questions
 					->whereRaw("(question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%')");
 		}

@@ -3,27 +3,22 @@
 @section('content')
 
 <style type="text/css">
-	h4{
-		display: inline;;
-		font-size:12px; 
-		text-decoration: underline;
-	}
 </style>
 
 
 
 <div class="row">
-	<div class="large-8 small-12 columns">
+	<div class="medium-10 medium-offset-1 small-12 columns" style='min-height:400px'>
 
-	<table class="table large-12">
+	<table class="table large-12 searchtable">
 	<thead>
 	<tr>
 		<th>#</th>
 		<th>Question</th>
 		<th>Marks</th>
-		<th>Votes</th>
-		<th>Answers</th>
-		<th>Asked in</th>
+		<th class='hide-for-small'>Votes</th>
+		<th class='hide-for-small'>Answers</th>
+		<th class='hide-for-small'>Asked in</th>
 		<th>Belongs to Module</th>
 	</tr>
 	</thead> 
@@ -46,9 +41,9 @@
 			@endforeach
 		</td>
 		<td>{{$uq->question_marks}}</td>
-		<td>{{($uq->question->post->votes()->sum('voteType')+0);}} </td>
-		<td>{{$uq->question->answers()->count('post_id');}} </td>
-		<td>
+		<td class='hide-for-small'>{{($uq->question->post->votes()->sum('voteType')+0);}} </td>
+		<td class='hide-for-small'>{{$uq->question->answers()->count('post_id');}} </td>
+		<td class='hide-for-small'>
 			@foreach ($uq->universityquestiondates as $date)
 				{{$date->month_year}}
 

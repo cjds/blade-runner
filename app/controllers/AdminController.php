@@ -149,14 +149,15 @@ class AdminController extends BaseController{
 				$question_tags[$i]=trim($question_tags[$i]);
 			}
 			$post->post_type="Question";
-			$post->creator()->associate(Auth::user());
+			$post->creator()->associate(User::findOrFail(25));
 			$post->save();
 			$question->post()->associate($post);
 			$question->push();
 			foreach ($question_tags as $t) {
 				$tag_id = Tag::firstOrCreate(array('tag_name' => $t));
+				$question->tags()->attach($tag_id);
 			}
-			$question->tags()->attach($tag_id);
+			
 			$univQuestion->question_marks = $input['marks'];
 			$univQuestion->question_subject_id = $input['subject'];
 			$univQuestion->question_module_id = $input['module'];
@@ -165,7 +166,7 @@ class AdminController extends BaseController{
 			for($i=0;$i<count($input['year']);$i++){
 				$univQuestionDate=new UniversityQuestionDate();
 				$univQuestionDate->question_number = $input['ques_no'][$i];
-				$month_year = $input['month'][$i]."".$input['year'][$i];
+				$month_year = $input['month'][$i]." ".$input['year'][$i];
 				$univQuestionDate->month_year = $month_year;
 				$univQuestionDate->universityquestion()->associate($univQuestion);
 				$univQuestionDate->push();	
@@ -187,8 +188,9 @@ class AdminController extends BaseController{
 
 	public function getSubUnderBranch(){
 		$branch_id= Input::get('bid', -1);
-		$subjects=Subject::where('subject_branch_id', $branch_id)->get();
-		return View::make('univsubjects')->with('title', 'University Questions')->with('subjects', $subjects);
+		$branch=Branch::findOrFail($branch_id);
+		
+		return View::make('univsubjects')->with('title', $branch->branch_name.' University Questions')->with('branch',$branch);
 	}
 
 	public function viewUnivQuestions(){

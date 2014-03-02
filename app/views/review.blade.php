@@ -72,7 +72,7 @@
 
 
 
-
+<div class='columns' style='min-height:400px' data-equalizer-watch>
 <div class='row'>
 <div id="about"></div>
 </div>
@@ -97,11 +97,11 @@
 <br><br>
 <div class='row'>
 	<div class="columns ">
-		<input type='button' class='review-btn button' data-type='approve' value='Approve'/>
-		<input type='button' class='review-btn button' data-type='skip' value='Skip'/>
-		<input type='button' class='review-btn button' data-type='reject' value='Reject'/>
+		<input type='button' class='review-btn button small' data-type='approve' value='Approve'/>
+		<input type='button' class='review-btn button small' data-type='skip' value='Skip'/>
+		<input type='button' class='review-btn button small' data-type='reject' value='Reject'/>
 			
 	</div>
 </div>
-
+</div>
 @stop

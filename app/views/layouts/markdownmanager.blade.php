@@ -4,13 +4,13 @@
 {{HTML::script('js/markdown/Markdown.Sanitizer.js');}}
 {{HTML::script('js/markdown/Markdown.Editor.js');}}
 
-{{HTML::style('css/markdown.css');}}
+
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     jax: ["input/TeX","output/HTML-CSS"],
-    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]], displayMath: [ ["$$","$$"] ],mathsize: "90%",
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]],mathsize: "90%",
     processEscapes: true},
-    "HTML-CSS":{linebreaks:{automatic:true}},
+    "HTML-CSS":{linebreaks:{automatic:true, width: "container"}},
      TeX: { noUndefined: { attributes: 
 { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } }, 
 
@@ -27,8 +27,14 @@
 
 .wmd-preview{
   padding: 3px;
+  word-wrap:break-word;
+  font-family:"Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; 
 }
 
+.wmd-buttons i{
+  padding:3px;
+  margin-right: 6px;
+}
 </style>
 <script type="text/javascript">
 var Preview = {
@@ -59,13 +65,20 @@ converter :null,
     //console.log(text);
     if (text === this.oldtext) return;
     this.oldtext = text;
+
+    
     text=this.converter.makeHtml(text);
+
     text=text.replace(/[\$]/gi,'\ \\$');
-    text = text.replace(/<\/math>/gi,'$$');
-    text = text.replace(/<math>/gi,'$$');
+    console.log(text);
+    text = text.replace(/<\/math>/gi,'$');
+    text = text.replace(/<math>/gi,'$');
+    
     this.preview.innerHTML=text;
-    //console.log(text);
+    
     this.mjRunning = true;
+    this.preview.style.display = 'none';
+    this.preview.style.display = 'block';
     MathJax.Hub.Queue(
       ["Typeset",MathJax.Hub,this.preview],
       ["PreviewDone",this]
@@ -89,6 +102,8 @@ converter :null,
     Preview.Update();
     $('#wmd-bold').click(function(e){
         $('#wmd-input').val(setUpmarkDownChar('**',$('#wmd-input'),'bold',true));
+        $('section[role="main"]').css('display','none');
+        $('section[role="main"]').css('display','block');
         Preview.Update();
     });
 
@@ -230,15 +245,15 @@ converter :null,
 <div class="wmd-panel">
             <div id="wmd-button-bar" class='wmd-button-row '>
               <div class='wmd-buttons'>
-                  <span id='wmd-bold'></span>
-                  <span id='wmd-italics'></span>
-                  <span id='wmd-link'></span>
-                  <span id='wmd-blockquote'></span>
-                  <span id='wmd-code'></span>
-                  <span id='wmd-image'></span>
-                  <span id='wmd-ol'></span>
-                  <span id='wmd-ul'></span>
-                  <span id='wmd-function'></span>
+                  <i class="fa fa-bold" id='wmd-bold'></i> 
+                  <i class="fa fa-italic" id='wmd-italics'></i>
+                  <i class="fa fa-chain" id='wmd-link'></i>
+                  <i class="fa fa-quote-left" id='wmd-blockquote'></i>
+                  <i class="fa fa-code" id='wmd-code'></i>
+                  <i class="fa fa-picture-o" id='wmd-image'></i>
+                  <i class="fa fa-list-ol" id='wmd-ol'></i>
+                  <i class="fa fa-list-ul" id='wmd-ul'></i>
+                  <i class="fa" id='wmd-function'>&fnof;</i>
               </div>
               
             </div>
