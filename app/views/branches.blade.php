@@ -23,6 +23,7 @@
 						<th>Branch Name</th>
 						<th>Short Name</th>
 						<th>Edit</th>
+						<th>Delete</th>
 					</tr>
 				</thead> 
 				<tbody>
@@ -31,6 +32,7 @@
 							<td>{{$branch->branch_name}} </td>
 							<td>{{$branch->branch_shortname}} </td>
 							<td><a href='#'>edit</a></td>
+							<td><a href="#">delete</a></td>
 						</tr>
 					@endforeach
 				</tbody>

@@ -347,6 +347,9 @@ class QuestionController extends BaseController{
 			})->paginate(15);
 
 		}
+		else{
+			$questions = Question::all();
+		}
 		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions)->with('keyword', $input)->with('tag', $tag);
 	}
 
@@ -366,6 +369,10 @@ class QuestionController extends BaseController{
 				})->orderBy('updated_at', 'DESC')
 				->paginate(15);
 			}
+			else{
+				$questions = Question::all()
+				->paginate(15);
+			}
 		}
 
 		elseif ($type == 'answered') {
@@ -381,6 +388,10 @@ class QuestionController extends BaseController{
     				$q->where('tag_name', 'like', $tag);
 					})->paginate(15);
 			}
+			else{
+				$questions = Question::all()
+				->paginate(15);
+			}
 		}
 
 		elseif ($type == 'unanswered') {
@@ -395,6 +406,10 @@ class QuestionController extends BaseController{
 					->whereHas('tags', function($q) use ($tag){
     				$q->where('tag_name', 'like', $tag);
 					})->paginate(15);
+			}
+			else{
+				$questions = Question::all()
+				->paginate(15);
 			}
 		}
 
