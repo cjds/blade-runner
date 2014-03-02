@@ -50,7 +50,23 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 
 App::error(function(Exception $exception, $code)
 {
-	Log::error($exception);
+	 switch ($code)
+    {
+        case 403:
+            return 
+            Response::view('templates.sendmessage', array('head'=>'Error 403','body'=>'We seem to be missing some stuff. We\'re still in beta so that could possibly be our fault. Try Contacting Us (below) if the error persists.'));
+
+        case 404:
+            return
+            Response::view('templates.sendmessage', array('head'=>'Error 404','body'=>'How did you land up here? Its cold and lonely with nowhere to go. Click our logo in the top left to go home sweet home.'));
+
+        case 500:
+        	return 
+            Response::view('templates.sendmessage', array('head'=>'Error 500','body'=>'Well this is the big one. We\'ve made a mess of our code somewhere. We\'re still in beta so we\'ve got bugs to fix. Tell us what happened (below)'));
+
+        default:
+            return Response::view('templates.sendmessage', array('head'=>'Error','body'=>'Guess this was something bad. Even we\'re not sure how you could land up here.'));
+    }
 });
 
 /*

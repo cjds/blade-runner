@@ -19,12 +19,16 @@ td.count{
 	background-color: #eef;
 }
 </style>
-<div class="large-offset-1 large-10 medium-12 small-12 columns box-top box-sides"  data-equalizer-watch>
+<div class="large-offset-1 large-10 medium-12 small-12 columns box-top box-bottom box-sides"  data-equalizer-watch>
 
 <div class='columns medium-12'>	
 	@if($keyword=="" && $tag =="")
+		<div class="small-6 medium-8 columns">
 		<h2>View Questions</h2>
+		</div>
+		<div class="small-6 medium-4 columns" style="margin-top:15px">
 		@include('sortandfilter')
+		</div>
 	@else
 		@if($keyword!="")
 			<h3>Search for: {{$keyword}}</h3>
@@ -55,7 +59,7 @@ td.count{
 
 
 <div class="row">
-	<table class="large-12 small-12 searchtable">
+	<table class="large-12 small-12 searchtable ">
 	  <thead>
 	<tr>
 		<th>Votes</th>

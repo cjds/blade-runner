@@ -132,16 +132,18 @@
 <i class="fa fa-building-o fa-2x"></i> 
 <h4 class='subheading'>Contact Us</h4>
 
-<p>This site is still in beta. If you spot any errors please contact us on gradhat2013@gmail.com</p>
+<p>This site is still in beta. If you spot any errors please contact us on <a href="mailto:gradhat2013@gmail.com" style='color:text-decoration:underline'>gradhat2013@gmail.com</a></p>
 </div>
     
 
 </div>
 
 <div class="row bottom" style="">
-{{HTML::image('img/logo.png', 'gradhat', array('style'=>"height:34px;margin-top:10px;margin-bottom:5px;margin-left:10px;display:inline","class"=>'logo'));}}
+<a href="{{ URL::to('view/questions')}}">
+{{HTML::image('img/logo.png', 'gradhat', array('style'=>"height:34px;margin-top:10px;margin-bottom:5px;margin-left:10px;display:inline;opacity:0.6","class"=>'logo'));}}
+</a>
 <p style='display:inline-block;font-size:0.8em;margin-top:1em;margin-right:30px;color:#ccc' class='right'>
-Created and maintained by Gradhat Inc. All rights reserved
+Created and maintained by Gradhat Inc. 2013, All rights reserved
 </p>
 </div>
 </footer>
