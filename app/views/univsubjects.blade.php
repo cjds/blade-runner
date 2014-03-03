@@ -29,8 +29,8 @@ background:none !important;
 					@if(($j)%2==0)
 						<div class='row'>
 					@endif
-					<div class='columns medium-6 small-6' style='text-align:center'>
-						{{HTML::link('univquestions/view?mid='.$module->module_id, $module->module_name);}}
+					<div class='columns medium-6 small-6' style='text-align:center;font-size:0.9em'>
+						{{HTML::link('univquestions/view?mid='.$module->module_id,substr($module->module_name,0,26))}}
 					</div>
 					@if(($j)%2==1)
 						</div>
@@ -51,7 +51,7 @@ background:none !important;
 					@if(($count)%2==0)
 						<div class='row'>
 					@endif
-					<div class='columns medium-6 small-6 ' style='text-align:center'>
+					<div class='columns medium-6 small-6 ' style='text-align:center;font-size:0.9em'>
 						{{HTML::link('univquestions/view/paper/'.urlencode($date)."?sid=".$subject->subject_id, $date);}} 
 					</div>
 					@if(($count)%2==1)
@@ -63,9 +63,10 @@ background:none !important;
 						</div>
 					@endif
 				</div>
-			@endif
 			<br>
 			<hr>
+			@endif
+			
 			<?php $k++;?>
 		@endforeach
 		</div>

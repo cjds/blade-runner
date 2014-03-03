@@ -207,7 +207,9 @@ class AdminController extends BaseController{
 				});
 			})->get();
 			foreach ($uniDates as $date) {
-				$univdates[$i][]=$date->month_year;
+				if(!in_array($date->month_year, $univdates[$i])){
+					$univdates[$i][]=$date->month_year;
+				}
 			}
 			$i++;
 		}
