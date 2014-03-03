@@ -64,6 +64,9 @@ Route::post('add/question','QuestionController@postAddQuestion');
 Route::get('edit/question','QuestionController@getEditQuestion');
 Route::post('edit/question','QuestionController@postEditQuestion');
 
+Route::get('edit/answer','QuestionController@getEditAnswer');
+Route::post('edit/answer','QuestionController@postEditAnswer');
+
 //View
 Route::get('view/question','QuestionController@getViewQuestion'); //1
 Route::get('view/questions', 'QuestionController@viewAllQuestions');//All

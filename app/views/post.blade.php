@@ -1,20 +1,23 @@
 @extends('layouts.postlayout')
 
-@if($type=="edit")
 <?php $tagArray=array();?>
-@foreach ($question->tags as $tag) 
+@foreach (($type=="editquestion")?$question->tags:$question->question->tags as $tag) 
 	<?php $tagArray[]=$tag->tag_name;?>
 @endforeach
-@endif
+
 
 
 @section('form')
 		@if($type=="new")
 			<h3>Add a question</h3>
 			{{Form::open(array('url' => 'add/question' ))}}
-		@elseif($type=="edit")
-			<h3>Edit question</h3>
-			{{Form::open(array('url' => 'edit/question' ))}}
+		@elseif(substr($type,0,4)=="edit")
+			<h3>Edit {{($type=='editanswer')?'answer':'question'}}</h3>
+			@if($type='editanswer')
+				{{Form::open(array('url' => 'edit/answer'))}}
+			@else
+				{{Form::open(array('url' => 'edit/question'))}}
+			@endif
 			{{Form::hidden('question_id', $question->post_id);}}
 		@endif
 		
@@ -24,16 +27,35 @@
 			</div>
 		@endif
 		<br><br>
-		{{Form::label('title', 'Title')}}<br>
-		{{Form::text('title',($type=='edit')?$question->question_title:Input::old('title'), array())}}
-		{{Form::label('question', 'Body')}}<br>
+		
+		@if($type=='editquestion' || $type=='add')
+			{{Form::label('title', 'Title')}}<br>
+			{{Form::text('title',($type=='edit')?$question->question_title:Input::old('title'), array())}}
+			{{Form::label('question', 'Body')}}<br>
+			@include('layouts.markdownmanager',array('data'=>($type=='editquestion')?$question->question_body:Input::old('question')))
+			<br>
+			{{Form::label('tags', 'Tags')}}<br>
+			{{Form::text('tags',($type=='editquestion')?implode(',', $tagArray):Input::old('tags'),array())}}
+		
+		@else
+		    Title <br>
+		    {{$question->question->question_title}}
+		    <br><br>
+		    Body<br>
+			{{$question->question->question_body}}
+			<br><br>
+			Tags<br>
+			@foreach($tagArray as $tag)
+				<span class='tag'>
+					{{HTML::link('search/questions/tag/'.urlencode($tag), $tag);}}
+				</span>
+			@endforeach
+			<br><br>
+			@include('layouts.markdownmanager',array('data'=>($type=='editanswer')?$question->answer_body:Input::old('question')))
+		@endif
 
-      @include('layouts.markdownmanager',array('data'=>($type=='edit')?$question->question_body:Input::old('question')))
-		<br>
-		{{Form::label('tags', 'Tags')}}<br>
 
-		{{Form::text('tags',($type=='edit')?implode(',', $tagArray):Input::old('tags'),array())}}
-		{{Form::submit(($type=='edit')?'Edit Question':'Add Question',array('class'=>'button'))}}
+		{{Form::submit((substr($type,0,4)=='edit')?'Edit':'Add Question',array('class'=>'button'))}}
 		<br>
 @stop
 @section('aside')

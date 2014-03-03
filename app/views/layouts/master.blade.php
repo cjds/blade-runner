@@ -38,7 +38,7 @@
         	<li class='hide-for-small'>
           <a href="{{ URL::to('view/profile')}}">
           
-          {{ucwords(Auth::user()->user_username)}}
+          {{(Auth::user()->user_username)}}
           <span class='bluebox'>{{number_format(Auth::user()->user_points)}} </span></a></li>
           <li class="divider"></li>
           <!--<li><a href="#"><span class='notification'>3</span></a></li>-->

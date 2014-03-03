@@ -30,10 +30,12 @@
 					$('#explanation').html(json.edit_explanation);
 					suggested_edits_id=json.suggested_edits_id;
 					if(json.type=='question'){
+						$('#about').html('<h3>Edit of a question</h3>');
 	  					$('#original').html('<h4>'+json.original_title+'</h4><br>'+json.original_body+'<br>'+json.original_tags);
 	  					$('#new').html('<h4>'+json.new_title+'</h4><br>'+json.new_body+'<br>'+json.new_tags); 
 	  				}
 	  				else{
+	  					$('#about').html('<h3>Edit of an Answer</h3><h4>'+json.question_title+'</h4><br>'+json.question_body+'<br><br><span style="font-size:0.8em">Tags: '+json.question_tags+"</span><br><br>")
 						$('#original').html(json.original_body);
 	  					$('#new').html(json.new_body);   					
 	  				}

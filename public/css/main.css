@@ -112,7 +112,8 @@
       .user-div{
         background-color:#eef;
         font-size:0.8em;
-        width:120px;
+        min-width:120px;
+        min-width:150px;
         margin-top: 7px;
         margin-bottom: 7px;
         padding:5px;

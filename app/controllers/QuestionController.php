@@ -80,7 +80,7 @@ class QuestionController extends BaseController{
 		$question=Question::findOrFail($question_id);
 		if (Auth::check()){
 			$title="Edit Question";
-			return View::make('post')->with('title',$title)->with('question',$question)->with('type','edit');
+			return View::make('post')->with('title',$title)->with('question',$question)->with('type','editquestion');
 		}
 		else{
 			return Redirect::to('login');
@@ -110,39 +110,8 @@ class QuestionController extends BaseController{
 			
 			if($v->passes()){
 				$post=Post::findOrFail($input['question_id']);
-				//If its edited by the creator or a moderator don't add it to the review queue
-				if(Auth::privelegecheck(15) || Auth::user()==$post->creator){
-					$question_tags=explode(',',$input['tags']);
-					//Set all the previous suggested edits that haven't before this to status -1 ..rejected
-					SuggestedPost::where('original_post_id',$input['question_id'])->where('created_at','>', time())->update(array('status'=>-1));
-					//Update the Post itself
-					$post->editor()->associate($post->creator);
-					$post->type->question_title=$input['title'];
-					$post->type->question_body=$input['wmd-input'];
-					$post->type->tags()->detach();
-					foreach ($question_tags as $t) {
-						$tag_id = Tag::firstOrCreate(array('tag_name' => $t));
-						$post->type->tags()->attach($tag_id);
-					}
-					$post->push();
-				}
-				//Time to add to the Review Queue
-				else{
-					$question=new SuggestedQuestion();
-					//$question->addQuestion(Auth::user(),$input['title'],$input['question'],array());
-					$question->suggested_edits_question_title=$input['title'];
-					$question->suggested_edits_question_body=$input['question'];			
-					$question->suggested_edits_question_tags=$input['tags'];
-					$suggestedpost=new SuggestedPost();
-	 				$suggestedpost->editor()->associate(Auth::user());
-					$suggestedpost->post()->associate($post);
-					$suggestedpost->post_type='SuggestedQuestion';
-					$suggestedpost->save();
-
-					$question->post()->associate($suggestedpost);
-					$question->push();
-				}
-				return Redirect::to('view/question?qid='.$input['question_id']);
+				if($this->editPost($post,'question',$input['wmd-input'],explode(',',$input['tags'],$input['title'])))
+						return Redirect::to('view/question?qid='.$input['question_id']);
 			}
 			else{
 				return Redirect::to('edit/question?qid='.$input['question_id'])->withInput()->withErrors($v);
@@ -153,20 +122,104 @@ class QuestionController extends BaseController{
 		}
 	}
 
+	public function editPost($post,$type,$body,$question_tags=array(),$title=""){
+		//If its edited by the creator or a moderator don't add it to the review queue
+		if(Auth::privelegecheck(15) || Auth::user()==$post->creator){
+				//Set all the previous suggested edits that haven't before this to status -1 ..rejected
+				SuggestedPost::where('original_post_id',$post->post_id)->where('created_at','>', time())->update(array('status'=>-1));
+
+				
+				//Update the Post itself
+				$universityQuestionCheck=UniversityQuestion::find($post->post_id);
+				//If the editor is not the creator and this is not a university question update it
+				if($universityQuestionCheck==null){
+					if(Auth::user()==$post->creator){
+						$post->setAttribute('editor_id', null);
+						$post->setRelation('editor', null);
+					}
+					else
+						$post->editor()->associate(Auth::user());
+				}
+
+				if($type=='question'){
+					$post->type->question_title=$title;
+					$post->type->question_body=$body;
+					$post->type->tags()->detach();
+					foreach ($question_tags as $t) {
+						$tag_id = Tag::firstOrCreate(array('tag_name' => $t));
+						$post->type->tags()->attach($tag_id);
+					}
+				}
+				else{
+					$post->type->answer_body=$body;
+				}
+					$post->push();
+		}
+		//Time to add to the Review Queue
+		else{
+			$suggestedpost=new SuggestedPost();
+	 		$suggestedpost->editor()->associate(Auth::user());
+			$suggestedpost->post()->associate($post);
+			if($type=='question'){
+				$question=new SuggestedQuestion();
+				$question->suggested_edits_question_title=$title;
+				$question->suggested_edits_question_body=$body;			
+				$question->suggested_edits_question_tags=implode(',', $question_tags);
+				$suggestedpost->post_type='SuggestedQuestion';
+			}
+			else{
+				$question=new SuggestedAnswer();
+				$question->suggested_edits_answer_body=$body;
+				$suggestedpost->post_type='SuggestedAnswer';			
+			}
+			$suggestedpost->save();
+
+			$question->post()->associate($suggestedpost);
+			$question->push();
+		}
+		return true;
+	}
+
+
 	public function getEditAnswer(){
 		//Determine if user is authentic
-		$answer_id=Input::get('qid',-1);
+		$answer_id=Input::get('aid',-1);
 
 		$answer=Answer::findOrFail($answer_id);
 		if (Auth::check()){
 			$title="Edit Question";	
-			return View::make('post')->with('title',$title)->with('question',$answer)->with('type','edit');
+			return View::make('post')->with('title',$title)->with('question',$answer)->with('type','editanswer');
 		}
 		else{
 			return Redirect::to('login');
 		}
 	}
 
+	public function postEditAnswer(){
+		//Determine if user is authentic
+		if (Auth::check()){
+	    	$input=Input::all();
+	    	//set up the rules
+			$rules=array(
+				'wmd-input'=>'required',
+				'question_id'=>'required|exists:answers,post_id'
+			);
+
+			$v = Validator::make($input, $rules);
+			
+			if($v->passes()){
+				$post=Post::findOrFail($input['question_id']);
+				if($this->editPost($post,'answer',$input['wmd-input']))
+						return Redirect::to('view/question?qid='.$post->type->question->post_id);
+			}
+			else{
+				return Redirect::to('edit/answer?aid='.$input['question_id'])->withInput()->withErrors($v);
+			}
+		}	
+		else{
+			return Redirect::to('login');			
+		}	
+}
 
 	/**
 	* This is the GET that displays a question. This will be one of the major display pages of the site
@@ -461,9 +514,9 @@ class QuestionController extends BaseController{
 				return Response::json(array('status'=>'fail','type'=>'no_review_left','message'=>'No more reviews left'));
 			}
 			else{
-				
-				if($post[0]->post_type=="SuggestedQuestion"){
-					$post=$post[0];
+				$post=$post[0];	
+				if($post->post_type=="SuggestedQuestion"){
+					
 					$tagArray=array();
 					foreach ($post->post->type->tags as $tag) 
 					 $tagArray[]=$tag->tag_name;
@@ -483,7 +536,7 @@ class QuestionController extends BaseController{
 										);
 				}
 				else{
-					foreach ($post->post->type->tags as $tag) 
+					foreach ($post->post->type->question->tags as $tag) 
 						$tagArray[]=$tag->tag_name;
 					return Response::json(array('status'=>'success',
 												'message'=>'Review Successfully got',

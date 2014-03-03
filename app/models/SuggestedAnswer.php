@@ -2,11 +2,11 @@
 class SuggestedAnswer extends Eloquent{
 
 	protected $table='suggested_edits_answers';
- 	protected $primaryKey   = 'suggest_edits_id';
+ 	protected $primaryKey   = 'suggested_edits_id';
 
 
 	public function post(){
-		return $this->belongsTo('SuggestedPost','suggest_edits_id');
+		return $this->belongsTo('SuggestedPost','suggested_edits_id');
 	}
 
 	//public function post(){
