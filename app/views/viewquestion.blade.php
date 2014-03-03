@@ -104,12 +104,12 @@ $('aside').height($('.main').height());
         <div class='row'>
           <div class='user-div'>
               <img src="http://www.gravatar.com/avatar/{{md5($question->post->creator->user_email)}}?s=30&d=identicon" alt=""> 
-              {{(strlen($question->post->creator->user_username) > 18) ? substr($question->post->creator->user_username,0,18).'...' : $question->post->creator->user_username}}
+              {{HTML::link('view/profile/'.urlencode($question->post->creator->user_username),(strlen($question->post->creator->user_username) >18) ? substr($question->post->creator->user_username,0,18).'...' : $question->post->creator->user_username)}}
           </div>
               @if($question->post->editor!=null)
             <div class='user-div'>
-              <img src="http://www.gravatar.com/avatar/{{md5($question->post->creator->user_email)}}?s=30&d=identicon" alt=""> 
-              {{(strlen($question->post->creator->user_username) > 12) ? substr($question->post->creator->user_username,0,12).'...' : $question->post->creator->user_username}}
+              <img src="http://www.gravatar.com/avatar/{{md5($question->post->editor->user_email)}}?s=30&d=identicon" alt=""> 
+              {{HTML::link ('view/profile/'.urlencode($question->post->editor->user_username),(strlen($question->post->editor->user_username) > 12) ? substr($question->post->editor->user_username,0,12).'...' : $question->post->editor->user_username)}}
               (editor)
           </div>
           @endif
@@ -166,12 +166,14 @@ $('aside').height($('.main').height());
             <div class='user-div'>
             
               <img src="http://www.gravatar.com/avatar/{{md5($answer->post->creator->user_email)}}?s=30&d=identicon" alt="">
-              {{(strlen($answer->post->creator->user_username) > 18) ? substr($answer->post->creator->user_username,0,18).'...' : $answer->post->creator->user_username}} 
+              {{HTML::link('view/profile/'.urlencode($answer->post->creator->user_username),(strlen($answer->post->creator->user_username) >18) ? substr($answer->post->creator->user_username,0,18).'...' : $answer->post->creator->user_username)}}
+              
             </div>
             @if($answer->post->editor!=null)
             <div class='user-div'>
             <img src="http://www.gravatar.com/avatar/{{md5($answer->post->editor->user_email)}}?s=30&d=identicon" alt="">
-              {{(strlen($answer->post->editor->user_username) > 12) ? substr($answer->post->editor->user_username,0,12).'...' : $answer->post->editor->user_username}} (editor)
+              {{HTML::link ('view/profile/'.urlencode($answer->post->editor->user_username),(strlen($answer->post->editor->user_username) > 12) ? substr($answer->post->editor->user_username,0,12).'...' : $answer->post->editor->user_username)}}
+              (editor)
             </div>
             @endif
             </div>

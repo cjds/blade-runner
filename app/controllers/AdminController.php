@@ -226,8 +226,8 @@ class AdminController extends BaseController{
 		if(Auth::check())
 		{
 			$user=Auth::user();
-			$questions = Post::where('creator_id', $user->user_id)->where('post_type', 'Question')->get();
-			$answers = Post::where('creator_id', $user->user_id)->where('post_type', 'Answer')->get();
+			$questions = Post::where('creator_id', $user->user_id)->where('post_type', 'Question')->limit(5)->get();
+			$answers = Post::where('creator_id', $user->user_id)->where('post_type', 'Answer')->limit(5)->get();
 			return View::make('profile')->with('title', 'Profile')
 										->with('user', $user)->with('questions', $questions)->with('answers', $answers);
 		}
@@ -235,6 +235,15 @@ class AdminController extends BaseController{
 			return Redirect::to('login');
 	}
 
+	public function viewUserProfileByName($username){
+		$user=User::where('user_username','LIKE',urldecode($username))->limit(1)->get();
+		$user=$user[0];
+			$questions = Post::where('creator_id', $user->user_id)->where('post_type', 'Question')->limit(5)->get();
+			$answers = Post::where('creator_id', $user->user_id)->where('post_type', 'Answer')->limit(5)->get();
+			return View::make('profile')->with('title', 'Profile')
+										->with('user', $user)->with('questions', $questions)->with('answers', $answers);
+
+	}
 	public function getEditProfile(){
 		if(Auth::check())
 		{
@@ -253,7 +262,7 @@ class AdminController extends BaseController{
 			$user = Auth::user();
 			$rules=array(
 			'name'=>'required',
-			'username'=>'required',
+			'username'=>'required|unique:users,user_username',
 			'email'=>'required|email'
 			);
 			$v = Validator::make($input, $rules);

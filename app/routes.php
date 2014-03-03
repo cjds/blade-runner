@@ -30,6 +30,7 @@ Route::get('admin/modules', 'AdminController@manageModules');
 Route::post('admin/add/modules', 'AdminController@addNewModule');
 
 Route::get('view/profile', 'AdminController@viewUserProfile');
+Route::get('view/profile/{username}','AdminController@viewUserProfileByName');
 Route::get('edit/profile', 'AdminController@getEditProfile');
 Route::post('edit/profile', 'AdminController@postEditProfile');
 Route::get('edit/password', 'AdminController@getChangePassword');
@@ -39,6 +40,11 @@ Route::get('register/success','UserController@getRegisterSuccess');
 Route::get('register/confirm/xy22{user_id}az/{confirmcode}','UserController@getRegisterConfirm');
 
 Route::get('/contact', 'BaseController@viewContactPage');
+
+
+Route::get('user/{id}/questions','QuestionController@getQuestionsForUser');
+Route::get('user/{id}/answers','QuestionController@getAnswersForUser');
+
 
 /*******************************************
 ***********Admin Controller*****************

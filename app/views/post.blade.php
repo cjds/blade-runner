@@ -1,10 +1,11 @@
 @extends('layouts.postlayout')
 
 <?php $tagArray=array();?>
+@if(substr($type,0,4)=="edit")
 @foreach (($type=="editquestion")?$question->tags:$question->question->tags as $tag) 
 	<?php $tagArray[]=$tag->tag_name;?>
 @endforeach
-
+@endif
 
 
 @section('form')
@@ -28,9 +29,9 @@
 		@endif
 		<br><br>
 		
-		@if($type=='editquestion' || $type=='add')
+		@if($type=='editquestion' || $type=='new')
 			{{Form::label('title', 'Title')}}<br>
-			{{Form::text('title',($type=='edit')?$question->question_title:Input::old('title'), array())}}
+			{{Form::text('title',($type=='editquestion')?$question->question_title:Input::old('title'), array())}}
 			{{Form::label('question', 'Body')}}<br>
 			@include('layouts.markdownmanager',array('data'=>($type=='editquestion')?$question->question_body:Input::old('question')))
 			<br>

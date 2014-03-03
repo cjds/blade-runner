@@ -18,6 +18,10 @@ class UserController extends BaseController {
 	|
 	*/
 
+	public function posts(){
+		return $this->hasMany('Post');
+	}
+
 	public function getLogin(){
 		$title="Login";
 		if(Auth::User()){

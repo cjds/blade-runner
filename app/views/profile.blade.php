@@ -18,19 +18,22 @@
 	
 		<br>
 		<div class="row">
-			<table class="table large-12 small-12 column">
+			<table class="table large-12 small-12 column" style='padding:0px'>
 				<tr>
-					<td>Name</td>
-					<td>{{$user->user_name}}</td>
+					<td >Name</td>
+					<td style='border:1px #ccc'>{{$user->user_name}}</td>
 				</tr>
+
 				<tr>
 					<td>Username</td>
 					<td>{{$user->user_username}}</td>
 				</tr>
+				@if(Auth::user()==$user)
 				<tr>
 					<td>Email</td>
 					<td>{{$user->user_email}}</td>
 				</tr>
+				@endif
 				<tr>
 					<td>Points</td>
 					<td>{{$user->user_points}}</td>
@@ -38,7 +41,7 @@
 
 			</table>
 		</div>
-
+		@if(Auth::user()==$user)
 		<div class='row'>
 
 			<ul style='list-style:none;display:inline' class='large-12 columns'>
@@ -46,25 +49,26 @@
 				<li><a href="{{url('edit/password')}}">Change Password</a></li>
 			</ul>
 		</div>
+		@endif
 	</div>
 </div>
 
 <div class="row">
 	<div class='large-6 small-12 columns'>
-	<h4>Questions by me</h4>
-
-	<table class="table small-12 large-11">
+	<h4>Questions asked</h4>
+	<div class="large-11">
+	<table class="searchtable table small-12">
 	<thead>
 	<tr>
 		<th>Question</th>
 		<th>Answers</th>
-		<th>Points</th>
+		<th>Votes</th>
 	</tr>
 	</thead> 
 
 	<tbody>
 	@foreach($questions as $question)
-		<tr style='align:left'>
+		<tr>
 		<td>{{HTML::link('view/question?qid='.$question->post_id,$question->type->question_title)}}</a>
 		
 		</td>
@@ -73,16 +77,22 @@
 		</tr>
 		@endforeach
 	</tbody>
+
 	</table>
+	@if(count($questions)>5))
+	{{HTML::link('user/'.$user->user_id.'/questions', 'more',array('class'=>'right', 'style'=>"margin-right:10px"))}}
+	@endif
+	</div>
 </div>
 
 <div class='large-6 small-12 columns'>
-	<h4>Answers by me</h4>
-	<table class="table small-12 large-11">
+	<h4>Answers given</h4>
+	<div class="large-11">
+	<table class=" searchtable table small-12">
 	<thead>
 	<tr>
 		<th>Answer</th>
-		<th>Points</th>
+		<th>Votes</th>
 	</tr>
 	</thead> 
 
@@ -96,7 +106,10 @@
 		@endforeach
 	</tbody>
 	</table>
-
+	@if(count($answers)>5))
+	{{HTML::link('user/'.$user->user_id.'/answers', 'more',array('class'=>'right', 'style'=>"margin-right:10px"))}}
+	@endif
+	</div>
 </div>
 </div>
 

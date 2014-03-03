@@ -273,6 +273,7 @@ class QuestionController extends BaseController{
 
 			$messages = array(
     			'required' => 'The :attribute is required.',
+    			'wmd-input.min'=>'The body must be at least 20 characters'
 			);
 			
 			$v = Validator::make($input, $rules,$messages);
@@ -299,6 +300,13 @@ class QuestionController extends BaseController{
 		}
 	}
 
+	public function getQuestionsForUser($user_id){
+		return $this->searchHandler('none','all','','',$user_id,'question');
+	}
+
+	public function getAnswersForUser($user_id){
+		return $this->searchHandler('none','all','','',$user_id,'answer');
+	}
 
 	/**
 	* This is the POST that takes data from the GET in getViewQuestion that allows you to upvote or downvote
@@ -393,7 +401,7 @@ class QuestionController extends BaseController{
 	}
 
 
-	public function searchHandler($sort,$type,$input,$tag){
+	public function searchHandler($sort,$type,$input,$tag,$user_id='',$user_request=''){
 			
 		$type = urldecode($type);
 		
@@ -418,6 +426,27 @@ class QuestionController extends BaseController{
     						$q->where('tag_name', 'like', $tag);
 					});
 			
+		}
+
+		if($user_id!=''){
+			if($user_request=='question'){
+				$questions =$questions
+					->whereHas('post', function($q) use ($user_id){
+    						$q->whereHas('creator', function($q) use ($user_id){
+    							$q->where('user_id', 'like', $user_id);
+    						});
+					});
+			}
+			else{
+				$questions =$questions
+					->whereHas('answers', function($q) use ($user_id){
+    					$q->whereHas('post', function($q) use ($user_id){
+    						$q->whereHas('creator', function($q) use ($user_id){
+    							$q->where('user_id', 'like', $user_id);
+    						});		
+    					});
+					});	
+			}
 		}
 
 		if($sort == 'recent' ){
