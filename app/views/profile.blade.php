@@ -79,7 +79,7 @@
 	</tbody>
 
 	</table>
-	@if(count($questions)>5))
+	@if(count($questions)>5)
 	{{HTML::link('user/'.$user->user_id.'/questions', 'more',array('class'=>'right', 'style'=>"margin-right:10px"))}}
 	@endif
 	</div>
@@ -106,7 +106,7 @@
 		@endforeach
 	</tbody>
 	</table>
-	@if(count($answers)>5))
+	@if(count($answers)>5)
 	{{HTML::link('user/'.$user->user_id.'/answers', 'more',array('class'=>'right', 'style'=>"margin-right:10px"))}}
 	@endif
 	</div>
