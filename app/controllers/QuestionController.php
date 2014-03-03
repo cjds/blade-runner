@@ -29,8 +29,8 @@ class QuestionController extends BaseController{
 	    	$input=Input::all();
 	    	//set up the rules
 			$rules=array(
-				'title'=>'required',
-				'wmd-input'=>'required',
+				'title'=>'required|max:255',
+				'wmd-input'=>'required|max:10000',
 				'tags'=>'required'
 			);
 			
@@ -98,8 +98,8 @@ class QuestionController extends BaseController{
 	    	$input=Input::all();
 	    	//set up the rules
 			$rules=array(
-				'title'=>'required',
-				'wmd-input'=>'required',
+				'title'=>'required|max:255',
+				'wmd-input'=>'required|max:10000',
 				'tags'=>'required',
 				'question_id'=>'required|exists:questions,post_id'
 			);
@@ -201,7 +201,7 @@ class QuestionController extends BaseController{
 	    	$input=Input::all();
 	    	//set up the rules
 			$rules=array(
-				'wmd-input'=>'required',
+				'wmd-input'=>'required|max:10000',
 				'question_id'=>'required|exists:answers,post_id'
 			);
 
@@ -267,7 +267,7 @@ class QuestionController extends BaseController{
 	    	$input=Input::all();
 	    	//set up the rules
 			$rules=array(
-				'wmd-input'=>'required|min:20',
+				'wmd-input'=>'required|min:20|max:10000',
 				'question_id'=>'required',
 			);
 
