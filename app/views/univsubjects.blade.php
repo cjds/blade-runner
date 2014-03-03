@@ -11,8 +11,7 @@ background:none !important;
 <?php $header=$branch->branch_name?>
 @section('simpledata')
 <dl class="accordion" data-accordion>
-  
-	@for ($i=3; $i <= 8; $i++)
+	@foreach($sems as $i)
 		<dd>
 		<a href="#panel{{$i}}">Semester {{$i}} </a>
 		
@@ -71,7 +70,7 @@ background:none !important;
 		@endforeach
 		</div>
 		</dd>	
-	@endfor
+	@endforeach
 
 
 @stop

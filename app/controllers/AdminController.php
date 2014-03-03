@@ -191,7 +191,14 @@ class AdminController extends BaseController{
 		$branch=Branch::findOrFail($branch_id);
 		$univdates=array();
 		$i=0;
+
+		//To get only the sems we have data for
+		$sems=array();
+		//To get all the years we have data for
 		foreach($branch->subjects as $subject){
+			if(!in_array($subject->subject_sem, $sems)){
+        		$sems[]=$subject->subject_sem;
+        	}
 			$univdates[$i]=array();
 			$sub_id=$subject->subject_id;
 			$uniDates=UniversityQuestionDate::whereHas('universityquestion',function($q) use ($sub_id){
@@ -205,7 +212,10 @@ class AdminController extends BaseController{
 			$i++;
 		}
 
-		return View::make('univsubjects')->with('title', $branch->branch_name.' University Questions')->with('branch',$branch)->with('universityquestiondates',$univdates);
+		sort($sems);
+
+		return View::make('univsubjects')->with('title', $branch->branch_name.' University Questions')->with('branch',$branch)->with('universityquestiondates',$univdates)
+										->with('sems',$sems);
 	}
 
 	public function viewUnivQuestions(){
