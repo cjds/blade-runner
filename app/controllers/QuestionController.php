@@ -110,7 +110,7 @@ class QuestionController extends BaseController{
 			
 			if($v->passes()){
 				$post=Post::findOrFail($input['question_id']);
-				if($this->editPost($post,'question',$input['wmd-input'],explode(',',$input['tags'],$input['title'])))
+				if($this->editPost($post,'question',$input['wmd-input'],explode(',',$input['tags']),$input['title']))
 						return Redirect::to('view/question?qid='.$input['question_id']);
 			}
 			else{
