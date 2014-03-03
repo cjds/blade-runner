@@ -1,5 +1,80 @@
 <?php 
 class AdminController extends BaseController{
+	public function getAdminLogin(){
+		$title="Admin Login";
+		if(Auth::privelegecheck(20)){
+			return Redirect::to('admin/home');
+		}
+		return View::make('login')->with('title',$title)->with('type','admin');
+	}
+
+
+	public function postAdminLogin(){
+		$input=Input::all();
+		$rules=array(
+			'email'=>'required|email',
+			'password'=>'required',
+			);
+
+		$v = Validator::make($input, $rules);
+		
+		if($v->passes()){
+			$credentials= array('user_email' => $input['email'],'user_password' => $input['password'],'privelege_level'=>20);
+			if(Auth::attempt($credentials,true)){
+				return Redirect::to('admin/home');
+			}
+			else{
+				return Redirect::to('admin/login')->with('errors',array('general'=>array('Your username or password is incorrect')));
+			}
+		}
+		else{
+			return Redirect::to('admin/login')->withInput()->withErrors($v);
+		}
+	}
+
+	public function getAdminHome(){
+		//For setting people to moderators 
+		//Rest will come laater
+		if (Auth::privelegecheck(20)){
+			$title="Admin home";
+			$users=User::all();
+			return View::make('adminhome')->with('title',$title)->with('users',$users);
+		}
+		else
+			return Redirect::to('admin/login');
+
+	}
+
+	public function postchangeUserPriveleges(){
+		if (Auth::privelegecheck(20)){		
+			$input=Input::all();
+			foreach ($input['privilegelevel'] as $key => $value) {
+				$user=User::findOrFail($key);
+				$user->privelege_level=$value;
+				$user->save();
+			}
+		}
+		return Redirect::to('admin/home');
+	}
+
+	public function postBlockUser(){
+
+		if (Auth::privelegecheck(20)){
+			$input=Input::all();
+			$user=User::findOrFail($input['user_id']);
+			if($user->user_blocked){
+				$user->user_blocked=false;
+			}
+			else
+				$user->user_blocked=true;
+			$user->save();
+			return Response::json(array('status'=>'success','message'=>'User Blocked',));
+		}
+		else{
+			return Response::json(array('status'=>'fail','message'=>'Not sufficient Authority',));
+		}
+	}
+
 	public function manageBranches(){
 		if(Auth::privelegecheck(20))
 		{
@@ -102,240 +177,6 @@ class AdminController extends BaseController{
 		}
 		else
 			return Redirect::to('admin/modules/add')->withInput()->withErrors($v);
-	}
-
-	public function getAddUnivQuestion(){
-		if(Auth::privelegecheck(15))
-		{
-			$title = 'Add New University Question';
-			$subjects_array = array();
-			$modules_array = array();
-			$subjects = Subject::all();
-			$modules = Module::all();
-			foreach ($subjects as $subject) {
-				$subjects_array[$subject->subject_id] = $subject->subject_name;
-			}
-			foreach ($modules as $module) {
-				$modules_array[$module->module_id] = $module->module_name;
-			}
-			return View::make('newunivquestion')->with('title', $title)->with('subjects', $subjects_array)->with('modules', $modules_array)->with('type', 'new');
-		}
-		else
-			return Redirect::to('login');
-	}
-
-	public function postAddUnivQuestion(){
-		$input = Input::all();
-		$rules = array(
-			'title' => 'required',
-			'wmd-input' => 'required',
-			'ques_no' => 'required',
-			'month' => 'required',
-			'year' => 'required',
-			'marks' => 'required',
-			'subject' => 'required',
-			'module' => 'required');
-		$v = Validator::make($input, $rules);
-		if($v->passes())
-		{
-			$post=new Post();
-			$question = new Question();
-			$univQuestion = new UniversityQuestion();
-			
-			$question->question_title=$input['title'];
-			$question->question_body=$input['wmd-input'];
-			$question_tags=explode(',', $input['tags']);
-			for($i=0;$i<count($question_tags);$i++) {
-				$question_tags[$i]=trim($question_tags[$i]);
-			}
-			$post->post_type="Question";
-			$post->creator()->associate(User::findOrFail(25));
-			$post->save();
-			$question->post()->associate($post);
-			$question->push();
-			foreach ($question_tags as $t) {
-				$tag_id = Tag::firstOrCreate(array('tag_name' => $t));
-				$question->tags()->attach($tag_id);
-			}
-			
-			$univQuestion->question_marks = $input['marks'];
-			$univQuestion->question_subject_id = $input['subject'];
-			$univQuestion->question_module_id = $input['module'];
-			$univQuestion->question()->associate($question);
-			$univQuestion->push();
-			for($i=0;$i<count($input['year']);$i++){
-				$univQuestionDate=new UniversityQuestionDate();
-				$univQuestionDate->question_number = $input['ques_no'][$i];
-				$month_year = $input['month'][$i]." ".$input['year'][$i];
-				$univQuestionDate->month_year = $month_year;
-				$univQuestionDate->universityquestion()->associate($univQuestion);
-				$univQuestionDate->push();	
-			}
-			
-			echo ':)';
-		}
-		else
-			echo ':(';
-	}
-
-	public function univQuestionsMainPage(){
-		$branches = Branch::all();
-		$subjects = Subject::all();
-		$univQuestionDates = UniversityQuestionDate::all();
-		
-		return View::make('univquestionshome')->with('title', 'University Questions')->with('branches', $branches);
-	}
-
-	public function getSubUnderBranch(){
-		$branch_id= Input::get('bid', -1);
-		$branch=Branch::findOrFail($branch_id);
-		$univdates=array();
-		$i=0;
-
-		//To get only the sems we have data for
-		$sems=array();
-		//To get all the years we have data for
-		foreach($branch->subjects as $subject){
-			if(!in_array($subject->subject_sem, $sems)){
-        		$sems[]=$subject->subject_sem;
-        	}
-			$univdates[$i]=array();
-			$sub_id=$subject->subject_id;
-			$uniDates=UniversityQuestionDate::whereHas('universityquestion',function($q) use ($sub_id){
-				$q->whereHas('subject',function($q) use ($sub_id){
-					$q->where('subject_id','=',$sub_id);
-				});
-			})->get();
-			foreach ($uniDates as $date) {
-				if(!in_array($date->month_year, $univdates[$i])){
-					$univdates[$i][]=$date->month_year;
-				}
-			}
-			$i++;
-		}
-
-		sort($sems);
-
-		return View::make('univsubjects')->with('title', $branch->branch_name.' University Questions')->with('branch',$branch)->with('universityquestiondates',$univdates)
-										->with('sems',$sems);
-	}
-
-	public function viewUnivQuestions(){
-		$subject_id = Input::get('sid', -1);
-		$module_id =Input::get('mid', -1);
-		$univques = UniversityQuestion::where('question_subject_id', $subject_id)->orWhere('question_module_id', $module_id)->get();
-		return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques);
-
-	}
-
-	public function viewUnivQuestionsByDate($exam){
-		$exam =urldecode($exam);
-		
-		$subject_id=Input::get('sid',-1);
-		
-		$univques = UniversityQuestion::whereHas('universityquestiondates',function($q) use ($exam){
-			$q->where('month_year','like',$exam);
-		})->whereHas('subject',function($q) use ($subject_id){
-			$q->where('subject_id',$subject_id);
-		})->get();
-		//	->where('university_questions.question_subject_id', $subject_id)
-		//	->where('university_questions_dates.month_year', 'like', $exam)
-		//	->orderBy('university_questions_dates.question_number')
-	//		->get();
-			return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques);
-	}
-
-	public function viewUserProfile(){
-		if(Auth::check())
-		{
-			$user=Auth::user();
-			$questions = Post::where('creator_id', $user->user_id)->where('post_type', 'Question')->get();
-			$answers = Post::where('creator_id', $user->user_id)->where('post_type', 'Answer')->get();
-			return View::make('profile')->with('title', 'Profile')
-										->with('user', $user)->with('questions', $questions)->with('answers', $answers);
-		}
-		else
-			return Redirect::to('login');
-	}
-
-	public function viewUserProfileByName($username){
-		$user=User::where('user_username','LIKE',urldecode($username))->limit(1)->get();
-		$user=$user[0];
-			$questions = Post::where('creator_id', $user->user_id)->where('post_type', 'Question')->get();
-			$answers = Post::where('creator_id', $user->user_id)->where('post_type', 'Answer')->get();
-			return View::make('profile')->with('title', 'Profile')
-										->with('user', $user)->with('questions', $questions)->with('answers', $answers);
-
-	}
-	public function getEditProfile(){
-		if(Auth::check())
-		{
-			$user = Auth::user();
-			$title = 'Edit Profile';
-			return View::make('editprofile')->with('title', $title)->with('user', $user);
-		}
-		else
-			return Redirect::to('login');
-	}
-
-	public function postEditProfile(){
-		if(Auth::check())
-		{
-			$input = Input::all();
-			$user = Auth::user();
-			$rules=array(
-			'name'=>'required',
-			'username'=>'required|unique:users,user_username',
-			'email'=>'required|email'
-			);
-			$v = Validator::make($input, $rules);
-			if($v->passes())
-			{
-				$user->user_name = $input['name'];
-				$user->user_username = $input['username'];
-				$user->user_email = $input['email'];	
-				$user->update();
-				return Redirect::to('edit/profile');
-			}
-			else{
-				$title = 'Edit Profile';
-				return Redirect::to('edit/profile')->with('title', $title)->with('user', $user)->withInput()->withErrors($v);
-				//return View::make('editprofile')->withInput()->withErrors($v)->with('title', $title)->with('user', Auth::user());
-			}
-		}
-		else
-			return Redirect::to('login');
-	}
-
-	public function getChangePassword() {
-		if(Auth::check())
-		{
-			$user = Auth::user();
-			$title = 'Change Password';
-			return View::make('password')->with('title', $title)->with('user', $user);
-		}
-		else
-			return Redirect::to('login');	
-	}
-
-	public function postChangePassword() {
-		if(Auth::check())
-		{
-			$input = Input::all();
-			$user = Auth::user();
-			$rules = array(
-			'password'=>'required',
-			'confpassword'=>'same:password');
-			$v = Validator::make($input, $rules);
-			if ($v->passes())
-			{
-				$user->user_password = Hash::make($input['password']);
-				$user->update();
-				echo "Password changed successfully";
-			}
-			else
-				return Redirect::to('edit/password')->withInput()->withErrors($v);
-		}
 	}
 
 }

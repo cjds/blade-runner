@@ -12,6 +12,11 @@
 |
 */
 
+/*******************************************
+***********Base Controller*****************
+*******************************************/
+
+Route::get('/contact', 'BaseController@viewContactPage');
 
 /*******************************************
 ***********User Controller*****************
@@ -19,9 +24,33 @@
 
 Route::get('/login','UserController@getLogin');
 Route::post('/login','UserController@postLogin');
+
 Route::get('/register','UserController@getRegister');
 Route::post('/register','UserController@postRegister');
+
+Route::get('register/success','UserController@getRegisterSuccess');
+Route::get('register/confirm/xy22{user_id}az/{confirmcode}','UserController@getRegisterConfirm');
+
 Route::get('logout','UserController@getLogout');
+
+Route::get('view/profile', 'UserController@viewUserProfile');
+Route::get('view/profile/{username}','UserController@viewUserProfileByName');
+Route::get('edit/profile', 'UserController@getEditProfile');
+Route::post('edit/profile', 'UserController@postEditProfile');
+Route::get('edit/password', 'UserController@getChangePassword');
+Route::post('edit/password', 'UserController@postChangePassword');
+
+/*******************************************
+***********Admin Controller*****************
+*******************************************/
+
+Route::get('admin/login','AdminController@getAdminLogin');
+Route::post('admin/login','AdminController@postAdminLogin');
+Route::get('admin/home','AdminController@getAdminHome');
+
+Route::post('admin/changeUserPriveleges','AdminController@postchangeUserPriveleges');
+Route::post('json/admin/toggleBlock','AdminController@postBlockUser');
+
 Route::get('admin/branches', 'AdminController@manageBranches');
 Route::post('admin/add/branches', 'AdminController@addNewBranch');
 Route::get('admin/subjects', 'AdminController@manageSubjects');
@@ -29,42 +58,19 @@ Route::post('admin/add/subjects', 'AdminController@addNewSubject');
 Route::get('admin/modules', 'AdminController@manageModules');
 Route::post('admin/add/modules', 'AdminController@addNewModule');
 
-Route::get('view/profile', 'AdminController@viewUserProfile');
-Route::get('view/profile/{username}','AdminController@viewUserProfileByName');
-Route::get('edit/profile', 'AdminController@getEditProfile');
-Route::post('edit/profile', 'AdminController@postEditProfile');
-Route::get('edit/password', 'AdminController@getChangePassword');
-Route::post('edit/password', 'AdminController@postChangePassword');
-
-Route::get('register/success','UserController@getRegisterSuccess');
-Route::get('register/confirm/xy22{user_id}az/{confirmcode}','UserController@getRegisterConfirm');
-
-Route::get('/contact', 'BaseController@viewContactPage');
-
-
-Route::get('user/{id}/questions','QuestionController@getQuestionsForUser');
-Route::get('user/{id}/answers','QuestionController@getAnswersForUser');
-
-
-/*******************************************
-***********Admin Controller*****************
-*******************************************/
-Route::get('admin/login','UserController@getAdminLogin');
-Route::post('admin/login','UserController@postAdminLogin');
-Route::get('admin/home','UserController@getAdminHome');
-Route::post('admin/changeUserPriveleges','UserController@postchangeUserPriveleges');
-
-
-Route::post('json/admin/toggleBlock','UserController@postBlockUser');
-
 
 /*******************************************
 ***********Question Controller**************
 *******************************************/
+
 Route::get('/','QuestionController@viewAllQuestions');
-//Add
+
+//Adding
 Route::get('add/question','QuestionController@getAddQuestion');
 Route::post('add/question','QuestionController@postAddQuestion');
+
+Route::post('add/answer','QuestionController@postAddAnswer');
+Route::post('add/addVote','QuestionController@postAddVote');
 
 //Edit
 Route::get('edit/question','QuestionController@getEditQuestion');
@@ -77,9 +83,9 @@ Route::post('edit/answer','QuestionController@postEditAnswer');
 Route::get('view/question','QuestionController@getViewQuestion'); //1
 Route::get('view/questions', 'QuestionController@viewAllQuestions');//All
 
-//Answering
-Route::post('add/answer','QuestionController@postAddAnswer');
-Route::post('add/addVote','QuestionController@postAddVote');
+//View posts for user
+Route::get('user/{id}/questions','QuestionController@getQuestionsForUser');
+Route::get('user/{id}/answers','QuestionController@getAnswersForUser');
 
 //Searching
 Route::get('search/questions/tag/{tag}', 'QuestionController@viewQuestionsByTags');
@@ -93,18 +99,19 @@ Route::post('json/add/flag','QuestionController@postJSONAddFlag');
 Route::get('json/relatedquestions','QuestionController@getJSONRelatedQuestions');
 Route::post('json/relatedquestionstags','QuestionController@postJSONRelatedQuestionsTag');
 
+//University Questions
+Route::get('add/univquestion', 'QuestionController@getAddUnivQuestion');
+Route::post('add/univquestion', 'QuestionController@postAddUnivQuestion');
+Route::get('univquestions/mainpage', 'QuestionController@univQuestionsMainPage');
+Route::get('univquestions/view', 'QuestionController@viewUnivQuestions');
+Route::get('univquestions/view/paper/{exam}', 'QuestionController@viewUnivQuestionsByDate');
+Route::get('univquestions/view/branch','QuestionController@getSubUnderBranch');
+
 /*******************************************
 ***********Moderator Controller*************
 *******************************************/
-Route::get('moderator/home','UserController@getModeratorHome');
 
-//University Questions
-Route::get('add/univquestion', 'AdminController@getAddUnivQuestion');
-Route::post('add/univquestion', 'AdminController@postAddUnivQuestion');
-Route::get('univquestions/mainpage', 'AdminController@univQuestionsMainPage');
-Route::get('univquestions/view', 'AdminController@viewUnivQuestions');
-Route::get('univquestions/view/paper/{exam}', 'AdminController@viewUnivQuestionsByDate');
-Route::get('univquestions/view/branch','AdminController@getSubUnderBranch');
+Route::get('moderator/home','ModeratorController@getModeratorHome');
 
 //Flags
 Route::get('moderator/flags','ModeratorController@getViewFlags');
@@ -112,9 +119,9 @@ Route::get('json/moderator/nextflag','ModeratorController@getJSONNextFlag');
 Route::post('json/moderator/nextflag','ModeratorController@postJSONNextFlag');
 
 //Review edits
-Route::get('moderator/review','QuestionController@getModeratorReviews');
-Route::get('json/moderator/newreview','QuestionController@getJSONNextModeratorReview');
-Route::post('json/moderator/newreview','QuestionController@postJSONNextModeratorReview');
+Route::get('moderator/review','ModeratorController@getModeratorReviews');
+Route::get('json/moderator/newreview','ModeratorController@getJSONNextModeratorReview');
+Route::post('json/moderator/newreview','ModeratorController@postJSONNextModeratorReview');
 
 
 //Controller to handle all our CRON jobs, mail etc.
@@ -126,7 +133,7 @@ Route::post('json/moderator/newreview','QuestionController@postJSONNextModerator
 Route::get('mail',function(){
 		//return View::make('mail',array('user'=>'cjds'));
 	   Mail::send('emails.confirm', array('user'=>'Carl','link'=>'nothing'), function($message){
-       $message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to Gradhat');
+       $message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to GradHat');
     	});
 });
 ?>

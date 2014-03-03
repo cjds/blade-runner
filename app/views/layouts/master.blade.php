@@ -6,12 +6,12 @@
     <link rel="shortcut icon" href="{{URL::asset('icon/favicon.ico')}}" type="image/icon" >
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-    <meta name=”description” content="Gradhat provides the answers to all the mumbai university questions. We're a community of students and teachers helping people get through their exams">
+    <meta name=”description” content="GradHat provides the answers to all the mumbai university questions. We're a community of students and teachers helping people get through their exams">
 
 
     <meta property="og:title" content="{{$title}}"/>
 
-    <title>{{$title}} | Gradhat</title>
+    <title>{{$title}} | GradHat</title>
     {{HTML::style('css/foundation.css')}}
     {{HTML::script('js/modernizr.js')}}
     {{HTML::script('js/jquery.js')}}
@@ -96,8 +96,8 @@
 <div class='large-3 columns' style=''>
 <div class="vertical-line hide-for-small" ></div>
 <img src='{{URL::asset("img/grad_caps.svg")}}' class='fa fa-2x'/>
-  <h4 class='subheading'>Gradhat</h4>
-  <p>Gradhat is a company that builds educational solutions and has fun doing it.
+  <h4 class='subheading'>GradHat</h4>
+  <p>GradHat is a company that builds educational solutions and has fun doing it.
   You can find out more about us <a href="{{URL::to('contact')}}" style='color:text-decoration:underline'>here.</a>
   </p>
 
@@ -143,7 +143,7 @@
 {{HTML::image('img/logo.png', 'gradhat', array('style'=>"height:34px;margin-top:10px;margin-bottom:5px;margin-left:10px;display:inline;opacity:0.6","class"=>'logo'));}}
 </a>
 <p style='display:inline-block;font-size:0.8em;margin-top:1em;margin-right:30px;color:#ccc' class='right'>
-Created and maintained by Gradhat Inc. 2013, All rights reserved
+Created and maintained by GradHat Inc. 2013, All rights reserved
 </p>
 </div>
 </footer>

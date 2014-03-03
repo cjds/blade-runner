@@ -66,7 +66,116 @@ class QuestionController extends BaseController{
 		}
 	}
 
+	/**
+	* This is the POST that takes data from the GET in getViewQuestion and stores a new Answer in the DB
+	* @return It redirects to either the question's display page or the erors page
+	*
+	*/
+	public function postAddAnswer(){
+		//Determine if user is authentic
+		if (Auth::check()){
+	    	$input=Input::all();
+	    	//set up the rules
+			$rules=array(
+				'wmd-input'=>'required|min:20|max:10000',
+				'question_id'=>'required',
+			);
 
+			$messages = array(
+    			'required' => 'The :attribute is required.',
+    			'wmd-input.min'=>'The body must be at least 20 characters'
+			);
+			
+			$v = Validator::make($input, $rules,$messages);
+			
+			if($v->passes()){
+				$answer=new Answer();
+				
+				$answer->answer_body=$input['wmd-input'];			
+				$answer->answer_question_id=$input['question_id'];			
+				$post=new Post();
+				$post->creator()->associate(Auth::user());
+				$post->post_type='Answer';
+				$post->save();
+				$answer->post()->associate($post);
+				$answer->push();
+				return Redirect::to('view/question?qid='.$input['question_id']);
+			}
+			else{
+				return Redirect::to('view/question?qid='.$input['question_id'])->withInput()->withErrors($v);
+			}
+		}
+		else{
+			return Redirect::to('login');			
+		}
+	}
+
+	/**
+	* This is the POST that takes data from the GET in getViewQuestion that allows you to upvote or downvote
+	* @return It returns JSON of success or fail
+	*
+	*/
+	public function postAddVote(){
+		if (Auth::check()){
+			$input=Input::all();
+			$post_id=$input['post_id'];
+			$vote_type=$input['type'];
+			$post=Post::findOrFail($post_id);
+			$creator = User::findOrFail($post->creator_id);
+			$user=Auth::user();
+
+			if($post_id!=null){
+
+				if($user->user_id == $post->creator_id)
+					return Response::json(array('status'=>'fail','type'=>'already_voted','message'=>"You can't vote on your own post"));
+					
+				else
+				{
+				$hasNotVoted=Vote::where('user_id',$user->user_id)->where('post_id',$post_id)->get()->isEmpty();
+				
+				if($hasNotVoted){
+					$vote=new Vote();		
+					$vote->voter()->associate($user);
+					$vote->post()->associate($post);
+					$vote->voteType=$vote_type;
+					$vote->save();
+
+					if(!Question::where('post_id', $post_id)->get()->isEmpty())
+					{
+						$question=Question::findOrFail($post_id);
+						$points = ($vote_type == 1)?5:-1;
+						$question->question_points += $vote_type;
+						$creator->user_points += $points;
+						$question->update();
+						$creator->update();
+					}
+
+					else if(!Answer::where('post_id', $post_id)->get()->isEmpty())
+					{
+  						$answer=Answer::findOrFail($post_id);
+						$points = ($vote_type == 1)?10:-2;
+						$answer->answer_points += $vote_type;
+						$creator->user_points += $points;
+						$answer->update();
+						$creator->update();
+					}
+						
+					return Response::json(array('status'=>'pass','message'=>"Vote Successfully"));
+				}
+				else{
+					return Response::json(array('status'=>'fail','type'=>'previous_vote','message'=>"You have already voted on this"));
+				}
+			}
+				
+			}
+			else{
+				return Response::json(array('status'=>'fail','type'=>'wrong_question','message'=>"You Entered a Wrong Question Id"));
+			}
+		}
+		else{
+			return Redirect::to('login');			
+		}
+	}
 
 	/**
 	* This is the GET that displays the question form for editing
@@ -219,7 +328,7 @@ class QuestionController extends BaseController{
 		else{
 			return Redirect::to('login');			
 		}	
-}
+	}
 
 	/**
 	* This is the GET that displays a question. This will be one of the major display pages of the site
@@ -254,52 +363,6 @@ class QuestionController extends BaseController{
 		return $this->sortQuestionList('none','all');
 	}
 
-
-
-	/**
-	* This is the POST that takes data from the GET in getViewQuestion and stores a new Answer in the DB
-	* @return It redirects to either the question's display page or the erors page
-	*
-	*/
-	public function postAddAnswer(){
-		//Determine if user is authentic
-		if (Auth::check()){
-	    	$input=Input::all();
-	    	//set up the rules
-			$rules=array(
-				'wmd-input'=>'required|min:20|max:10000',
-				'question_id'=>'required',
-			);
-
-			$messages = array(
-    			'required' => 'The :attribute is required.',
-    			'wmd-input.min'=>'The body must be at least 20 characters'
-			);
-			
-			$v = Validator::make($input, $rules,$messages);
-			
-			if($v->passes()){
-				$answer=new Answer();
-				
-				$answer->answer_body=$input['wmd-input'];			
-				$answer->answer_question_id=$input['question_id'];			
-				$post=new Post();
-				$post->creator()->associate(Auth::user());
-				$post->post_type='Answer';
-				$post->save();
-				$answer->post()->associate($post);
-				$answer->push();
-				return Redirect::to('view/question?qid='.$input['question_id']);
-			}
-			else{
-				return Redirect::to('view/question?qid='.$input['question_id'])->withInput()->withErrors($v);
-			}
-		}
-		else{
-			return Redirect::to('login');			
-		}
-	}
-
 	public function getQuestionsForUser($user_id){
 		return $this->searchHandler('none','all','','',$user_id,'question');
 	}
@@ -308,81 +371,11 @@ class QuestionController extends BaseController{
 		return $this->searchHandler('none','all','','',$user_id,'answer');
 	}
 
-	/**
-	* This is the POST that takes data from the GET in getViewQuestion that allows you to upvote or downvote
-	* @return It returns JSON of success or fail
-	*
-	*/
-	public function postAddVote(){
-		if (Auth::check()){
-			$input=Input::all();
-			$post_id=$input['post_id'];
-			$vote_type=$input['type'];
-			$post=Post::findOrFail($post_id);
-			$creator = User::findOrFail($post->creator_id);
-			$user=Auth::user();
-
-			if($post_id!=null){
-
-				if($user->user_id == $post->creator_id)
-					return Response::json(array('status'=>'fail','type'=>'already_voted','message'=>"You can't vote on your own post"));
-					
-				else
-				{
-				$hasNotVoted=Vote::where('user_id',$user->user_id)->where('post_id',$post_id)->get()->isEmpty();
-				
-				if($hasNotVoted){
-					$vote=new Vote();		
-					$vote->voter()->associate($user);
-					$vote->post()->associate($post);
-					$vote->voteType=$vote_type;
-					$vote->save();
-
-					if(!Question::where('post_id', $post_id)->get()->isEmpty())
-					{
-						$question=Question::findOrFail($post_id);
-						$points = ($vote_type == 1)?5:-1;
-						$question->question_points += $vote_type;
-						$creator->user_points += $points;
-						$question->update();
-						$creator->update();
-					}
-
-					else if(!Answer::where('post_id', $post_id)->get()->isEmpty())
-					{
-  						$answer=Answer::findOrFail($post_id);
-						$points = ($vote_type == 1)?10:-2;
-						$answer->answer_points += $vote_type;
-						$creator->user_points += $points;
-						$answer->update();
-						$creator->update();
-					}
-						
-					return Response::json(array('status'=>'pass','message'=>"Vote Successfully"));
-				}
-				else{
-					return Response::json(array('status'=>'fail','type'=>'previous_vote','message'=>"You have already voted on this"));
-				}
-			}
-				
-			}
-			else{
-				return Response::json(array('status'=>'fail','type'=>'wrong_question','message'=>"You Entered a Wrong Question Id"));
-			}
-		}
-		else{
-			return Redirect::to('login');			
-		}
-	}
-
-
-
 	public function viewQuestionsByTags ($tag_name){
 	 	$tag_name=urldecode($tag_name); 
 
 		return $this->searchHandler('none','all','',$tag_name);
 	 }
-
 
 	/**
 	* This is the GET that displays a list of all the questions with links to them
@@ -464,131 +457,7 @@ class QuestionController extends BaseController{
 										->with('tag', $tag);
 	}
 
-	public function getModeratorReviews(){
-		//Determine if user is authentic and above Moderator level 15...
-		if (Auth::privelegecheck(15)){
-			
-			return View::make('review')->with('title','Moderator Reviews');
-		}
-		else{
-			return Redirect::to('login');
-		}
-	}
-
-
-	public function postJSONNextModeratorReview(){
-		$input=Input::all();
-		//Determine if user is authentic and above Moderator level 15...
-		if (Auth::privelegecheck(15)){
-			if($input['type']=='approve' || $input['type']=='reject'){
-				
-				$suggested_edits_id=$input['suggested_edits_id'];
-				$suggestedEdit=SuggestedPost::findOrFail($suggested_edits_id);
-				$suggestedEdit->status=1;
-				$suggestedEdit->moderator()->associate(Auth::user());
-				if($input['type']=='approve'){
-					$suggestedEdit->approvals=$suggestedEdit->approvals+1;
-					$post=$suggestedEdit->post;
-
-					//Set all the previous suggested edits that haven't before this to status -1 ..rejected
-					SuggestedPost::where('original_post_id',$suggestedEdit->original_post_id)->where('created_at','>',$suggestedEdit->created_at)->update(array('status'=>-1));
-
-					if($suggestedEdit->post_type=='SuggestedQuestion'){
-						$post->editor()->associate($suggestedEdit->editor);
-						//Normal stuff
-						$post->type->question_body=$suggestedEdit->type->suggested_edits_question_body;
-						$post->type->question_title=$suggestedEdit->type->suggested_edits_question_title;
-
-						//Attach the new tags
-						$question_tags=explode(',',$suggestedEdit->type->suggested_edits_question_tags);
-						for ($i=0; $i < count($question_tags); $i++) { 
-							$question_tags[$i]=trim($question_tags[$i]);
-						}
-						$post->type->tags()->detach();
-
-						foreach ($question_tags as $t) {
-							$tag_id = Tag::firstOrCreate(array('tag_name' => $t));
-							$post->type->tags()->attach($tag_id);
-						}
-
-						$post->push();
-					}
-					else if($suggestedEdit->post_type=='SuggestedAnswer'){
-						$post->editor()->associate($suggestedEdit->editor);
-						$post->type->answer_body=$suggestedEdit->type->suggested_edits_answer_body;
-						$post->push();
-					}
-					
-				}
-				else if($input['type']=='reject'){
-					$suggestedEdit->rejections=$suggestedEdit->approvals-1;
-					$suggestedEdit->status=-1;
-				}
-				$suggestedEdit->save();
-				return Response::json(array('status'=>'success','message'=>'Edit Completed',));
-			}
-			else{
-				return Response::json(array('status'=>'fail','message'=>'Wrong Input',));
-			}
-		}
-		else{
-			return Response::json(array('status'=>'fail','message'=>'Not Enough Authority',));
-		}
-	}
-
-	public function getJSONNextModeratorReview(){
-		if (Auth::privelegecheck(15)){
-			$post=SuggestedPost::where('status',0)->orderBy('created_at', 'DESC')->take(1)->get();
-			if($post->isEmpty()){
-				return Response::json(array('status'=>'fail','type'=>'no_review_left','message'=>'No more reviews left'));
-			}
-			else{
-				$post=$post[0];	
-				if($post->post_type=="SuggestedQuestion"){
-					
-					$tagArray=array();
-					foreach ($post->post->type->tags as $tag) 
-					 $tagArray[]=$tag->tag_name;
-
-					return Response::json(array('status'=>'success',
-												'message'=>'Review Successfully got',
-												'type'=>'question',
-												'original_title'=> $post->post->type->question_title,
-												'new_title'=>$post->type->suggested_edits_question_title,
-												'original_body'=>$post->post->type->question_body,
-												'new_body'=>$post->type->suggested_edits_question_body,
-												'original_tags'=>implode(',', $tagArray),
-												'new_tags'=>$post->type->suggested_edits_question_tags,
-												'suggested_edits_id'=>$post->suggested_edits_id,
-												'edit_explanation'=> $post->editExplanation
-												)
-										);
-				}
-				else{
-					foreach ($post->post->type->question->tags as $tag) 
-						$tagArray[]=$tag->tag_name;
-					return Response::json(array('status'=>'success',
-												'message'=>'Review Successfully got',
-												'type'=>'answer',
-												'question_body'=>$post->post->type->question->question_body	,
-												'question_title'=>$post->post->type->question->question_title,
-												'question_tags'=>implode(',', $tagArray),
-												'original_body'=>$post->post->type->answer_body	,
-												'new_body'=>$post->type->suggested_edits_answer_body,
-												'suggested_edits_id'=>$post->suggested_edits_id,											
-												'edit_explanation'=> $post->editExplanation
-												)
-										);	
-				}
-			}
-			
-		}
-		else{
-			return Response::json(array('status'=>'fail','type'=>'user_authority','message'=>'You do not have sufficient authority'));
-		}
-	}
-
-
+	
 	//This is a POST that lets you flag any post for innappropriate content and responds via JSON	
 	public function postJSONAddFlag(){
 		if(Auth::user()){
@@ -609,6 +478,17 @@ class QuestionController extends BaseController{
 		}
 	}
 
+	public function getJSONRelatedQuestions(){
+	    $q = urldecode(Input::get('query'));
+	    $num = Input::get('count');
+	    if($num==null)	$num=5;
+	    
+	    $query = Question::where('question_title',"LIKE","%".$q[0]."%");
+	    for($i=1;$i<count($q);$i++){
+	        $query = $query->orWhere('question_title',"LIKE","%".$q[i]."%");
+	    }
+	    return $query->take($num)->get()->toJson();
+	}
 
 	public function postJSONRelatedQuestionsTag(){
 	    $q = urldecode(Input::get('qid'));
@@ -628,19 +508,6 @@ class QuestionController extends BaseController{
     		
 		});
 
-	    return $query->take($num)->get()->toJson();
-	}
-	
-
-	public function getJSONRelatedQuestions(){
-	    $q = urldecode(Input::get('query'));
-	    $num = Input::get('count');
-	    if($num==null)	$num=5;
-	    
-	    $query = Question::where('question_title',"LIKE","%".$q[0]."%");
-	    for($i=1;$i<count($q);$i++){
-	        $query = $query->orWhere('question_title',"LIKE","%".$q[i]."%");
-	    }
 	    return $query->take($num)->get()->toJson();
 	}
 
@@ -666,6 +533,146 @@ class QuestionController extends BaseController{
 
 	// }
 
+	public function getAddUnivQuestion(){
+		if(Auth::privelegecheck(15))
+		{
+			$title = 'Add New University Question';
+			$subjects_array = array();
+			$modules_array = array();
+			$subjects = Subject::all();
+			$modules = Module::all();
+			foreach ($subjects as $subject) {
+				$subjects_array[$subject->subject_id] = $subject->subject_name;
+			}
+			foreach ($modules as $module) {
+				$modules_array[$module->module_id] = $module->module_name;
+			}
+			return View::make('newunivquestion')->with('title', $title)->with('subjects', $subjects_array)->with('modules', $modules_array)->with('type', 'new');
+		}
+		else
+			return Redirect::to('login');
+	}
+
+	public function postAddUnivQuestion(){
+		$input = Input::all();
+		$rules = array(
+			'title' => 'required',
+			'wmd-input' => 'required',
+			'ques_no' => 'required',
+			'month' => 'required',
+			'year' => 'required',
+			'marks' => 'required',
+			'subject' => 'required',
+			'module' => 'required');
+		$v = Validator::make($input, $rules);
+		if($v->passes())
+		{
+			$post=new Post();
+			$question = new Question();
+			$univQuestion = new UniversityQuestion();
+			
+			$question->question_title=$input['title'];
+			$question->question_body=$input['wmd-input'];
+			$question_tags=explode(',', $input['tags']);
+			for($i=0;$i<count($question_tags);$i++) {
+				$question_tags[$i]=trim($question_tags[$i]);
+			}
+			$post->post_type="Question";
+			$post->creator()->associate(User::findOrFail(25));
+			$post->save();
+			$question->post()->associate($post);
+			$question->push();
+			foreach ($question_tags as $t) {
+				$tag_id = Tag::firstOrCreate(array('tag_name' => $t));
+				$question->tags()->attach($tag_id);
+			}
+			
+			$univQuestion->question_marks = $input['marks'];
+			$univQuestion->question_subject_id = $input['subject'];
+			$univQuestion->question_module_id = $input['module'];
+			$univQuestion->question()->associate($question);
+			$univQuestion->push();
+			for($i=0;$i<count($input['year']);$i++){
+				$univQuestionDate=new UniversityQuestionDate();
+				$univQuestionDate->question_number = $input['ques_no'][$i];
+				$month_year = $input['month'][$i]." ".$input['year'][$i];
+				$univQuestionDate->month_year = $month_year;
+				$univQuestionDate->universityquestion()->associate($univQuestion);
+				$univQuestionDate->push();	
+			}
+			
+			echo ':)';
+		}
+		else
+			echo ':(';
+	}
+
+	public function univQuestionsMainPage(){
+		$branches = Branch::all();
+		$subjects = Subject::all();
+		$univQuestionDates = UniversityQuestionDate::all();
+		
+		return View::make('univquestionshome')->with('title', 'University Questions')->with('branches', $branches);
+	}
+
+	public function viewUnivQuestions(){
+		$subject_id = Input::get('sid', -1);
+		$module_id =Input::get('mid', -1);
+		$univques = UniversityQuestion::where('question_subject_id', $subject_id)->orWhere('question_module_id', $module_id)->get();
+		return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques);
+
+	}
+
+	public function viewUnivQuestionsByDate($exam){
+		$exam =urldecode($exam);
+		
+		$subject_id=Input::get('sid',-1);
+		
+		$univques = UniversityQuestion::whereHas('universityquestiondates',function($q) use ($exam){
+			$q->where('month_year','like',$exam);
+		})->whereHas('subject',function($q) use ($subject_id){
+			$q->where('subject_id',$subject_id);
+		})->get();
+		//	->where('university_questions.question_subject_id', $subject_id)
+		//	->where('university_questions_dates.month_year', 'like', $exam)
+		//	->orderBy('university_questions_dates.question_number')
+	//		->get();
+			return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques);
+	}
+
+	public function getSubUnderBranch(){
+		$branch_id= Input::get('bid', -1);
+		$branch=Branch::findOrFail($branch_id);
+		$univdates=array();
+		$i=0;
+
+		//To get only the sems we have data for
+		$sems=array();
+		//To get all the years we have data for
+		foreach($branch->subjects as $subject){
+			if(!in_array($subject->subject_sem, $sems)){
+        		$sems[]=$subject->subject_sem;
+        	}
+			$univdates[$i]=array();
+			$sub_id=$subject->subject_id;
+			$uniDates=UniversityQuestionDate::whereHas('universityquestion',function($q) use ($sub_id){
+				$q->whereHas('subject',function($q) use ($sub_id){
+					$q->where('subject_id','=',$sub_id);
+				});
+			})->get();
+			foreach ($uniDates as $date) {
+				if(!in_array($date->month_year, $univdates[$i])){
+					$univdates[$i][]=$date->month_year;
+				}
+			}
+			$i++;
+		}
+
+		sort($sems);
+
+		return View::make('univsubjects')->with('title', $branch->branch_name.' University Questions')->with('branch',$branch)->with('universityquestiondates',$univdates)
+			->with('sems',$sems);
+	}
 
 }
 ?>

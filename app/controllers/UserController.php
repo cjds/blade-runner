@@ -32,12 +32,6 @@ class UserController extends BaseController {
 		}
 	}
 
-	public function getRegister(){
-		$title="Register";
-		return View::make('register')->with('title',$title);
-	}
-	
-
 	public function postLogin(){
 		$input=Input::all();
 		$rules=array(
@@ -63,6 +57,11 @@ class UserController extends BaseController {
 		}
 	}
 
+	public function getRegister(){
+		$title="Register";
+		return View::make('register')->with('title',$title);
+	}
+
 	public function postRegister()
 	{
 		$input=Input::all();
@@ -85,7 +84,7 @@ class UserController extends BaseController {
 			Mail::queue('emails.confirm', 
 					array('user'=>$user->user_username,'link'=>URL::to('register/confirm/xy22'.$user->user_id.'az/'.$user->confirmstring)), 
 					function($message){
-       					$message->to($input['user_email'], 'Carl Saldanha')->subject('Welcome to Gradhat');
+       					$message->to($input['user_email'], 'Carl Saldanha')->subject('Welcome to GradHat');
     				}
     		);
 			
@@ -96,98 +95,8 @@ class UserController extends BaseController {
 		}
 	}
 
-	public function getLogout(){
-		Auth::logout();
-		return Redirect::to('login');
-	}
-
-	public function getAdminLogin(){
-		$title="Admin Login";
-		if(Auth::privelegecheck(20)){
-			return Redirect::to('admin/home');
-		}
-		return View::make('login')->with('title',$title)->with('type','admin');
-	}
-
-
-	public function postAdminLogin(){
-		$input=Input::all();
-		$rules=array(
-			'email'=>'required|email',
-			'password'=>'required',
-			);
-
-		$v = Validator::make($input, $rules);
-		
-		if($v->passes()){
-			$credentials= array('user_email' => $input['email'],'user_password' => $input['password'],'privelege_level'=>20);
-			if(Auth::attempt($credentials,true)){
-				return Redirect::to('admin/home');
-			}
-			else{
-				return Redirect::to('admin/login')->with('errors',array('general'=>array('Your username or password is incorrect')));
-			}
-		}
-		else{
-			return Redirect::to('admin/login')->withInput()->withErrors($v);
-		}
-	}
-
-	public function postchangeUserPriveleges(){
-		if (Auth::privelegecheck(20)){		
-			$input=Input::all();
-			foreach ($input['privilegelevel'] as $key => $value) {
-				$user=User::findOrFail($key);
-				$user->privelege_level=$value;
-				$user->save();
-			}
-		}
-		return Redirect::to('admin/home');
-	}
-
-	public function getModeratorHome(){
-		if (Auth::privelegecheck(15)){
-			$title="Moderator Home";
-			return View::make('moderatorhome')->with('title',$title);	
-		}
-		else
-			return Redirect::to('login');
-
-	}
-
-	public function getAdminHome(){
-		//For setting people to moderators 
-		//Rest will come laater
-		if (Auth::privelegecheck(20)){
-			$title="Admin home";
-			$users=User::all();
-			return View::make('adminhome')->with('title',$title)->with('users',$users);
-		}
-		else
-			return Redirect::to('admin/login');
-
-	}
-
 	public function openIDLogin(){
 		
-	}
-
-	public function postBlockUser(){
-
-		if (Auth::privelegecheck(20)){
-			$input=Input::all();
-			$user=User::findOrFail($input['user_id']);
-			if($user->user_blocked){
-				$user->user_blocked=false;
-			}
-			else
-				$user->user_blocked=true;
-			$user->save();
-			return Response::json(array('status'=>'success','message'=>'User Blocked',));
-		}
-		else{
-			return Response::json(array('status'=>'fail','message'=>'Not sufficient Authority',));
-		}
 	}
 
 	public function getRegisterSuccess(){
@@ -206,6 +115,103 @@ class UserController extends BaseController {
 			$returnString="I'm sorry but you seem to have got a wrong confirmation code.";
 		}
 		return View::make('templates.sendmessage', array('head'=>'Confirming Your E-mail','body'=>$returnString));
+	}
+
+	public function getLogout(){
+		Auth::logout();
+		return Redirect::to('login');
+	}
+
+	public function viewUserProfile(){
+		if(Auth::check())
+		{
+			$user=Auth::user();
+			$questions = Post::where('creator_id', $user->user_id)->where('post_type', 'Question')->get();
+			$answers = Post::where('creator_id', $user->user_id)->where('post_type', 'Answer')->get();
+			return View::make('profile')->with('title', 'Profile')
+										->with('user', $user)->with('questions', $questions)->with('answers', $answers);
+		}
+		else
+			return Redirect::to('login');
+	}
+
+	public function viewUserProfileByName($username){
+		$user=User::where('user_username','LIKE',urldecode($username))->limit(1)->get();
+		$user=$user[0];
+			$questions = Post::where('creator_id', $user->user_id)->where('post_type', 'Question')->get();
+			$answers = Post::where('creator_id', $user->user_id)->where('post_type', 'Answer')->get();
+			return View::make('profile')->with('title', 'Profile')
+										->with('user', $user)->with('questions', $questions)->with('answers', $answers);
+
+	}
+	public function getEditProfile(){
+		if(Auth::check())
+		{
+			$user = Auth::user();
+			$title = 'Edit Profile';
+			return View::make('editprofile')->with('title', $title)->with('user', $user);
+		}
+		else
+			return Redirect::to('login');
+	}
+
+	public function postEditProfile(){
+		if(Auth::check())
+		{
+			$input = Input::all();
+			$user = Auth::user();
+			$rules=array(
+			'username'=>'required|unique:users,user_username,{{$user->user_id}},user_id',
+			'email'=>'required|email'
+			);
+			$v = Validator::make($input, $rules);
+			if($v->passes())
+			{
+				$user->user_name = $input['name'];
+				$user->user_username = $input['username'];
+				$user->user_email = $input['email'];	
+				$user->update();
+				return Redirect::to('edit/profile');
+			}
+			else{
+				$title = 'Edit Profile';
+				return Redirect::to('edit/profile')->with('title', $title)->with('user', $user)->withInput()->withErrors($v);
+				//return View::make('editprofile')->withInput()->withErrors($v)->with('title', $title)->with('user', Auth::user());
+			}
+		}
+		else
+			return Redirect::to('login');
+	}
+
+	public function getChangePassword() {
+		if(Auth::check())
+		{
+			$user = Auth::user();
+			$title = 'Change Password';
+			return View::make('password')->with('title', $title)->with('user', $user);
+		}
+		else
+			return Redirect::to('login');	
+	}
+
+	public function postChangePassword() {
+		if(Auth::check())
+		{
+			$input = Input::all();
+			$user = Auth::user();
+			$rules = array(
+			'password'=>'required',
+			'confpassword'=>'same:password');
+			$v = Validator::make($input, $rules);
+			if ($v->passes())
+			{
+				$user->user_password = Hash::make($input['password']);
+				$user->update();
+				echo "Password changed successfully";
+			}
+			else
+				return Redirect::to('edit/password')->withInput()->withErrors($v);
+		}
 	}
 }
 ?>
