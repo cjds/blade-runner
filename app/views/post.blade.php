@@ -14,7 +14,7 @@
 			{{Form::open(array('url' => 'add/question' ))}}
 		@elseif(substr($type,0,4)=="edit")
 			<h3>Edit {{($type=='editanswer')?'answer':'question'}}</h3>
-			@if($type='editanswer')
+			@if($type=='editanswer')
 				{{Form::open(array('url' => 'edit/answer'))}}
 			@else
 				{{Form::open(array('url' => 'edit/question'))}}
