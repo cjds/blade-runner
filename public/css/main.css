@@ -54,9 +54,18 @@
     .box-solid-bottom{
       border-bottom:#bbb solid thin;
     }
+
+    .box-left{
+      border-left:#ddd solid thin;
+    }
+
+    .box-right{
+      border-right:#ddd solid thin;
+    }
+
     .box-sides{
       border-left:#ddd solid thin;
- border-right:#ddd solid thin;
+      border-right:#ddd solid thin;
     }
 
     .box-top{

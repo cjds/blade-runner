@@ -67,15 +67,15 @@
 	</thead> 
 
 	<tbody>
-	@foreach($questions as $question)
-		<tr>
-		<td>{{HTML::link('view/question?qid='.$question->post_id,$question->type->question_title)}}</a>
-		
+	<?php $count=((count($questions)<5)?count($questions):5)?>
+	@for($i=0;$i<$count;$i++)
+		<td>{{HTML::link('view/question?qid='.$questions[$i]->post_id,$questions[$i]->type->question_title)}}</a>
+	
 		</td>
-		<td>{{$question->type->answers()->count('post_id')}} </td>
-		<td> {{$question->type->question_points}} </td>
+		<td>{{$questions[$i]->type->answers()->count('post_id')}} </td>
+		<td> {{$questions[$i]->type->question_points}} </td>
 		</tr>
-		@endforeach
+	@endfor
 	</tbody>
 
 	</table>
@@ -97,13 +97,14 @@
 	</thead> 
 
 	<tbody>
-	@foreach($answers as $answer)
-	<tr style='align:left'>
-		<td>{{HTML::link('view/question?qid='.$answer->type->question->post_id,substr($answer->type->answer_body,0, 50))}}</td>
-		<br>
-		<td> {{$answer->type->answer_points}} </td>
+	<?php $count=((count($answers)<5)?count($answers):5)?>
+	@for($i=0;$i<$count;$i++)
+		<tr style='align:left'>
+			<td>{{HTML::link('view/question?qid='.$answers[$i]->type->question->post_id,substr($answers[$i]->type->answer_body,0, 50))}}</td>
+			<br>
+			<td> {{$answers[$i]->type->answer_points}} </td>
 		</tr>
-		@endforeach
+	@endfor
 	</tbody>
 	</table>
 	@if(count($answers)>5)

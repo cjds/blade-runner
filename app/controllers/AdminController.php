@@ -189,24 +189,35 @@ class AdminController extends BaseController{
 	public function getSubUnderBranch(){
 		$branch_id= Input::get('bid', -1);
 		$branch=Branch::findOrFail($branch_id);
-		
-		return View::make('univsubjects')->with('title', $branch->branch_name.' University Questions')->with('branch',$branch);
+		$univdates=array();
+		$i=0;
+		foreach($branch->subjects as $subject){
+			$univdates[$i]=array();
+			$sub_id=$subject->subject_id;
+			$uniDates=UniversityQuestionDate::whereHas('universityquestion',function($q) use ($sub_id){
+				$q->whereHas('subject',function($q) use ($sub_id){
+					$q->where('subject_id','=',$sub_id);
+				});
+			})->get();
+			foreach ($uniDates as $date) {
+				$univdates[$i][]=$date->month_year;
+			}
+			$i++;
+		}
+
+		return View::make('univsubjects')->with('title', $branch->branch_name.' University Questions')->with('branch',$branch)->with('universityquestiondates',$univdates);
 	}
 
 	public function viewUnivQuestions(){
-		
-		
 		$subject_id = Input::get('sid', -1);
 		$module_id =Input::get('mid', -1);
-
-		$univques = UniversityQuestion::where('question_subject_id', $subject_id)
-		->orWhere('question_module_id', $module_id)->get();
+		$univques = UniversityQuestion::where('question_subject_id', $subject_id)->orWhere('question_module_id', $module_id)->get();
 		return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques);
 
 	}
 
 	public function viewUnivQuestionsByDate($exam){
-		$exam =trim(preg_replace('/([A-Z|a-z]*)([0-9]*)/s','$1 $2', urldecode($exam)));
+		$exam =urldecode($exam);
 		
 		$subject_id=Input::get('sid',-1);
 		
@@ -226,8 +237,8 @@ class AdminController extends BaseController{
 		if(Auth::check())
 		{
 			$user=Auth::user();
-			$questions = Post::where('creator_id', $user->user_id)->where('post_type', 'Question')->limit(5)->get();
-			$answers = Post::where('creator_id', $user->user_id)->where('post_type', 'Answer')->limit(5)->get();
+			$questions = Post::where('creator_id', $user->user_id)->where('post_type', 'Question')->get();
+			$answers = Post::where('creator_id', $user->user_id)->where('post_type', 'Answer')->get();
 			return View::make('profile')->with('title', 'Profile')
 										->with('user', $user)->with('questions', $questions)->with('answers', $answers);
 		}
@@ -238,8 +249,8 @@ class AdminController extends BaseController{
 	public function viewUserProfileByName($username){
 		$user=User::where('user_username','LIKE',urldecode($username))->limit(1)->get();
 		$user=$user[0];
-			$questions = Post::where('creator_id', $user->user_id)->where('post_type', 'Question')->limit(5)->get();
-			$answers = Post::where('creator_id', $user->user_id)->where('post_type', 'Answer')->limit(5)->get();
+			$questions = Post::where('creator_id', $user->user_id)->where('post_type', 'Question')->get();
+			$answers = Post::where('creator_id', $user->user_id)->where('post_type', 'Answer')->get();
 			return View::make('profile')->with('title', 'Profile')
 										->with('user', $user)->with('questions', $questions)->with('answers', $answers);
 
