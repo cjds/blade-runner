@@ -169,11 +169,11 @@ class QuestionController extends BaseController{
 				
 			}
 			else{
-				return Response::json(array('status'=>'fail','type'=>'wrong_question','message'=>"You Entered a Wrong Question Id"));
+				return Response::json(array('status'=>'fail','type'=>'wrong_question','message'=>"Entered a Wrong Question, you did"));
 			}
 		}
 		else{
-			return Redirect::to('login');			
+			return Response::json(array('status'=>'fail','type'=>'login','message'=>"You must login or signup before voting"));
 		}
 	}
 
@@ -618,8 +618,14 @@ class QuestionController extends BaseController{
 	public function viewUnivQuestions(){
 		$subject_id = Input::get('sid', -1);
 		$module_id =Input::get('mid', -1);
+		if($module_id!=-1){
+			$name=Module::findOrFail($module_id)->module_name;
+		}
+		else{
+			$name=Subject::findOrFail($subject_id)->subject_name;
+		}
 		$univques = UniversityQuestion::where('question_subject_id', $subject_id)->orWhere('question_module_id', $module_id)->get();
-		return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques);
+		return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques)->with('name',$name);
 
 	}
 
@@ -637,7 +643,7 @@ class QuestionController extends BaseController{
 		//	->where('university_questions_dates.month_year', 'like', $exam)
 		//	->orderBy('university_questions_dates.question_number')
 	//		->get();
-			return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques);
+			return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques)->with('name',$exam);
 	}
 
 	public function getSubUnderBranch(){

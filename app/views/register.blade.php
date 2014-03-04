@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-<div class="large-4 small-12 medium-6 columns">
+<div class="large-offset-1 large-4 small-12 medium-6 columns">
 		<h3>Please Register</h3>
 		{{Form::open(array('url'=>'register'))}}
 		@if($errors->any())
@@ -16,7 +16,7 @@
 		{{Form::password('user_password', array('placeholder'=>'Enter Password'));}}<br>
 		{{Form::password('user_confpassword', array('placeholder'=>'Confirm Password'));}}<br>
 		{{Form::submit('Register', array('class'=>'button success'));}}
-		{{HTML::link('login', 'Login', array('class'=>'button '));}}
+		If you are a user you can 		{{HTML::link('login', 'login', array('class'=>''));}}
 		{{Form::close();}}
 
 </div>

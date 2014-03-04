@@ -9,7 +9,9 @@
 
 <div class="row">
 	<div class="medium-10 medium-offset-1 small-12 columns" style='min-height:400px'>
-
+	<div class="row">
+	<h3>{{$name}}</h3>
+	</div>
 	<table class="table large-12 searchtable">
 	<thead>
 	<tr>

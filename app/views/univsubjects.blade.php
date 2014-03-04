@@ -26,11 +26,18 @@ background:none !important;
 				
 				<?php $j=0;?>
 				@foreach ($subject->modules as $module)
+					<?php 
+						if(strlen($module->module_name)>22)
+							$size=0.6;
+						else{
+							$size=0.9;
+						}
+					?>
 					@if(($j)%2==0)
 						<div class='row'>
 					@endif
-					<div class='columns medium-6 small-6' style='text-align:center;font-size:0.9em'>
-						{{HTML::link('univquestions/view?mid='.$module->module_id,substr($module->module_name,0,26))}}
+					<div class='columns medium-6 small-6' style='text-align:center;font-size:{{$size}}em'>
+						{{HTML::link('univquestions/view?mid='.$module->module_id,substr($module->module_name,0,40))}}
 					</div>
 					@if(($j)%2==1)
 						</div>
@@ -51,6 +58,7 @@ background:none !important;
 					@if(($count)%2==0)
 						<div class='row'>
 					@endif
+
 					<div class='columns medium-6 small-6 ' style='text-align:center;font-size:0.9em'>
 						{{HTML::link('univquestions/view/paper/'.urlencode($date)."?sid=".$subject->subject_id, $date);}} 
 					</div>
