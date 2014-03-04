@@ -10,6 +10,10 @@ td.count{
 	text-align: center;
 }
 
+td.count span{
+	
+	text-align: center;
+}
 .searchtable thead tr th{
 	text-align:center;	
 }
@@ -62,8 +66,9 @@ td.count{
 	<table class="large-12 small-12 searchtable ">
 	  <thead>
 	<tr>
-		<th>Votes</th>
-		<th>Answers</th>
+		
+		<th   class='hide-for-small'>Votes</th>
+		<th >Answers</th>
 		<th>Question</th>
 		<th  class='hide-for-small'>Tags</th>
 	</tr>
@@ -72,13 +77,14 @@ td.count{
 	<tbody>
 	@foreach($questions as $question)
 	<tr>
-		<td class='count medium-1'>{{($question->post->votes()->sum('voteType')+0);}} </td>
-		<td class='count medium-1'>{{$question->answers()->count('post_id');}} </td>
+		
+		<td class='count medium-1'>{{($question->post->votes()->sum('voteType')+0);}}</td>
+		<td class='count hide-for-small medium-1'>{{$question->answers()->count('post_id');}} </td>
 	
-		<td><a href="{{url('view/question')}}?qid={{$question->post_id}}"><span style='font-size:1.3em'>{{ $question->question_title }}</span></a><span class='right' style='font-size:0.8em'>asked by {{HTML::link('view/profile/'.urlencode($question->post->creator->user_username),$question->post->creator->user_username)}}</span>
+		<td><a href="{{url('view/question')}}?qid={{$question->post_id}}"><span style='font-size:1.3em'>{{ $question->question_title }}</span></a><span class='right hide-for-small' style='font-size:0.8em'>asked by {{HTML::link('view/profile/'.urlencode($question->post->creator->user_username),$question->post->creator->user_username)}}</span>
 			<br>
 				@foreach($question->tags as $tag)
-					<span class='tag hide-for-medium hide-for-large'>{{HTML::link('search/questions/tag/'.urlencode($tag->tag_name), $tag->tag_name);}}</span>
+					<span class='tag show-for-small-only'>{{HTML::link('search/questions/tag/'.urlencode($tag->tag_name), $tag->tag_name);}}</span>
 				@endforeach
 		</td>
 		<td class='hide-for-small medium-3'>

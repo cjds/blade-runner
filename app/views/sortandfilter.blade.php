@@ -1,6 +1,6 @@
 
 
-<a href="#" data-dropdown="drop1" class="button tiny dropdown inline right">
+<a href="#" data-dropdown="drop1" class="button tiny dropdown inline inline small-left medium-right">
 <i class="fa fa-sort"></i>
 	@if($sort=='recent')
 		most recent
@@ -17,7 +17,7 @@
   
 </ul>
 
-<a href="#" data-dropdown="drop2" class="button tiny dropdown inline right" style='margin-right:10px'>
+<a href="#" data-dropdown="drop2" class="button tiny dropdown inline small-left medium-right" style='margin-right:10px'>
 <i class="fa fa-filter"></i>
 	@if($filter=='answered')
 		view answered only

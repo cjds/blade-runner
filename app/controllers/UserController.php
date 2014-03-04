@@ -81,10 +81,12 @@ class UserController extends BaseController {
 			$user->privelege_level=0;
 			$user->confirmstring=substr(str_shuffle( "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" ), 0, 1).substr( md5( time() ), 1);
 			$user->save();
+			$mail_id['email']=$input['user_email'];
+			$mail_id['username']=$input['user_username'];
 			Mail::queue('emails.confirm', 
 					array('user'=>$user->user_username,'link'=>URL::to('register/confirm/xy22'.$user->user_id.'az/'.$user->confirmstring)), 
-					function($message){
-       					$message->to($input['user_email'], 'Carl Saldanha')->subject('Welcome to GradHat');
+					function($message) use ($mail_id){
+       					$message->to($mail_id['email'], $mail_id['username'])->subject('Welcome to GradHat');
     				}
     		);
 			
