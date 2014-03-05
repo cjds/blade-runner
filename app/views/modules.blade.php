@@ -25,13 +25,17 @@
 							<tr>
 								<th>Module Name</th>
 								<th>Subject</th>
+								<th>Edit</th>
+								<th>Delete</th>
 							</tr>
 						</thead> 
 						<tbody>
 							@foreach($modules as $module)
 								<tr style='align:left'>
 									<td>{{$module->module_name}} </td>
-									<td>{{$module->subject->subject_name}}</td>	
+									<td>{{$module->subject->subject_name}}</td>
+									<td><a href="{{url('admin/modules/edit')}}?mid={{$module->module_id}}">edit</a></td>
+									<td><a href="#">delete</a></td>
 								</tr>
 							@endforeach
 						</tbody>

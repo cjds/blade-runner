@@ -51,12 +51,23 @@ Route::get('admin/home','AdminController@getAdminHome');
 Route::post('admin/changeUserPriveleges','AdminController@postchangeUserPriveleges');
 Route::post('json/admin/toggleBlock','AdminController@postBlockUser');
 
+//Manage branches
 Route::get('admin/branches', 'AdminController@manageBranches');
 Route::post('admin/add/branches', 'AdminController@addNewBranch');
+Route::get('admin/branches/edit', 'AdminController@getEditBranch');
+Route::post('admin/branches/edit', 'AdminController@postEditBranch');
+
+//Manage subjects
 Route::get('admin/subjects', 'AdminController@manageSubjects');
 Route::post('admin/add/subjects', 'AdminController@addNewSubject');
+Route::get('admin/subjects/edit', 'AdminController@getEditSubject');
+Route::post('admin/subjects/edit', 'AdminController@postEditSubject');
+
+//Manage modules
 Route::get('admin/modules', 'AdminController@manageModules');
 Route::post('admin/add/modules', 'AdminController@addNewModule');
+Route::get('admin/modules/edit', 'AdminController@getEditModule');
+Route::post('admin/modules/edit', 'AdminController@postEditModule');
 
 
 /*******************************************
