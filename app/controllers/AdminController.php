@@ -102,6 +102,44 @@ class AdminController extends BaseController{
 			return Redirect::to('admin/branches/add')->withInput()->withErrors($v);
 	}
 
+	public function getEditBranch(){
+		$branch_id=Input::get('bid',-1);
+		$branch=Branch::findOrFail($branch_id);
+		if (Auth::check()){
+			$title="Edit Branch";
+			return View::make('editbranch')->with('title',$title)->with('branch',$branch);
+		}
+		else{
+			return Redirect::to('login');
+		}
+	}
+
+	public function postEditBranch(){
+		$input = Input::all();
+		$rules = array('branch_name' => 'required');
+		$v = Validator::make($input, $rules);
+		if($v->passes()){
+			$branch=Branch::findOrFail($input['branch_id']);
+			$branch->branch_name = $input['branch_name'];
+			$branch->branch_shortname = $input['branch_shortname'];
+			$branch->update();
+			$branches = Branch::all();
+			return View::make('branches')->with('title', 'Manage Branches')->with('branches',$branches);
+		}
+		else
+			return Redirect::to('admin/branches/edit?bid='.$input['branch_id'])->withInput()->withErrors($v);
+
+	}
+
+	public function getBranches(){
+		$branches = Branch::all();
+		$branches_array = array();
+		foreach ($branches as $branch) {
+			$branches_array[$branch->branch_id] = $branch->branch_name;
+		}
+		return $branches_array;
+	}
+
 	public function manageSubjects(){
 		if(Auth::privelegecheck(20))
 		{
@@ -110,12 +148,8 @@ class AdminController extends BaseController{
 			// 			->groupBy('subject_branch_id')
 			// 			->orderBy('subject_sem');
 			$subjects = Subject::all();
-			$branches = Branch::all();
-			$branches_array = array();
-			foreach ($branches as $branch) {
-				$branches_array[$branch->branch_id] = $branch->branch_name;
-			}
-			return View::make('subjects')->with('title', $title)->with('subjects', $subjects)->with('branches', $branches_array);
+			$branches = $this->getBranches();
+			return View::make('subjects')->with('title', $title)->with('subjects', $subjects)->with('branches', $branches);
 		}
 		else
 			return Redirect::to('admin/login');
@@ -142,6 +176,50 @@ class AdminController extends BaseController{
 			return Redirect::to('admin/subjects/add')->withInput()->withErrors($v);
 	}
 
+	public function getEditSubject(){
+		$subject_id=Input::get('sid',-1);
+		$subject=Subject::findOrFail($subject_id);
+		if (Auth::check()){
+			$title="Edit Subject";
+			$branches = $this->getBranches();
+			return View::make('editsubject')->with('title',$title)->with('subject',$subject)->with('branches', $branches);
+		}
+		else{
+			return Redirect::to('login');
+		}
+	}
+
+	public function postEditSubject(){
+		$input = Input::all();
+		$rules = array(
+			'subject_name' => 'required',
+			'subject_sem' => 'required',
+			'subject_branch' => 'required');
+		$v = Validator::make($input, $rules);
+		if($v->passes()){
+			$subject=Subject::findOrFail($input['subject_id']);
+			$subject->subject_name = $input['subject_name'];
+			$subject->subject_shortname = $input['subject_shortname'];
+			$subject->subject_sem = $input['subject_sem'];
+			$subject->subject_branch_id = $input['subject_branch'];
+			$subject->update();
+			$subjects = Subject::all();
+			$branches = $this->getBranches();
+			return View::make('subjects')->with('title', 'Manage Subjects')->with('subjects',$subjects)->with('branches', $branches);
+		}
+		else
+			return Redirect::to('admin/subjects/edit?sid='.$input['subject_id'])->withInput()->withErrors($v);
+	}
+
+	public function getSubjects(){
+		$subjects = Subject::all();
+		$subjects_array = array();
+		foreach ($subjects as $subject) {
+			$subjects_array[$subject->subject_id] = $subject->subject_name;
+		}
+		return $subjects_array;
+	}
+
 	public function manageModules(){
 		if(Auth::privelegecheck(20))
 		{
@@ -150,12 +228,8 @@ class AdminController extends BaseController{
 			// 			->groupBy('subject_branch_id')
 			// 			->orderBy('subject_sem');
 			$modules = Module::all();
-			$subjects = Subject::all();
-			$subjects_array = array();
-			foreach ($subjects as $subject) {
-				$subjects_array[$subject->subject_id] = $subject->subject_name;
-			}
-			return View::make('modules')->with('title', $title)->with('subjects', $subjects_array)->with('modules', $modules);
+			$subjects = $this->getSubjects();
+			return View::make('modules')->with('title', $title)->with('subjects', $subjects)->with('modules', $modules);
 		}
 		else
 			return Redirect::to('admin/login');
@@ -177,6 +251,38 @@ class AdminController extends BaseController{
 		}
 		else
 			return Redirect::to('admin/modules/add')->withInput()->withErrors($v);
+	}
+
+	public function getEditModule(){
+		$module_id=Input::get('mid',-1);
+		$module=Module::findOrFail($module_id);
+		if (Auth::check()){
+			$title="Edit Module";
+			$subjects = $this->getSubjects();
+			return View::make('editmodule')->with('title',$title)->with('module',$module)->with('subjects', $subjects);
+		}
+		else{
+			return Redirect::to('login');
+		}
+	}
+
+	public function postEditModule(){
+		$input = Input::all();
+		$rules = array(
+			'module_name' => 'required',
+			'module_subject' => 'required');
+		$v = Validator::make($input, $rules);
+		if($v->passes()){
+			$module=Module::findOrFail($input['module_id']);
+			$module->module_name = $input['module_name'];
+			$module->module_subject_id = $input['module_subject'];
+			$module->update();
+			$modules = Module::all();
+			$subjects = $this->getSubjects();
+			return View::make('modules')->with('title', 'Manage Modules')->with('modules',$modules)->with('subjects', $subjects);
+		}
+		else
+			return Redirect::to('admin/modules/edit?mid='.$input['module_id'])->withInput()->withErrors($v);
 	}
 
 }

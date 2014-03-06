@@ -31,6 +31,8 @@
 								<th>Short Name</th>
 								<th>Sem</th>
 								<th>Branch</th>
+								<th>Edit</th>
+								<th>Delete</th>
 							</tr>
 						</thead> 
 						<tbody>
@@ -40,6 +42,8 @@
 									<td>{{$subject->subject_shortname}} </td>
 									<td>{{$subject->subject_sem}}</td>
 									<td>{{$subject->branch->branch_name}}</td>	
+									<td><a href="{{url('admin/subjects/edit')}}?sid={{$subject->subject_id}}">edit</a></td>
+									<td><a href="#">delete</a></td>
 								</tr>
 							@endforeach
 						</tbody>
