@@ -113,6 +113,7 @@ Route::post('json/relatedquestionstags','QuestionController@postJSONRelatedQuest
 //University Questions
 Route::get('add/univquestion', 'QuestionController@getAddUnivQuestion');
 Route::post('add/univquestion', 'QuestionController@postAddUnivQuestion');
+Route::post('edit/univquestion', 'QuestionController@postEditUnivQuestion');
 Route::get('univquestions/mainpage', 'QuestionController@univQuestionsMainPage');
 Route::get('univquestions/view', 'QuestionController@viewUnivQuestions');
 Route::get('univquestions/view/paper/{exam}', 'QuestionController@viewUnivQuestionsByDate');

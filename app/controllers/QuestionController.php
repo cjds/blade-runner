@@ -183,11 +183,44 @@ class QuestionController extends BaseController{
 	*
 	*/
 	public function getEditQuestion(){
-		//Determine if user is authentic
+		
 		$question_id=Input::get('qid',-1);
 
 		$question=Question::findOrFail($question_id);
 		if (Auth::check()){
+			//Check if it is a University question
+			$universityQuestion=UniversityQuestion::find($question_id);
+			//If it a university question and user is a moderator then edit it University style
+			if($universityQuestion!=null){
+				//if he is a moderator
+				if(Auth::privelegecheck(15)){
+					$subjects=Subject::all();
+
+					foreach ($subjects as $subject) {
+						$subjects_array[$subject->subject_id]['name'] = $subject->subject_name;
+						if($universityQuestion->subject->subject_id==$subject->subject_id)
+							$subjects_array[$subject->subject_id]['selected']='selected';
+						else
+							$subjects_array[$subject->subject_id]['selected']='';
+					}
+					$modules_array=array();
+					foreach ($subjects as $subject) {
+						$modules_array[$subject->subject_id]=array();
+						$i=0;
+						foreach ($subject->modules as $key => $value) {
+							$modules_array[$subject->subject_id][$i]['name']=$value->module_name;
+							$modules_array[$subject->subject_id][$i]['id']=$value->module_id;
+							if($universityQuestion->module->module_id==$value->module_id)
+								$modules_array[$subject->subject_id][$i]['selected']='selected';
+							else
+								$modules_array[$subject->subject_id][$i]['selected']='';
+							$i++;
+						}
+					}
+
+					return View::make('newunivquestion')->with('title', 'Edit University Question')->with('subjects', $subjects_array)->with('modules', $modules_array)->with('type', 'new')->with('data',$universityQuestion);
+				}
+			}
 			$title="Edit Question";
 			return View::make('post')->with('title',$title)->with('question',$question)->with('type','editquestion');
 		}
@@ -339,6 +372,7 @@ class QuestionController extends BaseController{
 	public function getViewQuestion(){
 		$question_id=Input::get('qid',-1);
 		$question=Question::findOrFail($question_id);
+		$univquestion=UniversityQuestion::find($question_id);
 		$posts = $question->answers;
 		$html = new Mark\Michelf\Markdown;
 		$question->question_body=$html->defaultTransform($question->question_body);
@@ -350,7 +384,7 @@ class QuestionController extends BaseController{
 		else{
 			$user_id=-1;
 		}
-		return View::make('viewquestion')->with('title','View the Question')->with('question',$question)->with('user_id',$user_id);
+		return View::make('viewquestion')->with('title','View the Question')->with('question',$question)->with('user_id',$user_id)->with('university_question',$univquestion);
 	}
 
 	/**
@@ -540,14 +574,26 @@ class QuestionController extends BaseController{
 			$subjects_array = array();
 			$modules_array = array();
 			$subjects = Subject::all();
-			$modules = Module::all();
+
 			foreach ($subjects as $subject) {
-				$subjects_array[$subject->subject_id] = $subject->subject_name;
+				$subjects_array[$subject->subject_id]['name'] = $subject->subject_name;
+				$subjects_array[$subject->subject_id]['selected'] = '';
 			}
-			foreach ($modules as $module) {
+			/*foreach ($modules as $module) {
 				$modules_array[$module->module_id] = $module->module_name;
+			}*/
+			foreach ($subjects as $subject) {
+				$modules_array[$subject->subject_id]=array();
+				$i=0;
+				foreach ($subject->modules as $key => $value) {
+
+					$modules_array[$subject->subject_id][$i]['name']=$value->module_name;
+					$modules_array[$subject->subject_id][$i]['id']=$value->module_id;
+					$modules_array[$subject->subject_id][$i]['selected']='';
+					$i++;
+				}
 			}
-			return View::make('newunivquestion')->with('title', $title)->with('subjects', $subjects_array)->with('modules', $modules_array)->with('type', 'new');
+			return View::make('newunivquestion')->with('title', $title)->with('subjects', $subjects_array)->with('modules', $modules_array)->with('type', 'new')->with('data',null);
 		}
 		else
 			return Redirect::to('login');
@@ -601,7 +647,67 @@ class QuestionController extends BaseController{
 				$univQuestionDate->push();	
 			}
 			
-			echo ':)';
+			return Redirect::to('view/question?qid='.$post->post_id);
+		}
+		else
+			echo ':(';
+	}
+
+
+
+	public function postEditUnivQuestion(){
+		$input = Input::all();
+		$rules = array(
+			'title' => 'required',
+			'wmd-input' => 'required',
+			'ques_no' => 'required',
+			'month' => 'required',
+			'year' => 'required',
+			'marks' => 'required',
+			'subject' => 'required',
+			'module' => 'required');
+		$v = Validator::make($input, $rules);
+		if($v->passes())
+		{
+			$univQuestion = UniversityQuestion::findOrFail($input['postid']);
+			
+			$question =$univQuestion->question;
+			$post=$question->post;
+			$question->tags()->detach();
+			$question->question_title=$input['title'];
+			$question->question_body=$input['wmd-input'];
+			$question_tags=explode(',', $input['tags']);
+
+			for($i=0;$i<count($question_tags);$i++) {
+				$question_tags[$i]=trim($question_tags[$i]);
+			}
+			//$post->post_type="Question";
+			//$post->creator()->associate(User::findOrFail(25));
+			//$post->save();
+			//$question->post()->associate($post);
+			$question->push();
+			foreach ($question_tags as $t) {
+				$tag_id = Tag::firstOrCreate(array('tag_name' => $t));
+				$question->tags()->attach($tag_id);
+			}
+			
+			$univQuestion->question_marks = $input['marks'];
+			$univQuestion->question_subject_id = $input['subject'];
+			$univQuestion->question_module_id = $input['module'];
+			$univQuestion->question()->associate($question);
+			$univQuestion->push();
+			$univQuestion->universityquestiondates()->delete($univQuestion->post_id);
+			foreach($input['year'] as $key=>$year){
+
+				$univQuestionDate=new UniversityQuestionDate();
+				$univQuestionDate->question_number = $input['ques_no'][$key];
+				$month_year = $input['month'][$key]." ".$input['year'][$key];
+				$univQuestionDate->month_year = $month_year;
+				$univQuestionDate->universityquestion()->associate($univQuestion);
+				$univQuestionDate->push();	
+			}
+			
+			return Redirect::to('view/question?qid='.$post->post_id);
 		}
 		else
 			echo ':(';

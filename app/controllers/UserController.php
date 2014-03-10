@@ -163,7 +163,7 @@ class UserController extends BaseController {
 			$input = Input::all();
 			$user = Auth::user();
 			$rules=array(
-			'username'=>'required|unique:users,user_username,{{$user->user_id}},user_id',
+			'username'=>'required|unique:users,user_username,'.$user->user_id.',user_id',
 			'email'=>'required|email'
 			);
 			$v = Validator::make($input, $rules);

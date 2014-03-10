@@ -68,7 +68,6 @@ $('aside').height($('.main').height());
 
 </script>
 
-
   <div class="main large-8 box-top box-sides box-bottom large-offset-1 small-12 columns ">
     <div class="row">
         <h4 style='margin:15px' class='box-solid-bottom'>{{ $question->question_title }}</h4>
@@ -89,7 +88,26 @@ $('aside').height($('.main').height());
             @endif
 		  </div>
       <div class="large-11 small-12  columns">
-        <div class='post-div row'>{{ $question->question_body}}</div><br>
+        <div class='post-div row'>{{ $question->question_body}}
+        
+        @if($university_question!=null)
+        <?php 
+          $dates=array();
+          $subject=$university_question->subject;
+          foreach ($university_question->universityquestiondates as $key => $value){
+            $dates[]['name']=$value->month_year;
+          }
+        ?>
+        <br>
+        <span style='font-size:0.8em'>
+        {{HTML::link('univquestions/view?sid='.$subject->subject_id, $subject->subject_name);}} <br>
+        asked in 
+        @foreach($dates as $date)
+          {{HTML::link('univquestions/view/paper/'.urlencode($date['name'])."?sid=".$subject->subject_id, $date['name']);}} 
+        @endforeach
+        </span>
+        @endif
+        </div><br>
         <div class="row small-12 small-push hide-for-large columns">
           <a href='#' class='votebtn'>upvote</a>
           <a href='#' class='votebtn'>downvote</a>

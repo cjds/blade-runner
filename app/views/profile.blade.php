@@ -18,7 +18,7 @@
 	
 		<br>
 		<div class="row">
-			<table class="table large-12 small-12 column" style='padding:0px'>
+			<table class="table large-11 large-offset-1 small-12 column" style='padding:0px'>
 				<tr>
 					<td >Name</td>
 					<td style='border:1px #ccc'>{{$user->user_name}}</td>
