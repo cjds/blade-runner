@@ -477,10 +477,10 @@ class QuestionController extends BaseController{
 		}
 
 		if($sort == 'recent' ){
-			$questions =$questions->orderBy('updated_at','ASC');
+			$questions =$questions->orderBy('updated_at','DESC');
 		}
 		else if($sort=='oldest'){
-			$questions =$questions->orderBy('updated_at','DESC');
+			$questions =$questions->orderBy('updated_at','ASC');
 		}
 		$questions =$questions->paginate(15);
 		return View::make('searchview')->with('title', 'Questions List')
@@ -764,7 +764,7 @@ class QuestionController extends BaseController{
 				$universityQuestion=UniversityQuestion::find($question_id);
 					//If it a university question and user is a moderator then edit it University style
 				if($universityQuestion!=null){
-					foreach ($universityQuestion->universityquestiondates as $date) {
+				foreach ($universityQuestion->universityquestiondates as $date) {
 						$date->delete();
 					}
 					$universityQuestion->delete();
