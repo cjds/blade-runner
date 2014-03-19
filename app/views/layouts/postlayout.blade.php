@@ -3,6 +3,7 @@
 
 
 @section('content')
+
 <script type="text/javascript">
  $(document).ready(function(){
 	$('aside').height($('.main').height());

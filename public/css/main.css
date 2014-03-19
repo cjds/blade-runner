@@ -164,6 +164,7 @@
       display: block;;
       font-size: 1.0;
       padding: 2px;
+      line-height: 1.4em;
     }
 
     aside{
@@ -190,7 +191,7 @@
     }
 
     footer div{
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 footer div ul li{
@@ -216,7 +217,7 @@ footer div div{
 div.vertical-line{
   width: 1px; /* Line width */
   background-color: #008cba; /* Line color */
-  height: 150px; /* Override in-line if you want specific height. */
+  min-height: 200px; /* Override in-line if you want specific height. */
   float: right; 
   margin-left:50px;
   margin-top: 0px;

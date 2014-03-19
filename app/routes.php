@@ -119,6 +119,10 @@ Route::get('univquestions/view', 'QuestionController@viewUnivQuestions');
 Route::get('univquestions/view/paper/{exam}', 'QuestionController@viewUnivQuestionsByDate');
 Route::get('univquestions/view/branch','QuestionController@getSubUnderBranch');
 
+
+//Deleting routes
+Route::get('delete/question', 'QuestionController@deleteQuestion');
+
 /*******************************************
 ***********Moderator Controller*************
 *******************************************/
@@ -142,10 +146,29 @@ Route::post('json/moderator/newreview','ModeratorController@postJSONNextModerato
 *******************************************/
 
 
-Route::get('mail',function(){
-		//return View::make('mail',array('user'=>'cjds'));
-	   Mail::send('emails.confirm', array('user'=>'Carl','link'=>'nothing'), function($message){
-       $message->to('cjds@live.com', 'Carl Saldanha')->subject('Welcome to GradHat');
-    	});
-});
+/*******************************************
+***************&*Tag Controller*************
+*******************************************/
+
+Route::post('json/search/tag','QuestionController@jsonGetTags');
+Route::get('json/search/tag','QuestionController@jsonGetTags');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

@@ -17,7 +17,16 @@
 			</li>
 		@endforeach
 	 </ul>
+
+
 	<div style='margin-top:200px' class='columns'>
+		 @if(Auth::user())
+	 	@if(Auth::user()->privelege_level>=15)
+			{{HTML::link('add/univquestion','Add a University Question');}}
+			<br>
+
+	 	@endif	
+	 @endif
 	<h6 class='subheader'>Need A Branch that's not on this list?</h6>
 	<p >We're just starting out. So, we have very few branches here. We are continually looking for people to put more quality content on our website. If you think you might be intereseted feel free to 
 	{{HTML::link('/contact','contact us')}}

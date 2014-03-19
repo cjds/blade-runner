@@ -394,21 +394,21 @@ class QuestionController extends BaseController{
 	*/
 	public function viewAllQuestions (){
 		$questions = Question::paginate(15);
-		return $this->sortQuestionList('none','all');
+		return $this->sortQuestionList('recent','all');
 	}
 
 	public function getQuestionsForUser($user_id){
-		return $this->searchHandler('none','all','','',$user_id,'question');
+		return $this->searchHandler('recent','all','','',$user_id,'question');
 	}
 
 	public function getAnswersForUser($user_id){
-		return $this->searchHandler('none','all','','',$user_id,'answer');
+		return $this->searchHandler('recent','all','','',$user_id,'answer');
 	}
 
 	public function viewQuestionsByTags ($tag_name){
 	 	$tag_name=urldecode($tag_name); 
 
-		return $this->searchHandler('none','all','',$tag_name);
+		return $this->searchHandler('recent','all','',$tag_name);
 	 }
 
 	/**
@@ -477,10 +477,10 @@ class QuestionController extends BaseController{
 		}
 
 		if($sort == 'recent' ){
-			$questions =$questions->orderBy('updated_at','DESC');
+			$questions =$questions->orderBy('updated_at','ASC');
 		}
 		else if($sort=='oldest'){
-			$questions =$questions->orderBy('updated_at','ASC');
+			$questions =$questions->orderBy('updated_at','DESC');
 		}
 		$questions =$questions->paginate(15);
 		return View::make('searchview')->with('title', 'Questions List')
@@ -512,15 +512,16 @@ class QuestionController extends BaseController{
 		}
 	}
 
+	
 	public function getJSONRelatedQuestions(){
-	    $q = urldecode(Input::get('query'));
+	    $q = Input::get('query');
 	    $num = Input::get('count');
 	    if($num==null)	$num=5;
 	    
-	    $query = Question::where('question_title',"LIKE","%".$q[0]."%");
-	    for($i=1;$i<count($q);$i++){
+	    $query = Question::where('question_title',"LIKE","%".$q."%");
+	    /*for($i=1;$i<count($q);$i++){
 	        $query = $query->orWhere('question_title',"LIKE","%".$q[i]."%");
-	    }
+	    }*/
 	    return $query->take($num)->get()->toJson();
 	}
 
@@ -573,7 +574,7 @@ class QuestionController extends BaseController{
 			$title = 'Add New University Question';
 			$subjects_array = array();
 			$modules_array = array();
-			$subjects = Subject::all();
+			$subjects = Subject::orderBy('subject_name')->get();
 
 			foreach ($subjects as $subject) {
 				$subjects_array[$subject->subject_id]['name'] = $subject->subject_name;
@@ -745,11 +746,42 @@ class QuestionController extends BaseController{
 		})->whereHas('subject',function($q) use ($subject_id){
 			$q->where('subject_id',$subject_id);
 		})->get();
+
+
 		//	->where('university_questions.question_subject_id', $subject_id)
 		//	->where('university_questions_dates.month_year', 'like', $exam)
 		//	->orderBy('university_questions_dates.question_number')
 	//		->get();
 			return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques)->with('name',$exam);
+	}
+	
+	public function deleteQuestion(){
+		if(Auth::check()){
+			if(Auth::privelegecheck(15)){
+				$question_id=Input::get('qid',-1);
+				
+				$question = Question::findOrFail($question_id);
+				$universityQuestion=UniversityQuestion::find($question_id);
+					//If it a university question and user is a moderator then edit it University style
+				if($universityQuestion!=null){
+					foreach ($universityQuestion->universityquestiondates as $date) {
+						$date->delete();
+					}
+					$universityQuestion->delete();
+				}
+				$question->tags()->detach();
+				//Delete the ANSWERS
+				foreach ($question->answers as $key => $answer) {
+				 	$answer->post->delete();
+				 	$answer->delete();
+				 } 
+				 //Delete the POST 
+				 $question->post->delete();
+				$question->delete();
+			}
+		}
+		return Redirect::to('view/questions');
+
 	}
 
 	public function getSubUnderBranch(){
@@ -786,5 +818,29 @@ class QuestionController extends BaseController{
 			->with('sems',$sems);
 	}
 
+
+	public function jsonGetTags(){
+		$q = Input::get('term');
+	    $num = Input::get('count');
+	    if($num==null)	$num=5;
+	    
+	    $query = Tag::where('tag_name',"LIKE",$q."%");
+	    /*for($i=1;$i<count($q);$i++){
+	        $query = $query->orWhere('question_title',"LIKE","%".$q[i]."%");
+	    }*/
+	    $json=array();
+	    $i=0;
+	   foreach($query->take($num)->get() as $p){
+	   	   $json[$i] = new stdClass();
+
+	   		$json[$i]->label=$p->tag_name;
+	   		$json[$i]->value=$p->tag_name;
+	   		$i++;
+	   }
+
+	   return json_encode($json);
+	}
+
 }
+
 ?>

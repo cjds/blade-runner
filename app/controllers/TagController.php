@@ -1,6 +1,6 @@
 <?php
 
-class TagController extends BaseController{
+class TagController extends Controller{
 
 	public function getAddQuestion(){
 
@@ -55,6 +55,26 @@ class TagController extends BaseController{
 	public function viewAllQuestions (){
 		$questions = Question::all();
 		return View::make('searchview')->with('title', 'Questions List')->with('questions', $questions);
+	}
+
+	public function jsonGetTags(){
+		$q = Input::get('query');
+	    $num = Input::get('count');
+	    if($num==null)	$num=5;
+	    
+	    $query = Tag::where('tag_name',"LIKE",$q."%");
+	    /*for($i=1;$i<count($q);$i++){
+	        $query = $query->orWhere('question_title',"LIKE","%".$q[i]."%");
+	    }*/
+	    $json=array();
+	    $i=0;
+	   foreach($query->take($num)->get() as $q){
+	   		$json[$i]->label=$q->tag_name;
+	   		$json[$i]->value=$q->tag_name;
+	   		$i++;
+	   }
+
+	   return json_encode($json);
 	}
 }
 ?>

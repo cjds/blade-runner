@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{{URL::asset('icon/favicon.ico')}}" type="image/icon" >
+    <link rel="shortcut icon" href="</trURL::asset('icon/favicon.ico')}}" type="image/icon" >
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <meta name=”description” content="GradHat provides the answers to all the mumbai university questions. We're a community of students and teachers helping people get through their exams">
@@ -14,13 +14,42 @@
     <title>{{$title}} | GradHat</title>
     {{HTML::style('css/foundation.css')}}
     {{HTML::script('js/modernizr.js')}}
-    {{HTML::script('js/jquery.js')}}
+    {{HTML::script("//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")}}
+    
     {{HTML::style('css/main.css')}}
   </head>
 
   <body>
+<div class="off-canvas-wrap show-for-small">
+  <div class="inner-wrap">
+      <section class="middle tab-bar-section">
+        <h1 class="title">Gradhat</h1>
+      </section>
+
+      
+
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Gradhat</label></li>
+        <li><a href="#">The Psychohistorians</a></li>
+        <li><label>Users</label></li>
+        <li><a href="#">Hari Seldon</a></li>
+        ...
+      </ul>
+    </aside>
+
+    <section class="main-section">
+      <!-- content goes here -->
+    </section>
+
+  <a class="exit-off-canvas"></a>
+
+</div>  
+</div>
+
+
     
-    <nav class="top-bar" data-topbar>
+<nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
       <a href="{{ URL::to('view/questions')}}">
@@ -34,8 +63,8 @@
     <!-- Right Nav Section -->
     <ul class="right">
     	@if(Auth::user())
-          <li class="divider"></li>
-        	<li class='hide-for-small'>
+          <li class="divider  hide-for-small"></li>
+        	<li>
           <a href="{{ URL::to('view/profile')}}">
           
           {{(Auth::user()->user_username)}}
@@ -43,7 +72,7 @@
           <li class="divider"></li>
           <!--<li><a href="#"><span class='notification'>3</span></a></li>-->
           <li class="divider"></li>
-          @if(Auth::user()->privelege_level>15)
+          @if(Auth::user()->privelege_level>=15)
             <li class='hide-for-small'>
                 {{HTML::link('moderator/home', 'moderate');}}
                 
@@ -51,18 +80,17 @@
             <li class="divider"></li>
           @endif
           @if(Auth::user()->privelege_level>20)
-            <li class="hide-for-smmall">{{HTML::link('admin/login','admin')}}</li>
+            <li>{{HTML::link('admin/login','admin')}}</li>
             <li class="divider"></li>
 
           @endif
-          <li class='hide-for-small'>{{HTML::link('logout', 'logout');}}</li>
+          <li>{{HTML::link('logout', 'logout');}}</li>
         @else
 
-	        <li class='hide-for-small'>
-          <a href="{{ URL::to('login')}}">login</a></li>
+	        <li><a href="{{ URL::to('login')}}">login</a></li>
         @endif
 
-			<li class="divider hide-for-small"></li>
+			<li class="divider  hide-for-small"></li>
       		<li class="has-form">
         		<div class="row collapse">
           			<div class="large-8 small-12 columns">
@@ -83,8 +111,12 @@
       <li class="divider"></li>
       
     </ul>
+
+
   </section>
 </nav>
+
+
 
 
 <section role="main" class='columns' data-equalizer>
@@ -93,9 +125,9 @@
 
 <footer style='background:#ddd; margin-top:50px;width:100%;margin-left:0px;margin-right:0px;padding-left:0px;padding-right:0px' class='columns'>
 <div class='row' style=''>
-<div class='large-3 columns' style=''>
+<div class='large-3 medium-3 columns' style=''>
 <div class="vertical-line hide-for-small" ></div>
-<img src='{{URL::asset("img/grad_caps.svg")}}' class='fa fa-2x'/>
+<img src='{{URL::asset("img/grad_caps.svg")}}' class='fa fa-2x' style='height:32px'/>
   <h4 class='subheading'>GradHat</h4>
   <p>GradHat is a company that builds educational solutions and has fun doing it.
   You can find out more about us <a href="{{URL::to('contact')}}" style='color:text-decoration:underline'>here.</a>
@@ -105,7 +137,7 @@
 
 
 
-<div class='large-3 columns' style='padding-top:30px;text-align:center'>
+<div class='large-3 medium-3  columns' style='padding-top:30px;text-align:center'>
 <div class="vertical-line hide-for-small" ></div>
 <i class="fa fa-sitemap fa-2x"></i> 
 <h4 class='subheading'>Site</h4>
@@ -117,7 +149,7 @@
 </ul>
 </div>
 
-<div class='large-3 columns' style='padding-top:30px;text-align:center'>
+<div class='large-3 medium-3 columns' style='padding-top:30px;text-align:center'>
 <div class="vertical-line hide-for-small" ></div>
 <i class="fa fa-users fa-2x"></i>
 <h4 class='subheading'>Social</h4>
@@ -128,7 +160,7 @@
 <li>Google+ (does it matter)</li>  
 </ul>
 </div>
-<div class='large-3 columns' style='padding-top:30px;text-align:center'>
+<div class='large-3 medium-3 columns' style='padding-top:30px;text-align:center'>
 <i class="fa fa-building-o fa-2x"></i> 
 <h4 class='subheading'>Contact Us</h4>
 

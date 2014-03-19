@@ -120,16 +120,9 @@ $('aside').height($('.main').height());
         </div>
         <br>
         <div class='row'>
-          <div class='user-div'>
-              <img src="http://www.gravatar.com/avatar/{{md5($question->post->creator->user_email)}}?s=30&d=identicon" alt=""> 
-              {{HTML::link('view/profile/'.urlencode($question->post->creator->user_username),(strlen($question->post->creator->user_username) >18) ? substr($question->post->creator->user_username,0,18).'...' : $question->post->creator->user_username)}}
-          </div>
-              @if($question->post->editor!=null)
-            <div class='user-div'>
-              <img src="http://www.gravatar.com/avatar/{{md5($question->post->editor->user_email)}}?s=30&d=identicon" alt=""> 
-              {{HTML::link ('view/profile/'.urlencode($question->post->editor->user_username),(strlen($question->post->editor->user_username) > 12) ? substr($question->post->editor->user_username,0,12).'...' : $question->post->editor->user_username)}}
-              (editor)
-          </div>
+          @include("layouts.userprofile",array('user'=>$question->post->creator,'add'=>''))
+          @if($question->post->editor!=null)
+            @include("layouts.userprofile",array('user'=>$question->post->creator,'add'=>'(editor)'))
           @endif
           
         </div>
@@ -140,6 +133,10 @@ $('aside').height($('.main').height());
           	<a href='{{URL::to('edit/question?qid='.$question->post_id)}}'> <i class="fa-pencil fa" style="margin:2px"></i>edit</a>
 
             <a href="#" class="flagbtn" data-post-id="{{$question->post_id}}"><i class='fa-flag fa' style='margin:2px'></i>flag</a>
+
+            @if(Auth::user()->privelege_level>=15)
+            <a href='{{URL::to('delete/question?qid='.$question->post_id)}}'> <i class="fa-trash-o fa" style="margin:2px"></i>delete</a>
+            @endif
           	<!--@if(Auth::user()->privelege_level>=15)
           			{{HTML::link('edit/question?qid='.$question->post_id, 'close')}}
             @endif
@@ -181,18 +178,9 @@ $('aside').height($('.main').height());
         		</div>
 	        	
             <div class='row'>
-            <div class='user-div'>
-            
-              <img src="http://www.gravatar.com/avatar/{{md5($answer->post->creator->user_email)}}?s=30&d=identicon" alt="">
-              {{HTML::link('view/profile/'.urlencode($answer->post->creator->user_username),(strlen($answer->post->creator->user_username) >18) ? substr($answer->post->creator->user_username,0,18).'...' : $answer->post->creator->user_username)}}
-              
-            </div>
+            @include("layouts.userprofile",array('user'=>$answer->post->creator,'add'=>''))
             @if($answer->post->editor!=null)
-            <div class='user-div'>
-            <img src="http://www.gravatar.com/avatar/{{md5($answer->post->editor->user_email)}}?s=30&d=identicon" alt="">
-              {{HTML::link ('view/profile/'.urlencode($answer->post->editor->user_username),(strlen($answer->post->editor->user_username) > 12) ? substr($answer->post->editor->user_username,0,12).'...' : $answer->post->editor->user_username)}}
-              (editor)
-            </div>
+              @include("layouts.userprofile",array('user'=>$answer->post->editor,'add'=>'(editor)'))
             @endif
             </div>
             
@@ -247,7 +235,7 @@ $('aside').height($('.main').height());
       <div class='row'>
         <h5 class='box-solid-bottom' style=''>Related Questions</h5>
       </div>
-      <div class='row related-questions-div' id='related-questions-div'>
+      <div class='row related-questions-div' style='font-size:0.8em' id='related-questions-div'>
 
       </div>
     </aside>

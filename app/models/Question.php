@@ -4,6 +4,7 @@
 	protected $table="questions";
 	protected $primaryKey = 'post_id';
 	protected $fillable = array('post_id');
+	protected $softDelete = true;
 
 	public function post(){
 		return $this->belongsTo('Post','post_id');

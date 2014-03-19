@@ -6,7 +6,7 @@
 
 <?php if ($paginator->getLastPage() > 1): ?>
 
-	<ul class="pagination medium-2 medium-offset-5" style='margin:auto'>
+	<ul class="pagination medium-4 medium-offset-4" style='margin:auto'>
 		<?php
 			$current=$paginator->getCurrentPage();
 			$last=$paginator->getLastPage();
