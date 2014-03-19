@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="</trURL::asset('icon/favicon.ico')}}" type="image/icon" >
+    <link rel="shortcut icon" href="{{URL::asset('icon/favicon.ico')}}" type="image/icon" >
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <meta name=”description” content="GradHat provides the answers to all the mumbai university questions. We're a community of students and teachers helping people get through their exams">

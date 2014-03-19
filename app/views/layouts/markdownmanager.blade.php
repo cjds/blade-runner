@@ -240,9 +240,7 @@ converter :null,
 });
 
 </script>
-
-                
-<div class="wmd-panel">
+<div class="wmd-panel small-12">
             <div id="wmd-button-bar" class='wmd-button-row '>
               <div class='wmd-buttons'>
                   <i class="fa fa-bold" id='wmd-bold'></i> 
@@ -262,6 +260,6 @@ converter :null,
         <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
 
 
-      <br>
+
 
       @include('layouts.dialogs')
