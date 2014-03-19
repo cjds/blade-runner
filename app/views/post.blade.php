@@ -112,6 +112,7 @@
     	}
 
     	$("#tagdrop").blur(function() {
+    		if(!$('#tagdrop').is(':active'))
   				$('#tagdrop').css('display','none');
 		});
 
@@ -176,6 +177,7 @@
 		});
 
 		$("#inputtext").blur(function() {
+			if(!$('#titledrop').is(':active'))
   				$('#titledrop').css('display','none');
 		});	
 	});

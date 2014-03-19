@@ -261,6 +261,7 @@ $(document).ready(function(){
 		});
 
 		$("#inputtext").blur(function() {
+			if(!$('#titledrop').is(':active'))
   				$('#titledrop').css('display','none');
 		});	
 	});
