@@ -15,7 +15,7 @@
 
 
 
-    <title>{{$title}} | GradHat</title>
+    <title>{{$title}} | GradHat</title> 
     {{HTML::style('css/foundation.css')}}
     {{HTML::script('js/modernizr.js')}}
     {{HTML::script("//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")}}
