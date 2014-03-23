@@ -43,7 +43,9 @@ class QuestionController extends BaseController{
 				$question->question_body=$input['wmd-input'];
 				$question_tags=explode(',', $input['tags']);
 				for($i=0;$i<count($question_tags);$i++) {
-					$question_tags[$i]=trim($question_tags[$i]);
+				$question_tags[$i]=trim($question_tags[$i]);
+				if($question_tags[$i]=='')
+					unset($question_tags[$i]);
 				}
 				$post=new Post();
 				$post->post_type="Question";
@@ -250,9 +252,16 @@ class QuestionController extends BaseController{
 			);
 			$v = Validator::make($input, $rules,$messages);
 			
+			$tagArray=explode(',',$input['tags']);
+			for($i=0;$i<count($tagArray);$i++){
+				$tagArray[$i]=trim($tagArray[$i]);
+				if($tagArray[$i]=='')
+					unset($tagArray[$i]);
+			}
+
 			if($v->passes()){
 				$post=Post::findOrFail($input['question_id']);
-				if($this->editPost($post,'question',$input['wmd-input'],explode(',',$input['tags']),$input['title']))
+				if($this->editPost($post,'question',$input['wmd-input'],$tagArray,$input['title']))
 						return Redirect::to('view/question?qid='.$input['question_id']);
 			}
 			else{
@@ -378,6 +387,11 @@ class QuestionController extends BaseController{
 		$question->question_body=$html->defaultTransform($question->question_body);
 		
    		$question->question_body = str_replace('</math>','$',str_replace('<math>','$', $question->question_body));
+
+   		for($i=0;$i<count($question->answers);$i++){
+   			$question->answers[$i]->answer_body=$html->defaultTransform($question->answers[$i]->answer_body);
+   			$question->answers[$i]->answer_body = str_replace('</math>','$',str_replace('<math>','$', $question->answers[$i]->answer_body));
+   		}
 		if(Auth::user()){
 			$user_id=Auth::user()->user_id;
 		}
@@ -623,6 +637,8 @@ class QuestionController extends BaseController{
 			$question_tags=explode(',', $input['tags']);
 			for($i=0;$i<count($question_tags);$i++) {
 				$question_tags[$i]=trim($question_tags[$i]);
+				if($question_tags[$i]=='')
+					unset($question_tags[$i]);
 			}
 			$post->post_type="Question";
 			$post->creator()->associate(User::findOrFail(25));
@@ -681,6 +697,8 @@ class QuestionController extends BaseController{
 
 			for($i=0;$i<count($question_tags);$i++) {
 				$question_tags[$i]=trim($question_tags[$i]);
+				if($question_tags[$i]=='')
+					unset($question_tags[$i]);
 			}
 			//$post->post_type="Question";
 			//$post->creator()->associate(User::findOrFail(25));
