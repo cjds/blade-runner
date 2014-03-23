@@ -8,8 +8,12 @@
 
     <meta name=”description” content="GradHat provides the answers to all the mumbai university questions. We're a community of students and teachers helping people get through their exams">
 
+    <meta property="og:url" content="http://blade-runner.gopagoda.com/" />
+    <meta property="og:title" content="{{title}}" />
+    <meta property="og:description" content="GradHat is a company that builds educational solutions and has fun doing it." />
+    <!-- <meta property="og:image" content="thumbnail_image" /> -->
 
-    <meta property="og:title" content="{{$title}}"/>
+
 
     <title>{{$title}} | GradHat</title>
     {{HTML::style('css/foundation.css')}}
