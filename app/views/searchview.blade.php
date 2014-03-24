@@ -45,7 +45,7 @@ td.count span{
 	{{Form::open(array('url'=>'search/questions','method'=>'get','role'=>"search"))}} 
 	      <div class="row collapse margintop-20px">
         		<div class="small-8 medium-8 columns">
-            {{Form::text('search','',array('style'=>'','placeholder'=>'search',));}}
+            {{Form::text('search','',array('style'=>'','placeholder'=>'search'));}}
             </div>
                <div class="small-4 medium-1 columns">
             {{Form::submit('Submit', array('style'=>'','class'=>'tiny button'));}}

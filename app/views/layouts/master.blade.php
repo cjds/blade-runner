@@ -11,7 +11,7 @@
     <meta property="og:url" content="http://blade-runner.gopagoda.com/" />
     <meta property="og:title" content="Gradhat" />
     <meta property="og:description" content="GradHat is a company that builds educational solutions and has fun doing it." />
-    <!-- <meta property="og:image" content="thumbnail_image" /> -->
+    <meta property="og:image" content="{{URL::asset('img/logo cutout.jpg');}}" />
 
 
 
