@@ -20,9 +20,9 @@
 <a href="#" data-dropdown="drop2" class="button tiny dropdown inline small-left medium-right" style='margin-right:10px'>
 <i class="fa fa-filter"></i>
 	@if($filter=='answered')
-		view answered only
+		answered
 	@elseif($filter=='unanswered')
-		view unanswered only
+		unanswered
 	@else
 		view all
 	@endif

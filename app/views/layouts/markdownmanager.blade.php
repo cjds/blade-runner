@@ -1,9 +1,5 @@
 
 {{HTML::style('css/markdown.css');}}
-{{HTML::script('js/markdown/Markdown.Converter.js');}}
-{{HTML::script('js/markdown/Markdown.Sanitizer.js');}}
-{{HTML::script('js/markdown/Markdown.Editor.js');}}
-
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -38,6 +34,12 @@
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
+var jsonPreview=    $.ajax({
+                      url: "{{URL::to('json/getText')}}",
+                      type:"POST",
+                      dataType :'json'
+                    });
+
 var Preview = {
   delay: 150,  
 converter :null,
@@ -50,7 +52,7 @@ converter :null,
   init: function () {
     this.preview = document.getElementById("wmd-preview");
     this.buffer = document.getElementById("wmd-input");
-    this.converter= new Markdown.Converter();
+    //this.converter= new Markdown.Converter();
   },
 
   Update: function () {
@@ -66,21 +68,20 @@ converter :null,
     //console.log(text);
     if (text === this.oldtext) return;
     this.oldtext = text;
-
-    $('#wmd-preview').css('display','none');
-    $.ajax({
-      url: "{{URL::to('json/getText')}}",
-      data:{text:text},
-      type:"POST",
-      dataType :'json'
-    }).done(function(data) {
-        $('#wmd-preview').html(data.text);  
-        $('#wmd-preview').css('display','block');
-        MathJax.Hub.Queue(
-          ["Typeset",MathJax.Hub,Preview.preview],
-          ["PreviewDone",Preview]
-        );
-    });
+    jsonPreview.abort();
+    jsonPreview=$.ajax({
+                  url: "{{URL::to('json/getText')}}",
+                  data:{text:text},
+                  type:"POST",
+                  dataType :'json'
+                }).done(function(data) {
+                    Preview.preview.innerHTML=(data.text);  
+                    Preview.preview.style.display='block';
+                    MathJax.Hub.Queue(
+                      ["Typeset",MathJax.Hub,Preview.preview],
+                      ["PreviewDone",Preview]
+                    );
+                });
     
     this.mjRunning = true;
     

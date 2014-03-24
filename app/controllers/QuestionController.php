@@ -415,7 +415,6 @@ class QuestionController extends BaseController{
 	*
 	*/
 	public function viewAllQuestions (){
-		$questions = Question::paginate(15);
 		return $this->sortQuestionList('recent','all');
 	}
 
@@ -505,6 +504,7 @@ class QuestionController extends BaseController{
 			$questions =$questions->orderBy('updated_at','ASC');
 		}
 		$questions =$questions->paginate(15);
+		
 		return View::make('searchview')->with('title', 'Questions List')
 										->with('questions', $questions)
 										->with('keyword', $input)

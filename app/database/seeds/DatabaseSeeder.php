@@ -10,7 +10,7 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Eloquent::unguard();
-		DB::table('question_tag')->delete();
+		/*DB::table('question_tag')->delete();
 		DB::table('tags')->delete();
 	 	DB::table('answers')->delete();
     	DB::table('questions')->delete();
@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder {
         DB::table('users')->delete();
 
 
-		$this->call('UserTableSeeder');
+		$this->call('UserTableSeeder');*/
 		$this->call('PostSeeder');
 	}
 

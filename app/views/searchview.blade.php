@@ -30,7 +30,7 @@ td.count span{
 		<div class="small-12 medium-8 columns">
 		<h2>View Questions</h2>
 		</div>
-		<div class="small-12 medium-4  columns" style="margin-top:15px">
+		<div class="small-12 medium-4 medium-right columns" style="margin-top:15px">
 		@include('sortandfilter')
 		</div>
 	@else
@@ -45,13 +45,13 @@ td.count span{
 	{{Form::open(array('url'=>'search/questions','method'=>'get','role'=>"search"))}} 
 	      <div class="row collapse margintop-20px">
         		<div class="small-8 medium-8 columns">
-            {{Form::text('search','',array('style'=>'','placeholder'=>'search'));}}
+            {{Form::text('search','',array('style'=>'','placeholder'=>'search',));}}
             </div>
-               <div class="small-1 medium-1 columns">
-            {{Form::submit('Submit', array('style'=>'','class'=>'postfix  button'));}}
+               <div class="small-4 medium-1 columns">
+            {{Form::submit('Submit', array('style'=>'','class'=>'tiny button'));}}
             {{Form::close();}}
             </div>
-            <div class="small-3 medium-3 columns">
+            <div class="small-12 medium-3 columns">
             @include('sortandfilter')
             </div>
             </div>
@@ -83,13 +83,13 @@ td.count span{
 	
 		<td><a href="{{url('view/question')}}?qid={{$question->post_id}}"><span style='font-size:1.2em'>{{ $question->question_title }}</span></a><span class='right hide-for-small' style='font-size:0.8em'>asked by {{HTML::link('view/profile/'.urlencode($question->post->creator->user_username),$question->post->creator->user_username)}}</span>
 			<br>
-				@foreach($question->tags as $tag)
-					<span class='tag show-for-small-only'>{{HTML::link('search/questions/tag/'.urlencode($tag->tag_name), $tag->tag_name);}}</span>
+				@foreach($question->tags as $atag)
+					<span class='tag show-for-small-only'>{{HTML::link('search/questions/tag/'.urlencode($atag->tag_name), $atag->tag_name);}}</span>
 				@endforeach
 		</td>
 		<td class='hide-for-small medium-3'>
-		@foreach($question->tags as $tag)
-			<span class='tag'>{{HTML::link('search/questions?search=&tag='.urlencode($tag->tag_name), $tag->tag_name);}}</span>
+		@foreach($question->tags as $atag)
+			<span class='tag'>{{HTML::link('search/questions?search=&tag='.urlencode($atag->tag_name), $atag->tag_name);}}</span>
 		@endforeach
 		
 		</td>
@@ -99,7 +99,7 @@ td.count span{
 	</table>
 </div>
 <div class="row" style='margin:auto'>
-	{{$questions->links()}}
+	{{$questions->appends(array('tag'=>$tag,'search'=>$keyword))->links()}}
 </div>
 	</div>
 </div>

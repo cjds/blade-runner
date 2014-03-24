@@ -100,7 +100,7 @@ $('aside').height($('.main').height());
         ?>
         <br>
         <span style='font-size:0.8em'>
-        {{HTML::link('univquestions/view?sid='.$subject->subject_id, $subject->subject_name);}} <br>
+        {{HTML::link('univquestions/view?sid='.$subject->subject_id, $subject->subject_name);}} ({{$university_question->question_marks}}m) <br>
         asked in 
         @foreach($dates as $date)
           {{HTML::link('univquestions/view/paper/'.urlencode($date['name'])."?sid=".$subject->subject_id, $date['name']);}} 
