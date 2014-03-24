@@ -37,6 +37,7 @@
 }
 </style>
 <script type="text/javascript">
+$(document).ready(function(){
 var Preview = {
   delay: 150,  
 converter :null,
@@ -66,23 +67,24 @@ converter :null,
     if (text === this.oldtext) return;
     this.oldtext = text;
 
-    
-    text=this.converter.makeHtml(text);
-
-    text=text.replace(/[\$]/gi,'\ \\$');
-    console.log(text);
-    text = text.replace(/<\/math>/gi,'$');
-    text = text.replace(/<math>/gi,'$');
-    
-    this.preview.innerHTML=text;
+    $('#wmd-preview').css('display','none');
+    $.ajax({
+      url: "{{URL::to('json/getText')}}",
+      data:{text:text},
+      type:"POST",
+      dataType :'json'
+    }).done(function(data) {
+        $('#wmd-preview').html(data.text);  
+        $('#wmd-preview').css('display','block');
+        MathJax.Hub.Queue(
+          ["Typeset",MathJax.Hub,Preview.preview],
+          ["PreviewDone",Preview]
+        );
+    });
     
     this.mjRunning = true;
-    this.preview.style.display = 'none';
-    this.preview.style.display = 'block';
-    MathJax.Hub.Queue(
-      ["Typeset",MathJax.Hub,this.preview],
-      ["PreviewDone",this]
-    );
+    
+    
   },
 
   PreviewDone: function () {
@@ -91,10 +93,8 @@ converter :null,
   }
 
 };
-</script>
 
-<script type='text/javascript'>
-  $(document).ready(function(){
+  
           
     Preview.init();
     Preview.callback = MathJax.Callback(["CreatePreview",Preview]);

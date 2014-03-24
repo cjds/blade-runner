@@ -242,7 +242,7 @@ class Markdown implements MarkdownInterface {
 		# *  List "b" is made of tags which are always block-level;
 		#
 		$block_tags_a_re = 'ins|del';
-		$block_tags_b_re = 'p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|address|'.
+		$block_tags_b_re = 'p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|address|math'.
 						   'script|noscript|form|fieldset|iframe|math|svg|'.
 						   'article|section|nav|aside|hgroup|header|footer|'.
 						   'figure';

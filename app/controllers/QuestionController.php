@@ -339,6 +339,8 @@ class QuestionController extends BaseController{
 		$answer=Answer::findOrFail($answer_id);
 		if (Auth::check()){
 			$title="Edit Question";	
+			$answer->question->question_body=$this->convertToMarkdown($answer->question->question_body);
+			
 			return View::make('post')->with('title',$title)->with('question',$answer)->with('type','editanswer');
 		}
 		else{
@@ -382,15 +384,9 @@ class QuestionController extends BaseController{
 		$question_id=Input::get('qid',-1);
 		$question=Question::findOrFail($question_id);
 		$univquestion=UniversityQuestion::find($question_id);
-		$posts = $question->answers;
-		$html = new Mark\Michelf\Markdown;
-		$question->question_body=$html->defaultTransform($question->question_body);
-		
-   		$question->question_body = str_replace('</math>','$',str_replace('<math>','$', $question->question_body));
-
+		$question->question_body=$this->convertToMarkdown($question->question_body);
    		for($i=0;$i<count($question->answers);$i++){
-   			$question->answers[$i]->answer_body=$html->defaultTransform($question->answers[$i]->answer_body);
-   			$question->answers[$i]->answer_body = str_replace('</math>','$',str_replace('<math>','$', $question->answers[$i]->answer_body));
+   			$question->answers[$i]->answer_body=$this->convertToMarkdown($question->answers[$i]->answer_body);
    		}
 		if(Auth::user()){
 			$user_id=Auth::user()->user_id;
@@ -399,6 +395,18 @@ class QuestionController extends BaseController{
 			$user_id=-1;
 		}
 		return View::make('viewquestion')->with('title','View the Question')->with('question',$question)->with('user_id',$user_id)->with('university_question',$univquestion);
+	}
+
+	public function getMarkdownText(){
+		$text=Input::get('text','');
+		return Response::json(array('text'=>$this->convertToMarkdown($text)));
+	}
+
+	public function convertToMarkdown($text){
+		$html = new Mark\Michelf\MarkdownExtra;
+		$text=$html->defaultTransform($text);
+   		$text= str_replace('</math>','$',str_replace('<math>','$', $text));
+   		return $text;
 	}
 
 	/**

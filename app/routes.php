@@ -74,6 +74,9 @@ Route::post('admin/modules/edit', 'AdminController@postEditModule');
 ***********Question Controller**************
 *******************************************/
 
+
+Route::post('json/getText','QuestionController@getMarkdownText');
+
 Route::get('/','QuestionController@viewAllQuestions');
 
 //Adding
