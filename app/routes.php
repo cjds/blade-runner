@@ -160,8 +160,9 @@ Route::get('json/search/tag','QuestionController@jsonGetTags');
 
 
 
+Route::get('admin/mail/invite','AdminController@getinviteMail');
 
-
+Route::post('admin/mail/invite','AdminController@postinviteMail');
 
 
 

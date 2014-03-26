@@ -211,13 +211,21 @@ $('aside').height($('.main').height());
       </div>
     @endif
 
-
+@if(Auth::user())
 	{{Form::open(array('url'=>'add/answer'))}}
 	{{Form::hidden('question_id', $question->post_id);}}
 	<label>Think you can answer this question</label>
+
     @include("layouts.markdownmanager",array('data'=>''))
 		{{Form::submit('Add Answer', array('class'=>'button'));}}
 		{{Form::close();}}
+@else
+
+  <div class='columns'>  Please {{HTML::link('/register','register')}} or {{HTML::link('/login','login')}} to answer this question</div>
+
+
+@endif
+
     </div>
       </div>
   </div>

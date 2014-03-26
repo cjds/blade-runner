@@ -8,6 +8,34 @@ class AdminController extends BaseController{
 		return View::make('login')->with('title',$title)->with('type','admin');
 	}
 
+	public function getinviteMail(){
+		if(Auth::privelegecheck(20)){
+			
+			return View::make('inviteemail');
+		}
+
+		return View::make('login')->with('title','Logins')->with('type','admin');
+	}
+
+	public function postinviteMail(){
+		if(Auth::privelegecheck(20)){
+			$input=Input::all();
+			$recepient=explode(',', $input['recepient']);
+			foreach ($recepient as $rec) {
+				$mail_id['email']=$rec;
+				$mail_id['username']=$rec;
+				
+				Mail::queue('emails.invite', 
+					array('data'=>$input['maintext']), 
+					function($message) use ($mail_id){
+       					$message->to($mail_id['email'], $mail_id['username'])->subject('Invitation for Gradhat');
+       				}
+       			);
+    		}
+			return 'Done. We really need to do something over here';
+		}
+		return View::make('login')->with('title','Logins')->with('type','admin');
+	}
 
 	public function postAdminLogin(){
 		$input=Input::all();
