@@ -19,38 +19,11 @@
     {{HTML::style('css/foundation.css')}}
     {{HTML::script('js/modernizr.js')}}
     {{HTML::script("//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")}}
-    
+    {{HTML::script("js/jquery.js")}}
     {{HTML::style('css/main.css')}}
   </head>
 
   <body>
-<div class="off-canvas-wrap show-for-small">
-  <div class="inner-wrap">
-      <section class="middle tab-bar-section">
-        <h1 class="title">Gradhat</h1>
-      </section>
-
-      
-
-    <aside class="left-off-canvas-menu">
-      <ul class="off-canvas-list">
-        <li><label>Gradhat</label></li>
-        <li><a href="#">The Psychohistorians</a></li>
-        <li><label>Users</label></li>
-        <li><a href="#">Hari Seldon</a></li>
-        ...
-      </ul>
-    </aside>
-
-    <section class="main-section">
-      <!-- content goes here -->
-    </section>
-
-  <a class="exit-off-canvas"></a>
-
-</div>  
-</div>
-
 
     
 <nav class="top-bar" data-topbar>

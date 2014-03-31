@@ -17,6 +17,16 @@ class AuthGuard extends \Illuminate\Auth\Guard {
 * @param number which represents privelege level
 * @return boolean whether Auth user greater than that level
 */
+
+
+/*
+Lets say 
+Privelege Level                   User
+1								Plain old loser
+15 								Moderator
+17								Teacher
+20								Admin
+*/
 public function privelegecheck($privelege_level){
         $authorized=false;
         if($this->check()){

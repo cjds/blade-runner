@@ -69,6 +69,9 @@ Route::post('admin/add/modules', 'AdminController@addNewModule');
 Route::get('admin/modules/edit', 'AdminController@getEditModule');
 Route::post('admin/modules/edit', 'AdminController@postEditModule');
 
+//Invite Users
+Route::get('admin/mail/invite','AdminController@getinviteMail');
+Route::post('admin/mail/invite','AdminController@postinviteMail');
 
 /*******************************************
 ***********Question Controller**************
@@ -160,18 +163,15 @@ Route::get('json/search/tag','QuestionController@jsonGetTags');
 
 
 
-Route::get('admin/mail/invite','AdminController@getinviteMail');
-
-Route::post('admin/mail/invite','AdminController@postinviteMail');
 
 
 
-
-
-
-
-
-
+/*******************************************
+****************Notes Controller*************
+*******************************************/
+Route::get('/notes/{subject}/{teacher_id}','NotesController@getViewSubjectNotes');
+Route::post('notes/addnotes','NotesController@postaddNotes');
+Route::get('json/notes','NotesController@jsongetNotes');
 
 
 
