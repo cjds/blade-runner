@@ -51,6 +51,7 @@
 				<td>		
 					<select name="privilegelevel[{{$user->user_id}}]"> 					
 						<option value=0 {{($user->privelege_level==0)?'selected':''}}>User</option>
+						<option value=17 {{($user->privelege_level==17)?'selected':''}}>Teacher</option>
 						<option value=15 {{($user->privelege_level==15)?'selected':''}}>Moderator</option>
 						<option value=21 {{($user->privelege_level==21)?'selected':''}}>Administrator</option>
 					</select>

@@ -21,7 +21,7 @@
           for (var i = 0; i<data.length;i++) {
             var string='<div class="row" style="margin-bottom:20px;"><div class="small-1 columns"><div class="number-circle">'+(i+1)+'</div></div><div style="min-height:36px;" class="small-11 box-sides columns">'+data[i].description;
             if(data[i].file!=null)
-              string+='<a href="{{URL::asset('')}}uploads/'+data[i].file+'">'+data[i].file+'</a>';
+              string+='<a href="{{URL::asset('')}}uploads/'+data[i].user_id+'/'+data[i].module_id+'/'+data[i].file+'">'+data[i].file+'</a>';
             string+="</div></div>";
 
 

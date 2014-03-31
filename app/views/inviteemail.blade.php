@@ -61,7 +61,7 @@ Body(Enter content in HTML):<br>
 <h2>Hi, </h2>
 <br>
 This is a mail from all of us at GradHat. 
-<br>We hope you can help us build our project into something useul.
+<br>We hope you can help us build our project into something useful.
 <br>Thanks. 
 </textarea>
 	

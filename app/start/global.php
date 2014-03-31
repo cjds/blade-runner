@@ -50,7 +50,7 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 
 App::error(function(Exception $exception, $code)
 {
-	switch ($code)
+	/*switch ($code)
     {
         case 403:
             return 
@@ -68,8 +68,8 @@ App::error(function(Exception $exception, $code)
 
         default:
             return Response::view('templates.sendmessage', array('head'=>'Error','body'=>'Guess this was something bad. Even we\'re not sure how you could land up here.'));
-    }
-    // Log::error($exception);
+    }*/
+    Log::error($exception);
 });
 
 /*
