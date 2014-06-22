@@ -153,7 +153,7 @@ Route::post('json/moderator/newreview','ModeratorController@postJSONNextModerato
 
 
 /*******************************************
-***************&*Tag Controller*************
+***************Tag Controller*************
 *******************************************/
 
 Route::post('json/search/tag','QuestionController@jsonGetTags');
@@ -172,7 +172,5 @@ Route::get('json/search/tag','QuestionController@jsonGetTags');
 Route::get('/notes/{subject}/{teacher_id}','NotesController@getViewSubjectNotes');
 Route::post('notes/addnotes','NotesController@postaddNotes');
 Route::get('json/notes','NotesController@jsongetNotes');
-
-
 
 ?>

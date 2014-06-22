@@ -66,6 +66,7 @@
 
 
 		{{Form::submit((substr($type,0,4)=='edit')?'Edit':'Add Question',array('class'=>'button'))}}
+		{{Form::close()}}
 		<br>
 @stop
 @section('aside')

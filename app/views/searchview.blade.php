@@ -26,7 +26,7 @@ td.count span{
 <div class="large-offset-1 large-10 medium-12 small-12 columns box-top box-bottom box-sides"  data-equalizer-watch>
 
 <div class='columns medium-12'>	
-	@if($keyword=="" && $tag =="")
+	@if($keyword=="" && $tagSearch =="")
 		<div class="small-12 medium-8 columns">
 		<h2>View Questions</h2>
 		</div>
@@ -34,18 +34,21 @@ td.count span{
 		@include('sortandfilter')
 		</div>
 	@else
-		@if($keyword!="")
+		@if(trim($keyword)!="")
 			<h3>Search for: {{$keyword}}</h3>
-			<h6>{{HTML::link('search/questions/sort/'.$sort.'/filter/'.$filter.'?search=&tag='.$tag, 'clear search')}}</h6>
+			<h6>{{HTML::link('search/questions/sort/'.$sort.'/filter/'.$filter.'?search='.$tagSearch, 'clear search')}}</h6>
 		@endif
-		@if($tag!="")
-		<h3>Tags included: {{$tag}}</h3>
-		<h6>{{HTML::link('search/questions/sort/'.$sort.'/filter/'.$filter.'?search='.$keyword.'&tag=', 'clear tag')}}</h6>
-	@endif
+		
+		<h3>Tags included: </h3>
+		@foreach ($tag as $t) 
+			@include ('layouts.tag',array('tag_name'=>$t))
+		@endforeach
+		<h6>{{HTML::link('search/questions/sort/'.$sort.'/filter/'.$filter.'?search='.$keyword, 'clear tag')}}</h6>
+		
 	{{Form::open(array('url'=>'search/questions','method'=>'get','role'=>"search"))}} 
 	      <div class="row collapse margintop-20px">
         		<div class="small-8 medium-8 columns">
-            {{Form::text('search','',array('style'=>'','placeholder'=>'search'));}}
+            {{Form::text('search',$keyword.$tagSearch,array('style'=>'','placeholder'=>'search'));}}
             </div>
                <div class="small-4 medium-1 columns">
             {{Form::submit('Submit', array('style'=>'','class'=>'tiny button'));}}
@@ -84,12 +87,12 @@ td.count span{
 		<td><a href="{{url('view/question')}}?qid={{$question->post_id}}"><span style='font-size:1.2em'>{{ $question->question_title }}</span></a><span class='right hide-for-small' style='font-size:0.8em'>asked by {{HTML::link('view/profile/'.urlencode($question->post->creator->user_username),$question->post->creator->user_username)}}</span>
 			<br>
 				@foreach($question->tags as $atag)
-					<span class='tag show-for-small-only'>{{HTML::link('search/questions/tag/'.urlencode($atag->tag_name), $atag->tag_name);}}</span>
+					@include('layouts.tag',array('tag_name'=>($atag->tag_name)))
 				@endforeach
 		</td>
 		<td class='hide-for-small medium-3'>
 		@foreach($question->tags as $atag)
-			<span class='tag'>{{HTML::link('search/questions?search=&tag='.urlencode($atag->tag_name), $atag->tag_name);}}</span>
+			@include('layouts.tag',array('tag_name'=>($atag->tag_name)))
 		@endforeach
 		
 		</td>
@@ -99,7 +102,7 @@ td.count span{
 	</table>
 </div>
 <div class="row" style='margin:auto'>
-	{{$questions->appends(array('tag'=>$tag,'search'=>$keyword))->links()}}
+	{{$questions->appends(array('search'=>$keyword.$tagSearch))->links()}}
 </div>
 	</div>
 </div>

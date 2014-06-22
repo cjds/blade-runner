@@ -20,6 +20,8 @@
     {{HTML::script('js/modernizr.js')}}
     {{HTML::script("//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js")}}
     {{HTML::script("js/jquery.js")}}
+    {{HTML::script("js/tablesorter/jquery.tablesorter.js")}}
+
     {{HTML::style('css/main.css')}}
   </head>
 
@@ -72,7 +74,8 @@
         		<div class="row collapse">
           			<div class="large-8 small-12 columns">
            				{{Form::open(array('url'=>'search/questions','method'=>'get','class'=>"navbar-form navbar-right",'role'=>"search"))}} 
-            			{{Form::text('search','',array('style'=>'height:30px;width:140px','placeholder'=>'search'));}}
+            			{{Form::text('search','',array('id'=>'searchinput','style'=>'height:30px;width:140px;font-size:13px;','placeholder'=>'search'));}}
+                  <div class='tooltip' data-focus-element='searchinput' style='min-width:140px;display:none;left:0;font-size:0.7em;'>add tags like this: [tags] <span class='nub' style='right:5px;'></span></div>
             			{{Form::close();}}
           			</div>   
         		</div>
@@ -163,6 +166,21 @@ Created and maintained by GradHat Inc. 2013, All rights reserved
 {{HTML::script('js/foundation.min.js')}}
     <script>
       $(document).foundation();
+
+      $(document).ready(function(){
+        $('.tooltip').each(function(){
+          var element=$(this).attr('data-focus-element');
+          $('#'+element).focus(function(event) {
+              $('.tooltip[data-focus-element='+element+"]").css('display','block');
+          });
+          $('#'+element).blur(function(event) {
+           $('.tooltip[data-focus-element='+element+"]").css('display','none');
+        });
+      });
+
+        
+      });
+
     </script>
 
   </body>

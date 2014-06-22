@@ -31,6 +31,14 @@
   padding:3px;
   margin-right: 6px;
 }
+
+#tutorial a{
+  color:#fff;
+}
+
+#tutorial a:hover{
+  text-decoration: underline;
+}
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -95,12 +103,25 @@ converter :null,
 
 };
 
-  
           
     Preview.init();
     Preview.callback = MathJax.Callback(["CreatePreview",Preview]);
     Preview.callback.autoReset = true;  // make sure it can run more than once
     Preview.Update();
+
+    $('#wmd-question').click(help);
+    $('#wmd-help').click(help);
+
+    function help(e){
+      e.preventDefault();
+        $('#helpdialog').foundation('reveal','open')
+    }
+    $('#wmd-input').focus(function(event) {
+        $('#tutorial').css('display','block');
+        $('#tutorial a').css('color','white');
+    });
+
+
     $('#wmd-bold').click(function(e){
         $('#wmd-input').val(setUpmarkDownChar('**',$('#wmd-input'),'bold',true));
         $('section[role="main"]').css('display','none');
@@ -177,18 +198,67 @@ converter :null,
         Preview.Update();
     });
 
+      // Variable to store your files
+      var files; 
+      // Add events
+      $('#markdown_add_image input[name=image-file]').on('change', prepareUpload);
+       
+      // Grab the files and set them to our variable
+      function prepareUpload(event){
+        files = event.target.files;
+        
+        document.getElementById('uploadFiletxt').value=$(this).val();
+      }
+
+
     $('#addImageBtn').click(function(e){
         //var link
         var link=$('#markdown_add_image input[name=image-href]').val();
        var text=$('#markdown_add_image input[name=image-description]').val();
-
+       
+       if(link==''){
+          var data=new FormData();
+          $.each(files, function(key, value)
+          {
+            data.append('image', value);
+          });
+          $('#imagespinner').css('display','block');
+          $.ajax({
+            url: 'https://api.imgur.com/3/image',
+            processData: false, 
+            cache: false,
+            contentType: false,
+            headers: {
+                'Authorization':'Client-ID bbbc01fbda8c501'
+            },
+            type: 'POST',
+            data: data,
+            dataType: 'json'
+          })
+          .done(function(data) {
+            link=(data.data.link);
+            $('#wmd-input').val(markdownAddChar('',$('#wmd-input')[0].selectionStart,$('#wmd-input')[0].selectionStart,$('#wmd-input').val(),'!['+text+']'+'('+link+')',false));
+            $('#linkdialog').foundation('reveal', 'close');
+            $('#imagespinner').css('display','none');
+            Preview.Update();
+          })
+          
+          .fail(function() {
+            alert("Sorry, but that file can't be uploaded")
+          });
+          
+       }
+       else{
+        $('#wmd-input').val(markdownAddChar('',$('#wmd-input')[0].selectionStart,$('#wmd-input')[0].selectionStart,$('#wmd-input').val(),'!['+text+']'+'('+link+')',false));
+       $('#linkdialog').foundation('reveal', 'close');
+        Preview.Update();
+       }
        $('#markdown_add_image input[name=image-href]').val(''); //reset value to blank
        $('#markdown_add_image input[name=image-description]').val(''); //reset value to blank
          
-       $('#wmd-input').val(markdownAddChar('',$('#wmd-input')[0].selectionStart,$('#wmd-input')[0].selectionStart,$('#wmd-input').val(),'!['+text+']'+'('+link+')',false));
 
-       $('#linkdialog').foundation('reveal', 'close');
-        Preview.Update();
+       
+        
     });
 
     function setUpmarkDownChar(addingString,inputElement,middlePart,isSymmetric){
@@ -242,6 +312,10 @@ converter :null,
 
 </script>
 <div class="wmd-panel small-12">
+        <div data-alert class="alert-box" id='tutorial' style="display:none">
+            <a href='#' id='wmd-help'>We use markdown for input. If you're new to it, you can learn more here</a>
+            <a href="#" class="close">&times;</a>
+          </div>
             <div id="wmd-button-bar" class='wmd-button-row '>
               <div class='wmd-buttons'>
                   <i class="fa fa-bold" id='wmd-bold'></i> 
@@ -253,10 +327,13 @@ converter :null,
                   <i class="fa fa-list-ol" id='wmd-ol'></i>
                   <i class="fa fa-list-ul" id='wmd-ul'></i>
                   <i class="fa" id='wmd-function'>&fnof;</i>
+                  <i class="fa fa-question" id='wmd-question'></i>
               </div>
               
             </div>
+            
             <textarea name='wmd-input' class="wmd-input" id="wmd-input">{{$data}}</textarea>
+
         </div>
         <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
 

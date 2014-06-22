@@ -115,7 +115,7 @@ $('aside').height($('.main').height());
         <br>
         <div class='row tag-div'>
           @foreach($question->tags as $tag)
-			       <span class='tag'>{{HTML::link('search/questions/tag/'.urlencode($tag->tag_name), $tag->tag_name);}}</span>
+			       @include('layouts.tag',array('tag_name'=>($tag->tag_name)))
 		      @endforeach
         </div>
         <br>
@@ -218,7 +218,7 @@ $('aside').height($('.main').height());
 
     @include("layouts.markdownmanager",array('data'=>''))
 		{{Form::submit('Add Answer', array('class'=>'button'));}}
-		{{Form::close();}}
+		{{Form::close()}}
 @else
 
   <div class='columns'>  Please {{HTML::link('/register','register')}} or {{HTML::link('/login','login')}} to answer this question</div>
@@ -237,7 +237,7 @@ $('aside').height($('.main').height());
       </div>
       <div class="tag-div row">
         @foreach($question->tags as $tag)
-        <span class='tag'>{{HTML::link('search/questions/tag/'.urlencode($tag->tag_name), $tag->tag_name);}}</span>
+          @include('layouts.tag',array('tag_name'=>($tag->tag_name)))
       @endforeach
       </div>
       <div class='row'>

@@ -19,4 +19,6 @@ class BaseController extends Controller {
 		return View::make('contact')->with('title', 'Contact Us');
 	}
 
+
+
 }

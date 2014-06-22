@@ -26,7 +26,7 @@ $(document).ready(function(){
 	function addDate(){
 		var k =$('#magic').html().replace(/\[\d\]/gi,"["+count+"]");
 		$('#field_set').append(k);
-		count++;
+		cou	nt++;
 	}
 	$('#subject').change(function(){
 		populateModules();		
@@ -81,7 +81,7 @@ $(document).ready(function(){
 				<input name="month[{{$i}}]" type="radio" value="December" {{($dates[0]=='December')?'checked':''}}> December
 			</td>
 			<td>
-				{{Form::selectRange('year['.$i.']', $dates[1], 2014, 2007)}}<br>			
+				{{Form::selectRange('year['.$i.']', 2000, 2014, $dates[1])}}<br>			
 			</td>
 			<td>
 			<a href='#' class='delete' data-delete='{{$i}}'>delete</a>

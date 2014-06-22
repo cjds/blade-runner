@@ -3,9 +3,18 @@
 @section('content')
 
 <style type="text/css">
+
+.searchtable th:active{
+	cursor: pointer;
+	}
 </style>
 
-
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+		$('.searchtable').tablesorter({sortList: [[0,0]] });	
+	});
+</script>
 
 <div class="row">
 	<div class="medium-10 medium-offset-1 small-12 columns" style='min-height:400px'>
@@ -15,7 +24,9 @@
 	<table class="table large-12 searchtable">
 	<thead>
 	<tr>
-		<th>#</th>
+		@if($type=='exam' )
+			<th>#</th>
+		@endif
 		<th>Question</th>
 		<th>Marks</th>
 		<th class='hide-for-small'>Votes</th>
@@ -27,13 +38,17 @@
 
 	<tbody>
 	@foreach($univques as $uq)
-	<tr style='align:left'>
+	<tr>
+		@if($type=='exam' )
 		<td>
+		
 			@foreach ($uq->universityquestiondates as $qno)
-				{{$qno->question_number}}
-				<br>
+				@if( $qno->month_year==$name)
+					{{$qno->question_number}}<br>
+				@endif
 			@endforeach
 		</td>
+		@endif
 		<td>
 			<a href="{{url('view/question')}}?qid={{$uq->post_id}}">{{ $uq->question->question_title }}
 			</a>
@@ -46,8 +61,11 @@
 		<td class='hide-for-small'>{{($uq->question->post->votes()->sum('voteType')+0);}} </td>
 		<td class='hide-for-small'>{{$uq->question->answers()->count('post_id');}} </td>
 		<td class='hide-for-small'>
+			<?php $count=1;?>
 			@foreach ($uq->universityquestiondates as $date)
-				{{$date->month_year}}
+				<a href="{{url('univquestions/view/paper/'.$date->month_year)}}?sid={{$sid}}">{{$date->month_year}}({{$date->question_number}}) </a>
+				@if($count++<count($uq->universityquestiondates)){{','}}
+				@endif
 
 			@endforeach
 		</td>

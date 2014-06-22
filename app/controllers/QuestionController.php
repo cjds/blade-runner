@@ -419,17 +419,17 @@ class QuestionController extends BaseController{
 	}
 
 	public function getQuestionsForUser($user_id){
-		return $this->searchHandler('recent','all','','',$user_id,'question');
+		return $this->searchHandler('recent','all','',[],$user_id,'question');
 	}
 
 	public function getAnswersForUser($user_id){
-		return $this->searchHandler('recent','all','','',$user_id,'answer');
+		return $this->searchHandler('recent','all','',[],$user_id,'answer');
 	}
 
 	public function viewQuestionsByTags ($tag_name){
 	 	$tag_name=urldecode($tag_name); 
 
-		return $this->searchHandler('recent','all','',$tag_name);
+		return $this->searchHandler('recent','all','',[$tag_name]);
 	 }
 
 	/**
@@ -440,78 +440,34 @@ class QuestionController extends BaseController{
 	*/
 	public function viewQuestionList(){
 		//$questions = Question::whereRaw("MATCH(question_title, question_body) AGAINST(? IN BOOLEAN MODE)", array($input))->get();
-		return $this->searchHandler('none','all',Input::get('search'),Input::get('tag'));
+
+		preg_match_all('/\[([^]]+)\]/', Input::get('search'),$tags);
+		$tags=$tags[1];
+		if(Input::get('tag')!=''){
+			$tags[]=Input::get('tag');
+		}
+
+		$search=trim(preg_replace('/\[[^)]+\]/','',Input::get('search')));
+
+		return $this->searchHandler('none','all',$search,$tags);
 	}
 
 	public function sortQuestionList($sort,$type){
+		$tags=[];
+		if(Input::get('search')!=''){
+			preg_match_all('/\[[^)]+\]/', Input::get('search'), $tags);
+			$tags=$tags[1];
+		}
+			
+		if(Input::get('tag')!=''){
+			$tags[]=Input::get('tag');
+		}
 
-		return $this->searchHandler($sort,$type,Input::get('search'),Input::get('tag'));
+		$search=trim(preg_replace('/\[[^)]+\]/','',Input::get('search')));
+		return $this->searchHandler($sort,$type,$search,$tags);
 	}
 
 
-	public function searchHandler($sort,$type,$input,$tag,$user_id='',$user_request=''){
-			
-		$type = urldecode($type);
-		
-		$questions=new Question;
-		if ($type == 'answered') {
-			$questions=$questions->answered();
-		}
-		elseif ($type == 'unanswered') {
-			$questions=$questions->unanswered();	
-		}
-
-
-		if ($input !='') {
-
-			$questions = $questions
-					->whereRaw("(question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%')");
-		}
-			
-		if ($tag != '') {
-				$questions =$questions
-					->whereHas('tags', function($q) use ($tag){
-    						$q->where('tag_name', 'like', $tag);
-					});
-			
-		}
-
-		if($user_id!=''){
-			if($user_request=='question'){
-				$questions =$questions
-					->whereHas('post', function($q) use ($user_id){
-    						$q->whereHas('creator', function($q) use ($user_id){
-    							$q->where('user_id', 'like', $user_id);
-    						});
-					});
-			}
-			else{
-				$questions =$questions
-					->whereHas('answers', function($q) use ($user_id){
-    					$q->whereHas('post', function($q) use ($user_id){
-    						$q->whereHas('creator', function($q) use ($user_id){
-    							$q->where('user_id', 'like', $user_id);
-    						});		
-    					});
-					});	
-			}
-		}
-
-		if($sort == 'recent' ){
-			$questions =$questions->orderBy('updated_at','DESC');
-		}
-		else if($sort=='oldest'){
-			$questions =$questions->orderBy('updated_at','ASC');
-		}
-		$questions =$questions->paginate(15);
-		
-		return View::make('searchview')->with('title', 'Questions List')
-										->with('questions', $questions)
-										->with('keyword', $input)
-										->with('filter',$type)
-										->with('sort',$sort)
-										->with('tag', $tag);
-	}
 
 	
 	//This is a POST that lets you flag any post for innappropriate content and responds via JSON	
@@ -649,7 +605,7 @@ class QuestionController extends BaseController{
 					unset($question_tags[$i]);
 			}
 			$post->post_type="Question";
-			$post->creator()->associate(User::findOrFail(25));
+			$post->creator()->associate(User::findOrFail(1));
 			$post->save();
 			$question->post()->associate($post);
 			$question->push();
@@ -741,10 +697,7 @@ class QuestionController extends BaseController{
 	}
 
 	public function univQuestionsMainPage(){
-		$branches = Branch::all();
-		$subjects = Subject::all();
-		$univQuestionDates = UniversityQuestionDate::all();
-		
+		$branches = Branch::all();	
 		return View::make('univquestionshome')->with('title', 'University Questions')->with('branches', $branches);
 	}
 
@@ -758,7 +711,7 @@ class QuestionController extends BaseController{
 			$name=Subject::findOrFail($subject_id)->subject_name;
 		}
 		$univques = UniversityQuestion::where('question_subject_id', $subject_id)->orWhere('question_module_id', $module_id)->get();
-		return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques)->with('name',$name);
+		return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques)->with('name',$name)->with('type','module')->with('sid',$subject_id);
 
 	}
 
@@ -768,17 +721,18 @@ class QuestionController extends BaseController{
 		$subject_id=Input::get('sid',-1);
 		
 		$univques = UniversityQuestion::whereHas('universityquestiondates',function($q) use ($exam){
-			$q->where('month_year','like',$exam);
+			$q->where('month_year','like',$exam)->orderBy('question_number');
 		})->whereHas('subject',function($q) use ($subject_id){
 			$q->where('subject_id',$subject_id);
 		})->get();
 
+		
 
 		//	->where('university_questions.question_subject_id', $subject_id)
 		//	->where('university_questions_dates.month_year', 'like', $exam)
 		//	->orderBy('university_questions_dates.question_number')
 	//		->get();
-			return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques)->with('name',$exam);
+			return View::make('univquestions')->with('title', 'University Questions')->with('univques', $univques)->with('name',$exam)->with('type','exam')->with('sid',$subject_id);
 	}
 	
 	public function deleteQuestion(){
@@ -865,6 +819,79 @@ class QuestionController extends BaseController{
 	   }
 
 	   return json_encode($json);
+	}
+
+	/***********************************
+			HELPER METHODS
+	**********************************/
+
+	public function searchHandler($sort,$type,$input,$tag,$user_id='',$user_request=''){
+		$type = urldecode($type);
+		$tagOutput='';
+		$questions=new Question;
+		if ($type == 'answered') {
+			$questions=$questions->answered();
+		}
+		elseif ($type == 'unanswered') {
+			$questions=$questions->unanswered();	
+		}
+
+
+		if ($input !='') {
+
+			$questions = $questions
+					->whereRaw("(question_title LIKE '%".$input."%' OR question_body LIKE '%".$input."%')");
+			//$tags=preg_match_all('/[*]/', $input);
+			//return $tags;
+		}
+			
+		if (count($tag) != 0) {
+			foreach ($tag as $t) {
+				$questions =$questions
+					->whereHas('tags', function($q) use ($t){
+    						$q->where('tag_name', 'like', '%'.$t.'%');
+				});
+				$tagOutput.=" [$t] ";
+			}
+			
+		}
+
+		if($user_id!=''){
+			if($user_request=='question'){
+				$questions =$questions
+					->whereHas('post', function($q) use ($user_id){
+    						$q->whereHas('creator', function($q) use ($user_id){
+    							$q->where('user_id', 'like', $user_id);
+    						});
+					});
+			}
+			else{
+				$questions =$questions
+					->whereHas('answers', function($q) use ($user_id){
+    					$q->whereHas('post', function($q) use ($user_id){
+    						$q->whereHas('creator', function($q) use ($user_id){
+    							$q->where('user_id', 'like', $user_id);
+    						});		
+    					});
+					});	
+			}
+		}
+
+		if($sort == 'recent' ){
+			$questions =$questions->orderBy('updated_at','DESC');
+		}
+		else if($sort=='oldest'){
+			$questions =$questions->orderBy('updated_at','ASC');
+		}
+		$questions =$questions->paginate(15);
+		
+		return View::make('searchview')->with('title', 'Questions List')
+										->with('questions', $questions)
+										->with('keyword', $input)
+										->with('filter',$type)
+										->with('sort',$sort)
+										->with('tag', $tag)
+										->with('tagSearch',$tagOutput);
 	}
 
 }

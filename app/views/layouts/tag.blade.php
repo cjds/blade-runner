@@ -1,0 +1,1 @@
+<span class='tag'>{{HTML::link('search/questions?search='.urlencode('['.$tag_name.']'), $tag_name)}}</span>

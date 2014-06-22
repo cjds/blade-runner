@@ -11,9 +11,9 @@
 	@endif 
 </a>
 <ul id="drop1" data-dropdown-content class="f-dropdown">
-<li>{{HTML::link('search/questions/sort/none/filter/'.$filter.'?search='.$keyword.'&tag='.$tag, "don't sort")}}</li>
-  <li>{{HTML::link('search/questions/sort/recent/filter/'.$filter.'?search='.$keyword.'&tag='.$tag, 'most recent')}}</li>
-  <li>{{HTML::link('search/questions/sort/oldest/filter/'.$filter.'?search='.$keyword.'&tag='.$tag, 'oldest first')}}</li>
+<li>{{HTML::link('search/questions/sort/none/filter/'.$filter.'?search='.$keyword.$tagSearch, "don't sort")}}</li>
+  <li>{{HTML::link('search/questions/sort/recent/filter/'.$filter.'?search='.$keyword.$tagSearch, 'most recent')}}</li>
+  <li>{{HTML::link('search/questions/sort/oldest/filter/'.$filter.'?search='.$keyword.$tagSearch, 'oldest first')}}</li>
   
 </ul>
 
@@ -28,7 +28,7 @@
 	@endif
 </a><br>
 <ul id="drop2" data-dropdown-content class="f-dropdown">
-		<li>{{HTML::link('search/questions/sort/'.$sort.'/filter/all?search='.($keyword).'&tag='.$tag, 'view all')}}</li>
-		<li>{{HTML::link('search/questions/sort/'.$sort.'/filter/answered?search='.($keyword).'&tag='.$tag, 'answered only')}}</li>
-		<li>{{HTML::link('search/questions/sort/'.$sort.'/filter/unanswered?search='.($keyword).'&tag='.$tag, 'unanswered only')}}</li>
+		<li>{{HTML::link('search/questions/sort/'.$sort.'/filter/all?search='.($keyword).$tagSearch, 'view all')}}</li>
+		<li>{{HTML::link('search/questions/sort/'.$sort.'/filter/answered?search='.($keyword).$tagSearch, 'answered only')}}</li>
+		<li>{{HTML::link('search/questions/sort/'.$sort.'/filter/unanswered?search='.($keyword).$tagSearch, 'unanswered only')}}</li>
 </ul>
