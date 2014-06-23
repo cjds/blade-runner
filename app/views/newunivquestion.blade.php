@@ -26,7 +26,7 @@ $(document).ready(function(){
 	function addDate(){
 		var k =$('#magic').html().replace(/\[\d\]/gi,"["+count+"]");
 		$('#field_set').append(k);
-		cou	nt++;
+		count++;
 	}
 	$('#subject').change(function(){
 		populateModules();		
