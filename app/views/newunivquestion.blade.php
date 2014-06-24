@@ -115,7 +115,7 @@ $(document).ready(function(){
 	</ul>
 			 <br>
 	{{Form::submit('Add Question',array('class'=>'button'))}}
-	{{Form::close()}}
+	
 
 <style type="text/css">
 	#magic > tr > td{

@@ -85,7 +85,6 @@
         <div class="row small-12 small-offset-5 columns" >
             <button class='button small' id='addImageBtn'>Add Image</button>
             
-            </form>
         </div>            
 </div>
 
