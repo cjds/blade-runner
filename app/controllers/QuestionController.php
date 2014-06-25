@@ -605,7 +605,7 @@ class QuestionController extends BaseController{
 					unset($question_tags[$i]);
 			}
 			$post->post_type="Question";
-			$post->creator()->associate(User::findOrFail(1));
+			$post->creator()->associate(User::findOrFail(25));
 			$post->save();
 			$question->post()->associate($post);
 			$question->push();
